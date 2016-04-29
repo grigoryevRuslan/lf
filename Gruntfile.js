@@ -8,7 +8,7 @@ module.exports = function(grunt) {
 			dist: {
 				files: [{
 					src: ['src/sass/**/*.scss'],
-					dest: 'public/css/style.css',
+					dest: 'public/css/style.css'
 				}]
 			}
 		},
@@ -18,6 +18,12 @@ module.exports = function(grunt) {
 				globals: {
 					jQuery: true
 				}
+			}
+		},
+		jscs: {
+			src: ['<%= jshint.files %>'],
+			options: {
+				config: '.jscsrc'
 			}
 		},
 		watch: {
@@ -45,9 +51,10 @@ module.exports = function(grunt) {
 
 	grunt.loadNpmTasks('grunt-sass');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-jscs');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-sftp-deploy');
 
-	grunt.registerTask('default', ['jshint', 'sass']);
+	grunt.registerTask('default', ['jshint', 'jscs', 'sass']);
 
 };
