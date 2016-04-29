@@ -10,7 +10,7 @@ module.exports = function(grunt) {
 			},
 			dist: {
 				files: [{
-					src: ['src/sass/**/*.scss'],
+					src: ['src/sass/style.scss'],
 					dest: 'public/css/style.css'
 				}]
 			}
@@ -34,15 +34,25 @@ module.exports = function(grunt) {
 				separator: '\n\n'
 			},
 			dist: {
-				src: ['src/**/*.js'],
+				src: ['bower_components/angular/angular.min.js', 'src/**/*.js'],
 				dest: 'assets/js/app.js'
 			}
 		},
 		uglify: {
+			//jscs:disable requireCamelCaseOrUpperCaseIdentifiers
 			my_target: {
+			//jscs:enable requireCamelCaseOrUpperCaseIdentifiers
 				files: {
 					'public/js/app.min.js': ['assets/js/app.js']
 				}
+			}
+		},
+		sprite:{
+			all: {
+				cssFormat: 'scss',
+				src: 'src/img/sprite/*.png',
+				destImg: 'public/img/spritesheet.png',
+				destCSS: 'src/sass/helpers/sprites.scss'
 			}
 		},
 		watch: {
@@ -75,7 +85,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-sftp-deploy');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-spritesmith');
 
-	grunt.registerTask('default', ['clean', 'concat', 'uglify', 'sass']);
+	grunt.registerTask('default', ['jshint', 'jscs', 'clean', 'concat', 'uglify', 'sprite', 'sass']);
 
 };
