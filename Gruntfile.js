@@ -1,6 +1,17 @@
 module.exports = function(grunt) {
 
 	grunt.initConfig({
+		sass: {
+			options: {
+				outputStyle: 'compressed'
+			},
+			dist: {
+				files: [{
+					src: ['src/sass/**/*.scss'],
+					dest: 'public/css/style.css',
+				}]
+			}
+		},
 		jshint: {
 			files: ['Gruntfile.js'],
 			options: {
@@ -32,10 +43,11 @@ module.exports = function(grunt) {
 		}
 	});
 
+	grunt.loadNpmTasks('grunt-sass');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-sftp-deploy');
 
-	grunt.registerTask('default', ['jshint', 'sftp-deploy']);
+	grunt.registerTask('default', ['jshint', 'sass']);
 
 };

@@ -8,3 +8,6 @@ sftpCache.json
 
 node_modules/
 bower_components/
+public/
+
+npm-debug.log
