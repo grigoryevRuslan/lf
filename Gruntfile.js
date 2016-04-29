@@ -78,8 +78,8 @@ module.exports = function(grunt) {
 					authKey: 'dev'
 				},
 				cache: 'sftpCache.json',
-				src: 'bower_components',
-				dest: '/usr/games/test',
+				src: 'public/',
+				dest: '/usr/games/test/www',
 				serverSep: '/',
 				localSep: '/',
 				concurrency: 4,
@@ -100,5 +100,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-copy');
 
 	grunt.registerTask('default', ['jshint', 'jscs', 'clean', 'concat', 'uglify', 'sprite', 'sass', 'copy']);
+	grunt.registerTask('deploy', ['default', 'sftp-deploy']);
 
 };
