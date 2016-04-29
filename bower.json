@@ -1,0 +1,20 @@
+{
+  "name": "Luckfind",
+  "version": "0.0.1",
+  "authors": [
+    "Ruslan Grigoryev <rus.grigoryev@gmail.com>"
+  ],
+  "description": "find everything you want",
+  "license": "MIT",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~1.11",
+    "angular": "~1.5.3"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "Luckfind",
+  "version": "0.0.1",
+  "authors": [
+    "Ruslan Grigoryev <rus.grigoryev@gmail.com>"
+  ],
+  "description": "find everything you want",
+  "license": "MIT",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "tests"
+  ],
+  "scripts": {
+    "bootstrap": "npm install && bower install && grunt",
+    "precommit": "grunt lint"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-copy": "~0.7.0",
+    "grunt-contrib-concat": "~0.5.0",
+    "grunt-contrib-clean": "~0.6.0",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-jscs": "~0.8.1",
+    "grunt-spritesmith": "~2.20.0",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-sass": "~0.16.1",
+    "load-grunt-tasks": "~1.0.0",
+    "grunt-ssh": "~0.12.0",
+    "grunt-shell": "~1.2.1",
+    "grunt-dftp-deploy": "~0.2.4"
+  }
+}
