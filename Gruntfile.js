@@ -10,13 +10,13 @@ module.exports = function(grunt) {
 			},
 			dist: {
 				files: [{
-					src: ['src/sass/style.scss'],
+					src: ['src/client/sass/style.scss'],
 					dest: 'public/css/style.css'
 				}]
 			}
 		},
 		jshint: {
-			files: ['Gruntfile.js', 'src/js/**/*.js'],
+			files: ['Gruntfile.js', 'src/client/js/**/*.js'],
 			options: {
 				globals: {
 					jQuery: true
@@ -34,7 +34,7 @@ module.exports = function(grunt) {
 				separator: '\n\n'
 			},
 			dist: {
-				src: ['bower_components/angular/angular.min.js', 'src/**/*.js'],
+				src: ['bower_components/angular/angular.min.js', 'src/client/**/*.js'],
 				dest: 'assets/js/app.js'
 			}
 		},
@@ -50,9 +50,20 @@ module.exports = function(grunt) {
 		sprite:{
 			all: {
 				cssFormat: 'scss',
-				src: 'src/img/sprite/*.png',
+				src: 'src/client/img/sprite/*.png',
+				imgPath: '../img/spritesheet.png',
 				destImg: 'public/img/spritesheet.png',
-				destCSS: 'src/sass/helpers/sprites.scss'
+				destCSS: 'src/client/sass/helpers/sprites.scss'
+			}
+		},
+		copy: {
+			main: {
+				files: [{
+					expand: true,
+					cwd: 'src/server/',
+					src: ['**'],
+					dest: 'public/'
+				}]
 			}
 		},
 		watch: {
@@ -86,7 +97,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-sftp-deploy');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-spritesmith');
+	grunt.loadNpmTasks('grunt-contrib-copy');
 
-	grunt.registerTask('default', ['jshint', 'jscs', 'clean', 'concat', 'uglify', 'sprite', 'sass']);
+	grunt.registerTask('default', ['jshint', 'jscs', 'clean', 'concat', 'uglify', 'sprite', 'sass', 'copy']);
 
 };

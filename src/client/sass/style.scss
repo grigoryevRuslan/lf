@@ -1,0 +1,11 @@
+@import 'helpers/sprites';
+$temp: #ccc;
+
+body {
+	background: $temp;
+	margin: 0;
+}
+.i-test {
+	display: inline-block;
+	@include sprite($icon-fb);
+}
