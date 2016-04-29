@@ -2,7 +2,7 @@ module.exports = function(grunt) {
 
 	grunt.initConfig({
 		clean: {
-			dist: 'public/**/*'
+			dist: ['public/**/*', 'assets/**/*']
 		},
 		sass: {
 			options: {
@@ -35,7 +35,14 @@ module.exports = function(grunt) {
 			},
 			dist: {
 				src: ['src/**/*.js'],
-				dest: 'public/js/app.js'
+				dest: 'assets/js/app.js'
+			}
+		},
+		uglify: {
+			my_target: {
+				files: {
+					'public/js/app.min.js': ['assets/js/app.js']
+				}
 			}
 		},
 		watch: {
@@ -56,7 +63,6 @@ module.exports = function(grunt) {
 				localSep: '/',
 				concurrency: 4,
 				progress: true
-//				exclusions: ['/path/to/source/folder/**/.DS_Store', '/path/to/source/folder/**/Thumbs.db', 'dist/tmp'],
 			}
 		}
 	});
@@ -68,7 +74,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-sftp-deploy');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
 
-	grunt.registerTask('default', ['jshint', 'jscs', 'clean', 'concat', 'sass']);
+	grunt.registerTask('default', ['clean', 'concat', 'uglify', 'sass']);
 
 };
