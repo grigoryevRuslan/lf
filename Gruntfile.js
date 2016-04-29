@@ -29,6 +29,15 @@ module.exports = function(grunt) {
 				config: '.jscsrc'
 			}
 		},
+		concat: {
+			options: {
+				separator: '\n\n'
+			},
+			dist: {
+				src: ['src/**/*.js'],
+				dest: 'public/js/app.js'
+			}
+		},
 		watch: {
 			files: ['<%= jshint.files %>'],
 			tasks: ['jshint']
@@ -57,8 +66,9 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-jscs');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-sftp-deploy');
 
-	grunt.registerTask('default', ['jshint', 'jscs', 'clean', 'sass']);
+	grunt.registerTask('default', ['jshint', 'jscs', 'clean', 'concat', 'sass']);
 
 };
