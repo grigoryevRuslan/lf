@@ -24,15 +24,13 @@
 		<div class="row">
 			<div class="col-md-4">
 				
-				<?php include_once 'templates/donate.php' ?>
+				<?php include_once 'templates/donate.php'; ?>
 
 			</div>
 
 			<div class="col-md-4 logo">
 				
-				<a href="http://<?php echo $GLOBALS['domain']; ?>">
-					<img src="img/svg/logo.svg" alt="logo" />
-				</a>
+				<?php include_once 'templates/logo.php'; ?>
 
 			</div>
 
