@@ -3,6 +3,12 @@
 	header('Content-Type: text/html; charset=UTF8');
 ?>
 
+<?php 
+	
+	include_once 'globals/common.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,13 +24,13 @@
 		<div class="row">
 			<div class="col-md-4">
 				
-				<?php include_once 'template/donate.php' ?>
+				<?php include_once 'templates/donate.php' ?>
 
 			</div>
 
 			<div class="col-md-4 logo">
 				
-				<a href="www.luckfind.me">
+				<a href="<?php echo $GLOBALS['domain']; ?>">
 					<img src="img/svg/logo.svg" alt="logo" />
 				</a>
 
