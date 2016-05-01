@@ -1,0 +1,30 @@
+.user {
+	text-align: right;
+
+	&__auth {
+		display: inline-block;
+		vertical-align: top;
+
+		LI, A {
+			display: inline-block;
+		}
+
+		LI {
+			margin-left: 10px;
+		}
+	}
+
+	.auth__fb {
+
+		A {
+			@include sprite($icon-fb);
+		}
+	}
+
+	.auth__simple {
+
+		A {
+			@include sprite($icon-simple-reg);
+		}
+	}
+}

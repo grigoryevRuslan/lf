@@ -8,26 +8,26 @@ SCSS variables are information about icon's compiled state, stored under its ori
 The large array-like variables contain all information about a single icon
 $icon-home: x y offset_x offset_y width height total_width total_height image_path;
 */
-$icon-auth-x: 0px;
-$icon-auth-y: 0px;
-$icon-auth-offset-x: 0px;
-$icon-auth-offset-y: 0px;
-$icon-auth-width: 135px;
-$icon-auth-height: 135px;
-$icon-auth-total-width: 148px;
-$icon-auth-total-height: 283px;
-$icon-auth-image: '../img/spritesheet.png';
-$icon-auth: 0px 0px 0px 0px 135px 135px 148px 283px '../img/spritesheet.png';
 $icon-fb-x: 0px;
-$icon-fb-y: 135px;
+$icon-fb-y: 0px;
 $icon-fb-offset-x: 0px;
-$icon-fb-offset-y: -135px;
-$icon-fb-width: 148px;
-$icon-fb-height: 148px;
-$icon-fb-total-width: 148px;
-$icon-fb-total-height: 283px;
+$icon-fb-offset-y: 0px;
+$icon-fb-width: 40px;
+$icon-fb-height: 40px;
+$icon-fb-total-width: 40px;
+$icon-fb-total-height: 80px;
 $icon-fb-image: '../img/spritesheet.png';
-$icon-fb: 0px 135px 0px -135px 148px 148px 148px 283px '../img/spritesheet.png';
+$icon-fb: 0px 0px 0px 0px 40px 40px 40px 80px '../img/spritesheet.png';
+$icon-simple-reg-x: 0px;
+$icon-simple-reg-y: 40px;
+$icon-simple-reg-offset-x: 0px;
+$icon-simple-reg-offset-y: -40px;
+$icon-simple-reg-width: 40px;
+$icon-simple-reg-height: 40px;
+$icon-simple-reg-total-width: 40px;
+$icon-simple-reg-total-height: 80px;
+$icon-simple-reg-image: '../img/spritesheet.png';
+$icon-simple-reg: 0px 40px 0px -40px 40px 40px 40px 80px '../img/spritesheet.png';
 
 /*
 The provided mixins are intended to be used with the array-like variables

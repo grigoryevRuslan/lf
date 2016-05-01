@@ -36,13 +36,31 @@
 
 			</div>
 
-			<div class="col-md-4 auth">
+			<div class="col-md-4 user">
 				
 				<?php 
 					if ( $GLOBALS['isAuthorised'] ) {
 						echo 'authorised';
 					} else {
-						echo 'not authorised';
+				?>
+				
+					<ul class="user__auth">
+						
+						<li class="auth__fb">
+							
+							<a href="config/fb/fbconfig.php"></a>
+
+						</li>
+						
+						<li class="auth__simple">
+							
+							<a href="#" id="open_forms"></a>
+
+						</li>
+						
+					</ul>
+
+				<?php
 					}
 				?>
 
