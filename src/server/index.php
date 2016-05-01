@@ -30,7 +30,7 @@
 
 			<div class="col-md-4 logo">
 				
-				<a href="<?php echo $GLOBALS['domain']; ?>">
+				<a href="http://<?php echo $GLOBALS['domain']; ?>">
 					<img src="img/svg/logo.svg" alt="logo" />
 				</a>
 
@@ -38,7 +38,13 @@
 
 			<div class="col-md-4 auth">
 				
-				
+				<?php 
+					if ( $GLOBALS['isAuthorised'] ) {
+						echo 'authorised';
+					} else {
+						echo 'not authorised';
+					}
+				?>
 
 			</div>
 		</div>
