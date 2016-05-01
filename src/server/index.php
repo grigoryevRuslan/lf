@@ -16,9 +16,25 @@
 
 	<div class="header container">
 		<div class="row">
-			<div class="col-md-4">dsa</div>
-			<div class="col-md-4">dasda</div>
-			<div class="col-md-4">sadasd</div>
+			<div class="col-md-4">
+				
+				<?php include_once 'template/donate.php' ?>
+
+			</div>
+
+			<div class="col-md-4 logo">
+				
+				<a href="www.luckfind.me">
+					<img src="img/svg/logo.svg" alt="logo" />
+				</a>
+
+			</div>
+
+			<div class="col-md-4 auth">
+				
+				
+
+			</div>
 		</div>
 	</div>
 
