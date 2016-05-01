@@ -20,7 +20,7 @@
 </head>
 <body>
 
-	<?php include_once 'templates/header.php'; ?>
+	<?php include_once 'templates/header/header.php'; ?>
 
 	<script type="text/javascript" src="js/app.min.js"></script>
 </body>

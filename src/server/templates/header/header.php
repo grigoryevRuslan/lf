@@ -4,13 +4,13 @@
 
 		<div class="col-md-4">
 			
-			<?php include_once 'templates/donate.php'; ?>
+			<?php include_once 'donate/donate.php'; ?>
 
 		</div>
 
 		<div class="col-md-4 logo">
 			
-			<?php include_once 'templates/logo.php'; ?>
+			<?php include_once 'logo/logo.php'; ?>
 
 		</div>
 
@@ -21,12 +21,12 @@
 				<?php 
 					if ( $GLOBALS['isAuthorised'] ) {
 
-						include_once 'templates/user/info.php';
-						include_once 'templates/user/geolocation.php';
+						include_once 'user/info.php';
+						include_once 'user/geolocation.php';
 
 					} else {
 
-						include_once 'templates/user/auth.php';
+						include_once 'user/auth.php';
 
 					}
 				?>
