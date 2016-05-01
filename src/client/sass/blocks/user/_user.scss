@@ -27,4 +27,22 @@
 			@include sprite($icon-simple-reg);
 		}
 	}
+
+	&__info {
+
+		IMG {
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+		}
+	}
+
+	&__creds {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	&__geolocation {
+		font-style: italic;
+	}
 }

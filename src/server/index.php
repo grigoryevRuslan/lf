@@ -38,32 +38,23 @@
 
 			<div class="col-md-4 user">
 				
-				<?php 
-					if ( $GLOBALS['isAuthorised'] ) {
-						echo 'authorised';
-					} else {
-				?>
+
+				<div class="row">
 				
-					<ul class="user__auth">
-						
-						<li class="auth__fb">
-							
-							<a href="config/fb/fbconfig.php"></a>
+					<?php 
+						if ( $GLOBALS['isAuthorised'] ) {
 
-						</li>
-						
-						<li class="auth__simple">
-							
-							<a href="#" id="open_forms"></a>
+							include_once 'templates/user/info.php';
+							include_once 'templates/user/geolocation.php';
 
-						</li>
-						
-					</ul>
+						} else {
 
-				<?php
-					}
-				?>
+							include_once 'templates/user/auth.php';
 
+						}
+					?>
+	
+				</div>
 			</div>
 		</div>
 	</div>
