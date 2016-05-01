@@ -6,7 +6,7 @@ module.exports = function(grunt) {
 		},
 		sass: {
 			options: {
-				outputStyle: 'compressed'
+				outputStyle: 'nested'
 			},
 			dist: {
 				files: [{

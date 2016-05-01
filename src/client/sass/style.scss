@@ -1,12 +1,4 @@
-@import 'bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss';
+@import 'bower_components/bootstrap-sass/assets/stylesheets/bootstrap';
 @import 'helpers/sprites';
-$temp: #ccc;
 
-body {
-	background: $temp;
-	margin: 0;
-}
-.i-test {
-	display: inline-block;
-	@include sprite($icon-fb);
-}
+$green: #27ae60;
