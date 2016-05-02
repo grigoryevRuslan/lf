@@ -1,0 +1,52 @@
+footer {
+	border-top: 1px solid #bbb;
+	padding: 30px 0 0 0;
+
+	.social, .social__icon, .social__icon A {
+		display: inline-block;
+	}
+
+	.social {
+		vertical-align: bottom;
+
+		&__icon {
+			margin: 0 5px;
+			vertical-align: middle;
+
+			&_tw A {@include sprite($social-tw);}
+			&_fb A {@include sprite($social-fb);}
+			&_vk A {@include sprite($social-vk);}
+			&_ok A {@include sprite($social-ok);}
+			&_gp A {@include sprite($social-gp);}
+		}
+	}
+
+	.info {
+		padding: 20px 0 10px 0;
+		background: $gray;
+
+		&__links {
+			text-align: center;
+
+			LI {
+				display: inline-block;
+				vertical-align: top;
+				margin: 0 10px;
+				
+				A {
+					color: #fff;
+					text-decoration: underline;
+				}
+			}
+		}
+
+		&__copyright {
+			margin: 30px 0 0 0;
+
+			A {
+				color: #fff;
+				text-decoration: underline
+			}
+		}
+	}
+}
