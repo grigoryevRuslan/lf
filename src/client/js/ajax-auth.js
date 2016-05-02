@@ -140,7 +140,7 @@ $(function() {
 					try {
 						data = JSON.parse(response);
 					} catch (e) {
-						window.alert(tr('error:formSubmit'));
+						// window.alert(tr('error:formSubmit'));
 						return;
 					}
 				}
@@ -153,9 +153,9 @@ $(function() {
 
 		validateByAjax: function($form, data) {
 			if (data.status === 'ok') {
-				if (data.message !== undefined && data.message !== null) {
-					window.alert(data.message);
-				}
+				//if (data.message !== undefined && data.message !== null) {
+					// window.alert(data.message);
+				//}
 
 				if (data.redirect === true) {
 					if (data.url !== undefined && data.url !== null) {
@@ -165,7 +165,7 @@ $(function() {
 					}
 				}
 			} else if (data.status === 'err') {
-				var $mainErrorContainer = $form.find('.main-error');
+				var $mainErrorContainer = $form.find('.form__error');
 				if (data.code === 'main') {
 					if ($mainErrorContainer !== null) {
 						$mainErrorContainer.html('<p class="error">' + data.message + '</p>');

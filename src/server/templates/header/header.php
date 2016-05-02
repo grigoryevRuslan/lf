@@ -10,8 +10,8 @@
 
 		<div class="col-md-4 logo">
 			
-			<?php include_once 'logo/logo.php'; ?>
-
+			<?php include_once 'logo/logo.php';?>
+			
 		</div>
 
 		<div class="col-md-4 user">

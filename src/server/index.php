@@ -1,5 +1,5 @@
 <?php
-	session_start();
+	if (!session_start()) die('Sessions does not work');
 	header('Content-Type: text/html; charset=UTF8');
 ?>
 

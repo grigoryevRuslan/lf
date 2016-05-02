@@ -1,6 +1,6 @@
 <form class="form form_signin ajax" method="post" action="ajax/authentication.php" id="formLogin">
 
-	<div class="main-error alert alert-error hide"></div>
+	<div class="form__error alert alert-danger"></div>
 
 	<input name="username" type="text" class="form-control" placeholder="логин" autofocus>
 	
@@ -21,7 +21,7 @@
 
 <form class="form form_signin ajax" method="post" action="ajax/authentication.php" id="formRegister">
 
-	<div class="main-error alert alert-error hide"></div>
+	<div class="form__error alert alert-danger"></div>
 
 	<input name="username" type="text" class="form-control" placeholder="логин" autofocus>
 
