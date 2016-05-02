@@ -1,0 +1,24 @@
+.share {
+	text-align: right;
+
+    I, B {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    I {
+        cursor: pointer;
+    }
+    &__btn_fb {
+       @include sprite ($share-fb);
+    }
+    &__btn_vk {
+       @include sprite ($share-vk);
+    }
+    &__btn_tw {
+       @include sprite ($share-tw);
+    }
+    &__btn_gplus {
+       @include sprite ($share-gplus);
+    }
+}

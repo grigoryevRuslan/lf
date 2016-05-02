@@ -1,24 +1,22 @@
 <?php 
 	if (isset($_POST['id'])) {
+
+		include_once '../globals/db/db.php';
+
 		$id = $_POST['id'];
 
-		$increase_view_query = "UPDATE items SET views = views + 1 WHERE id = '$id'";
-		$get_view_query = "SELECT views FROM items WHERE id = '$id'";
+		$increaseViewQuery = "UPDATE items SET views = views + 1 WHERE id = '$id'";
+		$getViewQuery = "SELECT views FROM items WHERE id = '$id'";
 		
-		try {
-		    $connection = new PDO("mysql:host=localhost;dbname=find", 'root', 'Z9pDFXaGvV');
-		    $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		} catch (\pdoexception $e) {
-		    echo "database error: " . $e->getmessage();
-		    die();
-		}
-		
-		$connection->query('set names utf8');
-		$is_success = $connection->exec($increase_view_query);
+		$q = $pdoConnection->prepare($increaseViewQuery);
+		$q->execute();
 
-		if ($is_success == 1) {
-			$q = $connection->query($get_view_query);
-			$result = $q->fetch();
+		$is_success = $q->execute();
+
+		if ($is_success) {
+			$q_get = $pdoConnection->prepare($getViewQuery);
+			$q_get->execute();
+			$result = $q_get->fetch();
 			echo json_encode($result['views'], JSON_NUMERIC_CHECK);
 		}
 
