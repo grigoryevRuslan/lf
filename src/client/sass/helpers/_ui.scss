@@ -1,0 +1,9 @@
+.btn.btn-warning {
+	background-color: $orange;
+	border-color: $orange;
+
+	&:hover {
+		background-color: #ec971f;
+		border-color: #d58512;
+	}
+}

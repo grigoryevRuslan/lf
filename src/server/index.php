@@ -6,6 +6,7 @@
 <?php 
 	
 	include_once 'globals/common.php';
+	
 	include_once 'functions/functions.php';
 
 	renderHead('Главная');
@@ -14,6 +15,8 @@
 	<main>
 		
 		<?php include_once 'templates/header/header.php'; ?>
+		
+		<?php include_once 'templates/controls/controls.php'; ?>
 
 	</main>
 

@@ -1,0 +1,19 @@
+.controls {
+	padding: 20px 0;
+
+	&__search {
+		position: relative;
+		
+		.search__btn {
+			position: absolute;
+			border: none;
+			z-index: 11;
+			top: 4px;
+			right: 4px;
+			background: #fff;
+			padding: 5px 12px;
+			@include sprite($icon-search);
+		}
+
+	}	
+}

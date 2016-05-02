@@ -7,7 +7,7 @@
 	</ul>
 
 	<p class="info__copyright">
-		Copyright&nbsp;&nbsp;©&nbsp;&nbsp;2015&nbsp;&nbsp;<a href="http://<?php echo $GLOBALS['domain']; ?>">www.luckfind.me</a>
+		Copyright&nbsp;&nbsp;©&nbsp;&nbsp;2016&nbsp;&nbsp;<a href="http://<?php echo $GLOBALS['domain']; ?>">www.luckfind.me</a>
 	</p>
 
 </div>
