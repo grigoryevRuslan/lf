@@ -1,0 +1,19 @@
+.form {
+
+	&_signin {
+		padding: 60px;
+
+		LABEL.checkbox {
+			padding: 0 20px;
+			display: inline-block;
+		}
+
+		INPUT.form-control {
+		    margin-bottom: 20px;
+		}
+	}
+
+	&#formRegister {
+		display: none;
+	}
+}

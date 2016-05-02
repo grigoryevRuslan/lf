@@ -8,7 +8,7 @@
 	
 	<li class="auth__simple">
 		
-		<a href="#" id="open_forms"></a>
+		<a href="#" class="open-popup"></a>
 
 	</li>
 	

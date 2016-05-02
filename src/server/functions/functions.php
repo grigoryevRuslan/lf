@@ -13,4 +13,22 @@
 			<body>';
 	}
 
+	// Render popup
+	// map, auth 
+	function renderPopup($type) {
+		echo '
+			<div class="popup popup_'. $type .'">
+				
+				<div class="popup__container">';
+					
+		include_once 'templates/auth/auth.php';
+
+		echo '<span class="popup__close">&times;</span>
+
+				</div>
+
+			</div>
+		';
+	}
+
 ?>
