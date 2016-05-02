@@ -68,7 +68,6 @@ module.exports = function(grunt) {
 					cwd: 'src/client/img/pics',
 					src: ['**'],
 					dest: 'public/img'
-
 				}]
 			}
 		},

@@ -1,0 +1,12 @@
+php_flag register_globals on
+
+AddDefaultCharset UTF-8
+
+ErrorDocument 404 /404.php
+ErrorDocument 500 /500.php
+
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^luckfind.com.ua$ [OR]
+RewriteCond %{HTTP_HOST} ^luckfind.me$ [OR]
+RewriteCond %{HTTP_HOST} ^www.luckfind.com.ua$ 
+RewriteRule (.*)$ http://www.luckfind.me/$1 [R=301,L]
