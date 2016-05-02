@@ -16,7 +16,7 @@ module.exports = function(grunt) {
 			}
 		},
 		jshint: {
-			files: ['Gruntfile.js', 'src/client/js/**/*.js'],
+			files: ['Gruntfile.js', 'src/client/js/**/*.js', '!src/client/js/libs/markerclusterer.js'],
 			options: {
 				globals: {
 					jQuery: true
@@ -34,7 +34,7 @@ module.exports = function(grunt) {
 				separator: '\n\n'
 			},
 			dist: {
-				src: ['bower_components/jquery/dist/jquery.min.js', 'src/client/**/*.js'],
+				src: ['bower_components/jquery/dist/jquery.min.js'],
 				dest: 'assets/js/app.js'
 			}
 		},
@@ -43,7 +43,7 @@ module.exports = function(grunt) {
 			my_target: {
 			//jscs:enable requireCamelCaseOrUpperCaseIdentifiers
 				files: {
-					'public/js/app.min.js': ['assets/js/app.js']
+					'public/js/global/app.min.js': ['assets/js/app.js']
 				}
 			}
 		},
@@ -68,6 +68,16 @@ module.exports = function(grunt) {
 					cwd: 'src/client/img/pics',
 					src: ['**'],
 					dest: 'public/img'
+				}, {
+					expand: true,
+					cwd: 'src/client/js/modules',
+					src: ['**'],
+					dest: 'public/js/modules'
+				}, {
+					expand: true,
+					cwd: 'src/client/js/libs',
+					src: ['**'],
+					dest: 'public/js/libs'
 				}]
 			}
 		},

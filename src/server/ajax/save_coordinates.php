@@ -1,6 +1,6 @@
 <?php
-	include_once("../config/sphinx/config.php");
-	include_once("../app/functions.php");
+
+	if (!session_start()) die('Sessions does not work');
 
 	if ($_GET['city'] && $_GET['street'] && $_GET['coordinates']) {
 		$_SESSION['city'] = $_GET['city'];
@@ -10,6 +10,7 @@
 	} else {
 		echo json_encode('no save');
 	}
-
 	
-exit();
+	exit();
+
+?>
