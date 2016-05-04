@@ -52,6 +52,7 @@
 		}
  	
  	?>
+ 	
 	<script type="text/javascript" src="js/global/app.min.js"></script>
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js"></script>
 	<script type="text/javascript" src="js/libs/markerclusterer.js"></script>

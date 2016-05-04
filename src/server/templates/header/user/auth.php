@@ -2,7 +2,7 @@
 	
 	<li class="auth__fb">
 		
-		<a href="config/fb/fbconfig.php"></a>
+		<a href="app/facebook.php"></a>
 
 	</li>
 	
