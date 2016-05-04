@@ -2,32 +2,13 @@ $(document).ready(function() {
 	var map,
 		infowindow,
 		mc,
-		elevator,
 		latlng,
 		lat,
 		lng;
 
-	if (navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
-	}
-
-	//Get the latitude and the longitude;
-	function successFunction(position) {
-		var lat = position.coords.latitude,
-			lng = position.coords.longitude;
-		window.latlng = new google.maps.LatLng(lat, lng);
-		initialize();
-	}
-
-	function errorFunction() {
-		console.log('navigator is dead');
-	}
-
 	function initialize() {
-		if (window.latlng) {
-			lat = window.latlng.lat();
-			lng = window.latlng.lng();
-		}
+		lat = 50.4666825;
+		lng = 30.52032;
 
 		var myOptions = {
 			zoom: 10,
@@ -94,5 +75,7 @@ $(document).ready(function() {
 		//jscs:enable validateQuoteMarks
 		//jscs:enable requireCamelCaseOrUpperCaseIdentifiers
 	}
+
+	initialize();
 
 });

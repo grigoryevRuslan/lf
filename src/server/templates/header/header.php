@@ -22,7 +22,6 @@
 					if ( $GLOBALS['isAuthorised'] ) {
 
 						include_once 'user/info.php';
-						include_once 'user/geolocation.php';
 
 					} else {
 

@@ -1,6 +1,7 @@
 <?php
 
 	if (isset($_GET['id'])) {
+		if (!session_start()) die('Sessions does not work');
 
 		include_once 'globals/common.php';
 		include_once 'globals/db/db.php';
@@ -18,6 +19,7 @@
 		}
 	} else {
 		header("Location: index.php");
+		exit();
 	}
 
 	renderHead('Объявление');
