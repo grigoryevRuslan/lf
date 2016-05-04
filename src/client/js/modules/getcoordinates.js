@@ -1,4 +1,6 @@
 $(function() {
+	var map,
+		latLng = new google.maps.LatLng(50.4666825, 30.52032);
 
 	function geocodePosition(pos) {
 		geocoder.geocode({
@@ -30,14 +32,14 @@ $(function() {
 	}
 
 	function initialize() {
+		map = new google.maps.Map(document.getElementById('mapCanvas'), {
+			zoom: 13,
+			center: latLng,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		});
+
 		var infowindow = new google.maps.InfoWindow({
 				content: 'Перетащите маркер на нужную точку'
-			}),
-			latLng = new google.maps.LatLng(50.4666825, 30.52032),
-			map = new google.maps.Map(document.getElementById('mapCanvas'), {
-				zoom: 13,
-				center: latLng,
-				mapTypeId: google.maps.MapTypeId.ROADMAP
 			}),
 			marker = new google.maps.Marker({
 				position: latLng,
@@ -67,6 +69,32 @@ $(function() {
 				geocodePosition(marker.getPosition());
 			});
 		}
+	}
+
+	if ($('.open-popup').length) {
+		$('.open-popup').on('click', function(e) {
+			e.preventDefault();
+			initialize();
+			if ($('.popup').length) {
+				$('.popup').fadeIn(500);
+			}
+		});
+	}
+
+	if ($('.popup__close').length) {
+		$('.popup__close').on('click', function(e) {
+			e.preventDefault();
+
+			$('.popup').fadeOut(500);
+		});
+	}
+
+	if ($('.popup').length) {
+		$('.popup').on('click', function(e) {
+			if ($(e.target).hasClass('popup')) {
+				$('.popup').fadeOut(500);
+			}
+		});
 	}
 
 });

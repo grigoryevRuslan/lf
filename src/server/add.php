@@ -1,10 +1,10 @@
 <?php
+	if (!session_start()) die('Sessions does not work');
+
 	include_once 'globals/common.php';
 	include_once 'functions/functions.php';
 
 	if (!empty($_POST)) {
-
-			if (!session_start()) die('Sessions does not work');
 
 			include_once 'globals/db/db.php';
 			include_once 'app/save_image.php';
@@ -16,21 +16,21 @@
 			}
 			
 			if (isset($_POST['item']) && $_POST['item'] != 'default') {
-				$item = mysqli_real_escape_string($connection, $_POST['item']);
+				$item = $_POST['item'];
 				$user_item = '';
 			} else {
 				if (isset($_POST['user_item'])) {
-					$user_item = mysqli_real_escape_string($connection, $_POST['user_item']);
+					$user_item = $_POST['user_item'];
 					$item = '';
 				}
 			}
 
-			$description = mysqli_real_escape_string($connection, $_POST['description']);
+			$description = $_POST['description'];
 			$reward = $_POST['reward'];
 			$type = $_POST['type'];
-			$phone = mysqli_real_escape_string($connection, $_POST['phone']);
-			$mail = mysqli_real_escape_string($connection, $_POST['mail']);
-			$meta = mysqli_real_escape_string($connection, $_POST['meta']);
+			$phone = $_POST['phone'];
+			$mail = $_POST['mail'];
+			$meta = $_POST['meta'];
 			$fb_id = $_SESSION['user_id'];
 
 			if (isset($_POST['coordinates'])) {
@@ -47,17 +47,11 @@
 				$fileUrl = 'no-image-available.png';
 			}
 
-			mysqli_query($connection,"SET NAMES 'utf8'"); 
-			mysqli_query($connection,"SET CHARACTER SET 'utf8'");
-			mysqli_query($connection,"SET SESSION collation_connection = 'utf8_general_ci'");
-			$query = "INSERT INTO items (item, user_item, description, coordinates, reward, type, phone, mail, meta, image_uri, date_publish, mail_delivery, user_id) VALUES ('$item', '$user_item', '$description', '$coordinates', '$reward', '$type', '$phone', '$mail', '$meta', '$fileUrl', '$mysqltime', '$mail_delivery', '$fb_id')";
+			$query = $pdoConnection->prepare("INSERT INTO items (item, user_item, description, coordinates, reward, type, phone, mail, meta, image_uri, date_publish, mail_delivery, user_id) VALUES ('$item', '$user_item', '$description', '$coordinates', '$reward', '$type', '$phone', '$mail', '$meta', '$fileUrl', '$mysqltime', '$mail_delivery', '$fb_id')");
+			$result = $query->execute();
 
-			if(!$connection->multi_query($query)) {
+			if(!$result) {
 				die('Error inserting new record. ' . $connection->connect_errno . ': ' . $connection->connect_error);
-			} else {
-				#too much long sending :(
-				#sendAdvert($description);
-				header("Location: index.php");
 			}
 	}
 
@@ -84,7 +78,7 @@
 			<div class="row">
 				<div class="col-md-3"></div>
 				<div class="col-md-6">
-					<form action="add.php" method="POST" autocomplete="off" class="form form_add form-horizontal" accept-charset="UTF-8" enctype="multipart/form-data" validate="true">
+					<form action="add.php" method="POST" autocomplete="off" class="form form_add form-horizontal" accept-charset="UTF-8" enctype="multipart/form-data" validate="true" id="form_add">
 
 						<?php 
 							if (isset($_GET['type'])) {
@@ -95,8 +89,10 @@
 						?>
 	
 						<div class="form-group">
-							<label class="col-sm-2 control-label" for="item">Предмет</label>
-							<div class="col-sm-10">
+
+							<label class="col-sm-4 control-label" for="item">Предмет</label>
+
+							<div class="col-sm-8">
 							
 								<select class="form-control" name="item" id="item" >
 									<option value="default" selected>Выберите предмет из списка</option>
@@ -109,54 +105,75 @@
 							</div>
 						</div>
 
-						<label>
-							<span>Или введите своё:</span>
-							<input type="text" name="user_item" placeholder="название предмета" />
-						</label>
+						<div class="form-group">
+							<label class="col-sm-4 control-label" for="user_item">Или введите своё:</label>
+							<div class="col-sm-8">
+								<input type="text" name="user_item" id="user_item" class="form-control" placeholder="название предмета" />
+							</div>
+						</div>
 
-						<label>
-							<span>Дополнительная <br /> информация:</span>
-							<textarea name="description" cols="7" rows="7" placeholder="введите всю информацию" required></textarea>
-						</label>
+						<div class="form-group">
+							<label class="col-sm-4 control-label" for="description">Дополнительная информация:</label>
+							<div class="col-sm-8">
+								<input type="text" name="description" id="description" class="form-control" placeholder="введите всю информацию" required />
+							</div>
+						</div>
 
-						<label>
-							<?php if ($_GET['type'] == 'found') { ?>
-								<span>
-										Вознаграждение
-								</span>
-							<?php } else { ?>
-								<span>
-										Сколько заплатите ?
-								</span>
-							<?php } ?>
-							<input type="text" name="reward" placeholder="введите сумму в грн." value="0" />
-							<strong style="margin-left:10px;">грн.</strong>
-						</label>
+						<div class="form-group reward">
+							<label class="col-sm-4 control-label" for="reward">
+								<?php if ($_GET['type'] == 'found') { ?>
+									<span>
+											Вознаграждение
+									</span>
+								<?php } else { ?>
+									<span>
+											Сколько заплатите ?
+									</span>
+								<?php } ?>
+							</label>
+							<div class="col-sm-8">
+								<input type="text" name="reward" id="reward" class="form-control" placeholder="введите сумму в грн." value="0" />
+								<strong class="reward__prefix">грн.</strong>
+							</div>
+						</div>
 
-						<label>
-							<span>Телефон:</span>
-							<span>
-								<strong style="margin: 0 5px 0 -30px;">+38</strong>
-								<input type="text" name="phone" placeholder="номер телефона" maxlength="10"></span>
-						</label>
+						<div class="form-group">
+							<label class="col-sm-4 control-label" for="phone">Телефон:</label>
+							<div class="col-sm-8">
+								<strong class="phone_prefix">+38</strong>
+								<input type="text" name="phone" id="phone" class="form-control" placeholder="номер телефона" maxlength="10" />
+							</div>
+						</div>
 
-						<label>
-							<span>E-mail:</span>
-							<input type="text" name="mail" placeholder="электронная почта" />
-						</label>
+						<div class="form-group">
+							<label class="col-sm-4 control-label" for="mail">E-mail:</label>
+							<div class="col-sm-8">
+								<input type="text" name="mail" id="mail" class="form-control" placeholder="электронная почта" />
+							</div>
+						</div>
 
-						<label>
-							<span>Ключевые слова:</span>
-							<input type="text" name="meta" placeholder="разделенные запятыми" />
-						</label>
+						<div class="form-group">
+							<label class="col-sm-4 control-label" for="meta">Ключевые слова:</label>
+							<div class="col-sm-8">
+								<input type="text" name="meta" id="meta" class="form-control" placeholder="разделенные запятыми" />
+							</div>
+						</div>
 
-						<label class="gmap-label">
-							<span>Поставьте маркер на<br /> место 
-								<?php if ($_GET['type'] == 'found') { ?> находки <?php } else { ?> пропажи <?php } ?> :</span>
-							<button class="btn btn-mini btn-primary add_coords">Открыть карту</button>
-							<input type="hidden" name="coordinates" value="<?php echo $_SESSION['coordinates']; ?>" id="coordinates" />
-							<p id="gmap-address"></p>
-						</label>
+						<div class="form-group">
+							<div class="col-sm-12">
+								Поставьте маркер на место <?php if ($_GET['type'] == 'found') { ?> находки <?php } else { ?> пропажи <?php } ?> : 
+								
+								<button class="btn btn-mini btn-primary open-popup">Открыть карту</button>
+
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-sm-12">
+								<input type="hidden" name="coordinates" value="<?php echo $_SESSION['coordinates']; ?>" id="coordinates" />
+								<p id="gmap-address"></p>
+							</div>
+						</div>
 
 						<label>
 							<span>Добавьте изображение:</span>
@@ -173,7 +190,7 @@
 							 data-sitekey="6LetcxwTAAAAADqMNJtSZ1H_YEUZrmK-ygQofI4t"
 							 data-theme="light"></div>
 
-						<p class="center">
+						<p class="text-center">
 							<button type="submit" class="btn btn-primary" />Добавить!</button>
 						</p>
 					</form>
@@ -195,20 +212,17 @@
 		?>
 	
 	</footer>
-	<!--rewrite template through search input box-->
-	<div class="popup popup_gmap">
+
+	<div class="popup popup_map">
 		<div class="popup__container">
-			<input id="pac-input" class="controls" type="text" placeholder="Search Box" />
-			<div id="mapCanvas"></div>
+			<div id="mapCanvas" class="gmap"></div>
+			<span class="popup__close"></span>
 		</div>
-		<span class="popup__close">Close[X]</span>
 	</div>
-
-
+	
 	<script type="text/javascript" src="js/global/app.min.js"></script>
 	<script type="text/javascript" src='https://www.google.com/recaptcha/api.js'></script>
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js"></script>
-	<script type="text/javascript" src="js/modules/g_search_box.js"></script>
 	<script type="text/javascript" src="js/modules/upload.js"></script>
 	<script type="text/javascript" src="js/modules/getcoordinates.js"></script>
 </body>

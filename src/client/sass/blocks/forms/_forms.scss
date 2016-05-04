@@ -20,4 +20,39 @@
 	&#formRegister {
 		display: none;
 	}
+
+	&_add {
+
+		LABEL.control-label {
+			text-align: left;
+		}
+	}
+
+	.phone_prefix {
+		position: absolute;
+		z-index: 99;
+		left: -20px;
+		top: 6px;
+	}
+
+	.reward {
+
+		&__prefix {
+			position: absolute;
+			z-index: 12;
+			right: 15px;
+			top: 5px;
+		}
+
+		INPUT {
+			width: 90%;
+		}
+	}
+
+	#addUploadFilePreview{
+		display: none;
+    	box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.15);
+    	border-radius: 13px;
+    	margin-top: 20px;
+    }
 }
