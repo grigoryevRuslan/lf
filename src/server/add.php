@@ -216,7 +216,7 @@
 	<div class="popup popup_map">
 		<div class="popup__container">
 			<div id="mapCanvas" class="gmap"></div>
-			<span class="popup__close"></span>
+			<span class="popup__close">&times;</span>
 		</div>
 	</div>
 	
