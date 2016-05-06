@@ -1,8 +1,8 @@
 <?php
 
-    $client_id = '927398294047553'; // Client ID
-    $client_secret = '2d20681ace9f4b301ec4e329b2b2a1d9'; // Client secret
-    $redirect_uri = 'http://luckfind-dev.me/app/facebook.php'; // Redirect URIs
+    $client_id = '1688370178097956'; // Client ID
+    $client_secret = 'f69e29f8eff6d0d2924f2a7dd734d082'; // Client secret
+    $redirect_uri = 'http://www.luckfind.me/app/facebook.php'; // Redirect URIs
 
     $url = 'https://www.facebook.com/dialog/oauth';
 
@@ -48,9 +48,6 @@
                 $checkUserIDQuery = $pdoConnection->prepare("SELECT users.id FROM users WHERE Fuid = '$_fbid'");
                 $checkUserIDQuery->execute();
                 $resultUserIDQuery = $checkUserIDQuery->fetchAll();
-                
-                var_dump($resultUserIDQuery);
-                die();
 
                 if(!$resultUserIDQuery){
                     $insertUserQuery = $pdoConnection->prepare("INSERT INTO users (Fuid, username, Femail, Fbirthday) VALUES ($_fbid, '$_fbname', '$_fbmail', '$_fbuser_birthday')");

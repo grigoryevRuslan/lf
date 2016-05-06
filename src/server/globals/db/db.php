@@ -1,8 +1,10 @@
 <?php 
 	
+	include_once 'credentials.php';
+
 	try {
 
-	    $pdoConnection = new PDO("mysql:host=127.0.0.1;port=3320;dbname=find", 'root');
+	    $pdoConnection = new PDO($pdoConnectionString, $pdoConnectionUsername, $pdoConnectionPassword);
 	    
 	    $pdoConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	
