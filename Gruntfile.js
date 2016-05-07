@@ -16,7 +16,7 @@ module.exports = function(grunt) {
 			}
 		},
 		jshint: {
-			files: ['Gruntfile.js', 'src/client/js/**/*.js', '!src/client/js/libs/markerclusterer.js'],
+			files: ['Gruntfile.js', 'src/client/js/**/*.js', '!src/client/js/libs/**/*.js'],
 			options: {
 				globals: {
 					jQuery: true
@@ -34,7 +34,9 @@ module.exports = function(grunt) {
 				separator: '\n\n'
 			},
 			dist: {
-				src: ['bower_components/jquery/dist/jquery.min.js'],
+				src: [
+					'bower_components/jquery/dist/jquery.min.js'
+				],
 				dest: 'assets/js/app.js'
 			}
 		},
@@ -94,7 +96,7 @@ module.exports = function(grunt) {
 				},
 				cache: 'sftpCache.json',
 				src: 'public/',
-				dest: '/usr/games/test/www',
+				dest: '/var/www/html',
 				serverSep: '/',
 				localSep: '/',
 				concurrency: 4,

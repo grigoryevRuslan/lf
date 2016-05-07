@@ -64,7 +64,6 @@
 	<?php 
 
 		include_once 'templates/header/header.php';
-		include_once 'templates/controls/controls.php'; 
 
 	?>
 		<?php if ($_GET['type'] == 'found') { ?>

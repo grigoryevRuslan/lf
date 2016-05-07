@@ -15,7 +15,7 @@
 	    die($e->getmessage());
 	
 	}
-	
+
 	$pdoConnection->query('set names utf8');
 
 ?> 

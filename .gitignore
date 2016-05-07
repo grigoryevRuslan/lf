@@ -14,3 +14,4 @@ assets/
 npm-debug.log
 
 src/server/globals/db/credentials.php
+src/server/sdk/sphinx/*
