@@ -94,7 +94,6 @@ module.exports = function(grunt) {
 					port: 22,
 					authKey: 'dev'
 				},
-				cache: 'sftpCache.json',
 				src: 'public/',
 				dest: '/var/www/html',
 				serverSep: '/',

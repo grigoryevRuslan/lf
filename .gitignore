@@ -4,8 +4,6 @@ Thumbs.db
 .htpasswd
 .ftppass
 
-sftpCache.json
-
 node_modules/
 bower_components/
 public/
