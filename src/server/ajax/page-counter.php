@@ -1,6 +1,7 @@
 <?php 
 	if (isset($_POST['id'])) {
 
+		include_once '../globals/common.php';
 		include_once '../globals/db/db.php';
 
 		$id = $_POST['id'];
@@ -9,8 +10,6 @@
 		$getViewQuery = "SELECT views FROM items WHERE id = '$id'";
 		
 		$q = $pdoConnection->prepare($increaseViewQuery);
-		$q->execute();
-
 		$is_success = $q->execute();
 
 		if ($is_success) {
