@@ -49,7 +49,7 @@ $(document).ready(function() {
 			type: 'POST',
 			url: '/ajax/get-coordinates.php',
 			data: {
-				action: 'coordinates'
+				action: 'all'
 			},
 			success: function(data) {
 				if (data) {

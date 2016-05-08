@@ -37,8 +37,8 @@
 		if (isset($result[0])) {
 	?>
 		<div class="container">
-			<div class="row">
-				<div class="col-md-4 center-block advert">
+			<div class="row advert">
+				<div class="<?php if($result[0]['coordinates'] == ''){echo 'col-md-8 center-block';} else {echo 'col-md-6';} ?>">
 					
 					<div class="advert__item">
 						<p style="text-align: center;">Объявление #<b><?php echo $id ?></b></p>
@@ -73,6 +73,14 @@
 					</div>
 
 				</div>
+				
+				<?php if($result[0]['coordinates'] != '') { ?>
+				
+					<div class="col-md-6">
+						<div id="advertMap"></div>
+					</div>
+					
+				<?php } ?>
 			</div>
 		</div>
 	<?php
@@ -109,8 +117,10 @@
 	?>
 		
 	<script type="text/javascript" src="js/global/app.min.js"></script>
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js"></script>
 	<script type="text/javascript" src="js/modules/share.js"></script>
 	<script type="text/javascript" src="js/modules/ajax-counter.js"></script>
+	<script type="text/javascript" src="js/modules/advert-map.js"></script>
 </body>
 </html>
 	

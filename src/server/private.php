@@ -53,16 +53,18 @@
 											<span class="time">Добавлено: <?php echo $r['date_publish'] ?></span>
 										</p>
 									<?php } ?>
-
-									<h3>
-										<?php
-										    if ($r['item'] == '') {
-										        echo $r['user_item'];
-										    } else {
-										        echo $r['item'];
-										    }
-										?>
-									</h3>
+									
+									<a href="advert.php?id=<?php echo $r['id']; ?>">
+										<h3>
+											<?php
+												if ($r['item'] == '') {
+													echo $r['user_item'];
+												} else {
+													echo $r['item'];
+												}
+											?>
+										</h3>
+									</a>
 
 									<p><?php echo $r['description']; ?></p>
 									

@@ -1,6 +1,9 @@
 .advert {
-	float: none;
-	
+
+	.center-block {
+		float: none;
+	}
+
 	&__item {
 
 		IMG {
@@ -80,5 +83,9 @@
 
 	&__image {
 		text-align: center;
+	}
+
+	#advertMap {
+		min-height: 300px;
 	}
 }
