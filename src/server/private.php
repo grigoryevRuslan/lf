@@ -37,54 +37,67 @@
 
 		?>
 
-		<div class="container results private">
+		<div class="container results private advert">
 			<div class="row">
 					<?php 
 						if (!empty($result)) {
 					?>
-						<p>У вас <?php echo sizeof($result); ?> обьявлений</p>
-		
-					<?php
-							foreach ($result as $r) {
-								?>
-									<div class="result">
-										<h3>
-											
-											<?php
-											    if ($r['item'] == '') {
-											        echo $r['user_item'];
-											    } else {
-											        echo $r['item'];
-											    }
-											?>
-											
-											<a class="btn btn-mini btn-danger delete" href="?delete=<?php echo $r['id']; ?>">Удалить</a>
-		
-											<a class="btn btn-mini btn-warning edit" href="?edit=<?php echo $r['id']; ?>">Редактировать</a>
-										</h3>
-										<p><?php echo $r['description']; ?></p>
-										<b>Тэги объявления: </b><span class="result-keywords"><?php echo $r['meta']; ?></span>
-										<?php 
-											if (isset($r['date_publish'])) {
-										?>
+					<p class="text-right"><strong>У вас <?php echo sizeof($result); ?> обьявлений</strong></p>
+
+					<ul class="results">
+						<?php foreach ($result as $r) { ?>
+							<li class="result">
+								<div class="result__content">
+									<?php if (isset($r['date_publish'])) { ?>
+										<p class='text-left'>
 											<span class="time">Добавлено: <?php echo $r['date_publish'] ?></span>
+										</p>
+									<?php } ?>
+
+									<h3>
 										<?php
-											}
+										    if ($r['item'] == '') {
+										        echo $r['user_item'];
+										    } else {
+										        echo $r['item'];
+										    }
 										?>
-									</div>
-								<?php
-							}
-						} else {
-							?>
-								<p class="center">
-									<?php echo $noresult; ?>
-								</p>
-							<?php							
-						}
-					?>
+									</h3>
+
+									<p><?php echo $r['description']; ?></p>
+									
+									<?php if (isset($r['meta']) && $r['meta'] != "") { ?>
+										<p>
+											<b>Тэги объявления: </b>
+											<span class="result-keywords"><?php echo $r['meta']; ?></span>
+										</p>
+									<?php } ?>
+
+									<p>
+										<span class="result__views" title="Просмотры"><?php echo $r['views']; ?></span>
+									</p>
+
+									<p>
+										<a class="btn btn-xs btn-danger delete" href="?delete=<?php echo $r['id']; ?>">Удалить</a>
+										
+										<a class="btn btn-xs btn-warning edit" href="?edit=<?php echo $r['id']; ?>">Редактировать</a>
+									</p>
+								</div>
+								<div class="result__image">
+									<img src="upload/<?php echo $r['image_uri']; ?>">
+								</div>
+							</li>
+						<?php } ?>
+					</ul>
+
+					<?php } else { ?>
+						<p class="center">
+							<?php echo $noresult; ?>
+						</p>
+					<?php } ?>
+
 			</div>
 		</div>
-		
 		
 		<?php if (isset($_GET['edit'])) { 
 			$edit_id = $_GET['edit'];

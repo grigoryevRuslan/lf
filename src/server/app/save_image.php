@@ -1,6 +1,6 @@
 <?php
-    if (isset($_FILES["fileToUpload"])) {
 
+    if (isset($_FILES["fileToUpload"])) {
       $allowedExts = array("gif", "jpeg", "jpg", "png");
       $temp = explode(".", $_FILES["fileToUpload"]["name"]);
       $extension = end($temp);
@@ -10,7 +10,7 @@
       || ($_FILES["fileToUpload"]["type"] == "image/pjpeg")
       || ($_FILES["fileToUpload"]["type"] == "image/x-png")
       || ($_FILES["fileToUpload"]["type"] == "image/png"))
-      && ($_FILES["fileToUpload"]["size"] < 100000)
+      && ($_FILES["fileToUpload"]["size"] < 1000000)
       && in_array($extension, $allowedExts))
         {
         if ($_FILES["fileToUpload"]["error"] > 0)
@@ -33,7 +33,7 @@
               
                 $temp = explode(".", $_FILES["fileToUpload"]["name"]);
                 $newfilename = round(microtime(true)) . '.' . end($temp);
-                move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], __DIR__."/upload/" . $newfilename);
+                move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "upload/" . $newfilename);
             }
           }
         }

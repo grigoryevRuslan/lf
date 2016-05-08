@@ -26,6 +26,11 @@
 		LABEL.control-label {
 			text-align: left;
 		}
+
+		textarea {
+			height: 200px;
+			resize: none;
+		}
 	}
 
 	.phone_prefix {
@@ -54,5 +59,6 @@
     	box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.15);
     	border-radius: 13px;
     	margin-top: 20px;
+    	width: 200px;
     }
 }

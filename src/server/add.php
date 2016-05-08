@@ -114,7 +114,7 @@
 						<div class="form-group">
 							<label class="col-sm-4 control-label" for="description">Дополнительная информация:</label>
 							<div class="col-sm-8">
-								<textarea name="description" id="description" class="form-control" placeholder="введите всю информацию" required></textarea>
+								<textarea name="description" id="description" maxlength="300" class="form-control" placeholder="введите всю информацию" required></textarea>
 							</div>
 						</div>
 
@@ -175,7 +175,7 @@
 						</div>
 
 						<label>
-							<span>Добавьте изображение:</span>
+							<span>Добавьте изображение (размером меньше 1 Мб):</span>
 							<input type='file' id="addUploadFile" name="fileToUpload" />
 							<img id="addUploadFilePreview" src="." alt="advert image" />
 						</label>
