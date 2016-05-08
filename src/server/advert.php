@@ -45,7 +45,9 @@
 						<?php 
 								if (isset($result[0]['image_uri'])) {
 						?>
-								<img src="upload/<?php echo $result[0]['image_uri']; ?>" alt="advert" />
+								<div class="advert__image">
+									<img src="upload/<?php echo $result[0]['image_uri']; ?>" alt="advert" />
+								</div>
 						<?php }
 						?>
 						<h3><?php echo $result[0]['item']; ?></h3>
@@ -62,7 +64,9 @@
 								<span class="advert__reward">Информации о деньгах - нет.</span>
 							<?php }?>
 						</p>
-						<span id="views" class="advert__views" title="Просмотры">0</span>
+						<p>
+							<span id="views" class="advert__views" title="Просмотры"></span>
+						</p>
 						<?php 
 							include_once 'templates/share/share.php';
 						?>

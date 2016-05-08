@@ -46,7 +46,7 @@
 
 					<ul class="results">
 						<?php foreach ($result as $r) { ?>
-							<li class="result">
+							<li class="result <?php if($r['type'] == 'found'){echo 'found';} else {echo 'lost';} ?>">
 								<div class="result__content">
 									<?php if (isset($r['date_publish'])) { ?>
 										<p class='text-left'>
@@ -74,7 +74,7 @@
 									<?php } ?>
 
 									<p>
-										<span class="result__views" title="Просмотры"><?php echo $r['views']; ?></span>
+										<span class="advert__views" title="Просмотры"><?php echo $r['views']; ?></span>
 									</p>
 
 									<p>
@@ -91,7 +91,7 @@
 					</ul>
 
 					<?php } else { ?>
-						<p class="center">
+						<p class="text-center">
 							<?php echo $noresult; ?>
 						</p>
 					<?php } ?>

@@ -4,8 +4,8 @@
 	&__item {
 
 		IMG {
-			width: 100px;
-			height: 100px;
+			max-width: 200px;
+			height: auto;
 		}
 	}
 
@@ -53,20 +53,32 @@
 					}
 				}
 
-				.result__views {
-					padding-left: 20px;
-					position: relative;
+				&.lost {
+					border-right: 4px solid $red;
+				}
 
-					&:before {
-						content: "";
-						position: absolute;
-						z-index: 12;
-						left: 0px;
-						top: 0px;
-						@include sprite($ico-views);
-					}
+				&.found {
+					border-right: 4px solid $green;
 				}
 			}
 		}
+	}
+
+	&__views {
+		padding-left: 20px;
+		position: relative;
+
+		&:before {
+			content: "";
+			position: absolute;
+			z-index: 12;
+			left: 0px;
+			top: 0px;
+			@include sprite($ico-views);
+		}
+	}
+
+	&__image {
+		text-align: center;
 	}
 }
