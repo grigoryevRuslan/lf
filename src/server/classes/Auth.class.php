@@ -40,20 +40,6 @@ class User
         return array('hash' => $hash, 'salt' => $salt);
     }
 
-    public function generateId($min, $max){
-        $difference   = bcadd(bcsub($max,$min),1);
-        $rand_percent = bcdiv(mt_rand(), mt_getrandmax(), 8); // 0 - 1.0
-        $un_id = bcadd($min, bcmul($difference, $rand_percent, 8), 0);
-
-        $stmt = $this->db->prepare("SELECT * FROM users WHERE Fuid = '$un_id'");
-        $stmt->execute();
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if( !$row) {
-            return $un_id;
-        }
-    }
-
     public function getSalt($username) {
         $query = "select salt from users where username = :username limit 1";
         $sth = $this->db->prepare($query);
@@ -117,7 +103,7 @@ class User
 
     public function create($username, $password) {
         $user_exists = $this->getSalt($username);
-        $user_uniqueid = $this->generateId(0, 1000000000000000);
+        $user_uniqueid = uniqid();
 
         if ($user_exists) {
             throw new \Exception("User exists: " . $username, 1);
