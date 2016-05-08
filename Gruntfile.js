@@ -35,7 +35,9 @@ module.exports = function(grunt) {
 			},
 			dist: {
 				src: [
-					'bower_components/jquery/dist/jquery.min.js'
+					'bower_components/jquery/dist/jquery.min.js',
+					'bower_components/angular/angular.min.js',
+					'src/client/js/app/**/*.js'
 				],
 				dest: 'assets/js/app.js'
 			}

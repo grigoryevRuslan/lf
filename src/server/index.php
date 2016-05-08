@@ -21,7 +21,7 @@
 
 		?>
 		
-		<div class="container">
+		<div class="container" ng-controller="gmapController">
 			
 			<div class="row">
 

@@ -2,7 +2,7 @@
 	
 	function renderHead ($title) {
 		echo '<!DOCTYPE html>
-			<html lang="en">
+			<html lang="en" ng-app="luckfind">
 			<head>
 				<meta charset="UTF-8">
 				<title>' . $title . '</title>

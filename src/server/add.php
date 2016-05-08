@@ -72,7 +72,7 @@
 				<h4 class="text-center" style="margin: 40px 0;">Итак, вы что-то потеряли. Чтобы быстрее это найти, пожалуйста заполните форму ниже: </h4>
 		<?php } ?>
 	
-		<div class="container">
+		<div class="container" ng-controller="addAdvertController">
 
 			<div class="row">
 				<div class="col-md-3"></div>
@@ -114,7 +114,7 @@
 						<div class="form-group">
 							<label class="col-sm-4 control-label" for="description">Дополнительная информация:</label>
 							<div class="col-sm-8">
-								<input type="text" name="description" id="description" class="form-control" placeholder="введите всю информацию" required />
+								<textarea name="description" id="description" class="form-control" placeholder="введите всю информацию" required></textarea>
 							</div>
 						</div>
 
