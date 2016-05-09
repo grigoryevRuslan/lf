@@ -93,7 +93,7 @@
                         $reply = $cl->BuildExcerpts($docs, $CONF['sphinx_index'], $q);
                     }
                     
-                    ?> <div class="container results" id="search-results">
+                    ?> <div class="container advert results" id="search-results">
                     <?php print "</ol><pre class=\"results\">$query_info</pre>"; ?>
                    <!--  <div class="row">Всего результатов поиска: <?php echo $actual_size; ?></div> -->
 
@@ -111,71 +111,51 @@
                             </div>
                         </div>
                     <?php } ?>
-                    <!--     Actully display the Results        // -->
-                    <?php 
-                    foreach ($ids as $c => $id) {
-                        $row = $rows[$id];
-                        ?>
-                            <div class="row">
-                                <div class="result <?php echo $row['type']; ?>">
-                                    
-                                    <?php if (isset($row['image_uri'])) {?>
+                        <ul class="results">
+                            <?php foreach ($ids as $c => $id) {
+                                $row = $rows[$id];
+                                ?>
+                                    <li class="result <?php echo $row['type']; ?>">
+                                        <div class="result__content">
 
-                                        <img src="app/upload/<?php echo $row['image_uri']; ?>" alt="advert" />
+                                            <?php  if (isset($row['date_publish'])) {  ?>
+                                                <span class="time">Добавлено: <?php echo $row['date_publish'] ?></span>
+                                            <?php } ?>
 
-                                    <?php }?>
+                                            <a href="advert.php?id=<?php echo $row['id']; ?>">
+                                                <?php
+                                                    if ($row['item'] == '') {
+                                                        echo $row['user_item'];
+                                                    } else {
+                                                        echo $row['item'];
+                                                    }
+                                                ?>
+                                            </a>
 
-                                    <a href="advert.php?id=<?php echo $row['id']; ?>">
-                                        <?php
-                                            if ($row['item'] == '') {
-                                                echo $row['user_item'];
-                                            } else {
-                                                echo $row['item'];
-                                            }
-                                        ?>
-                                    </a>
+                                            <p><?php echo $row['description']; ?></p>
 
-                                    <p><?php echo $row['description']; ?></p>
+                                            <b>Тэги объявления: </b><span class="result-keywords"><?php echo $row['meta']; ?></span>
 
-                                    <b>Тэги объявления: </b><span class="result-keywords"><?php echo $row['meta']; ?></span>
-                                    <?php 
-                                        if (isset($row['date_publish'])) {
-                                    ?>
-                                        <span class="time">Добавлено: <?php echo $row['date_publish'] ?></span>
-                                    <?php
-                                        }
-                                    ?>
-                                    <?php 
-                                        if (isset($row['coordinates']) && $row['coordinates'] != '') {
-                                            ?>
-                                            <p>
-                                                <strong>
-                                                    Приблизтельное место
-                                                    <?php if ($row['type'] == 'found') { ?> 
-                                                        находки
+                                            <?php 
+                                                if ($row['reward'] != 0) {
+                                                    if ($row['type'] == 'found') { ?>
+                                                        <span class="reward">Нашёл и отдам за: <?php echo $row['reward']; ?> грн.</span>
                                                     <?php } else { ?>
-                                                        пропажи
-                                                    <?php } ?>
-                                                </strong>
-                                                <input type="hidden" name="coordinates" class="fromSearchPage coordinates" value="<?php echo $row['coordinates']; ?>" />
-                                                <button class="btn btn-mini btn-primary add_coords">На карте</button>
-                                            </p>
-                                            <?php
-                                        } else { ?>
-                                            <p>Координаты не указаны.</p>
-                                        <?php }
+                                                        <span class="reward">Владелец обьявил награду: <?php echo $row['reward']; ?> грн.</span>
+                                                    <?php }
+                                                 } ?>
+                                        </div>
 
-                                        if ($row['reward'] != 0) {
-                                            if ($row['type'] == 'found') { ?>
-                                                <span class="reward">Нашёл и отдам за: <?php echo $row['reward']; ?> грн.</span>
-                                            <?php } else { ?>
-                                                <span class="reward">Владелец обьявил награду: <?php echo $row['reward']; ?> грн.</span>
-                                            <?php }
-                                         } ?>
-                                </div>
-                            </div>
-                    <?php }
-                        ?>
+                                        <div class="result__image">
+                                            <?php if (isset($row['image_uri'])) {?>
+
+                                                <img src="app/upload/<?php echo $row['image_uri']; ?>" alt="advert" />
+
+                                            <?php }?>
+                                        </div>
+                                    </li>
+                            <?php } ?>
+                        </ul>
                     </div>
                     <?php 
 

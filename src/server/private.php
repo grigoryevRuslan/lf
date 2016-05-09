@@ -37,7 +37,7 @@
 
 		?>
 
-		<div class="container results private advert">
+		<div class="container results advert">
 			<div class="row">
 					<?php 
 						if (!empty($result)) {
@@ -46,7 +46,7 @@
 
 					<ul class="results">
 						<?php foreach ($result as $r) { ?>
-							<li class="result <?php if($r['type'] == 'found'){echo 'found';} else {echo 'lost';} ?>">
+							<li class="result <?php echo $r['type']; ?>">
 								<div class="result__content">
 									<?php if (isset($r['date_publish'])) { ?>
 										<p class='text-left'>

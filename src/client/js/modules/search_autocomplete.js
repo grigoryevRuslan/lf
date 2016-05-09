@@ -30,7 +30,7 @@ $(function() {
 
 			minLength: 3,
 			select: function(event, ui) {
-				$('#search_form').submit();
+				//$('#search_form').submit();
 			}
 		}).keydown(function(e) {
 			if (e.keyCode === 13) {
