@@ -93,24 +93,11 @@
                         $reply = $cl->BuildExcerpts($docs, $CONF['sphinx_index'], $q);
                     }
                     
-                    ?> <div class="container advert results" id="search-results">
-                    <?php print "</ol><pre class=\"results\">$query_info</pre>"; ?>
-                   <!--  <div class="row">Всего результатов поиска: <?php echo $actual_size; ?></div> -->
+                    ?> 
+                    <div class="container advert results" id="search-results">
+                    
+                        <?php print "<pre class=\"results\">$query_info</pre>"; ?>
 
-                    <!--     Pagination                         // -->
-                    <?php if ($actual_size > $preloaded_size) {?>
-                        <div class="row pagination">
-                            <div class="span6 center wrap">
-                            <?php 
-                                if ($from != 0) { ?>
-                                    <a href="?q=<?php echo $q ?>&from=<?php echo ($from - $preloaded_size) ?>&size=<?php echo $preloaded_size; ?>" class="btn btn-mini btn-left"><-- Предыдущие</a>
-                                <?php }
-                                if ($from != $actual_size) { ?>
-                                    <a href="?q=<?php echo $q ?>&from=<?php echo ($from + $preloaded_size) ?>&size=<?php echo $preloaded_size; ?>" class="btn btn-mini btn-right">Следующие</a>
-                                <?php } ?>
-                            </div>
-                        </div>
-                    <?php } ?>
                         <ul class="results">
                             <?php foreach ($ids as $c => $id) {
                                 $row = $rows[$id];
@@ -123,13 +110,15 @@
                                             <?php } ?>
 
                                             <a href="advert.php?id=<?php echo $row['id']; ?>">
-                                                <?php
-                                                    if ($row['item'] == '') {
-                                                        echo $row['user_item'];
-                                                    } else {
-                                                        echo $row['item'];
-                                                    }
-                                                ?>
+                                                <h3>
+                                                    <?php
+                                                        if ($row['item'] == '') {
+                                                            echo $row['user_item'];
+                                                        } else {
+                                                            echo $row['item'];
+                                                        }
+                                                    ?>
+                                                </h3>
                                             </a>
 
                                             <p><?php echo $row['description']; ?></p>
@@ -149,13 +138,14 @@
                                         <div class="result__image">
                                             <?php if (isset($row['image_uri'])) {?>
 
-                                                <img src="app/upload/<?php echo $row['image_uri']; ?>" alt="advert" />
+                                                <img src="upload/<?php echo $row['image_uri']; ?>" alt="advert" />
 
                                             <?php }?>
                                         </div>
                                     </li>
                             <?php } ?>
                         </ul>
+
                     </div>
                     <?php 
 
