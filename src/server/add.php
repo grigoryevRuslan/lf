@@ -93,7 +93,12 @@
 
 							<div class="col-sm-8">
 							
-								<select class="form-control" name="item" id="item" >
+								<select class="form-control"
+										name="item"
+										id="item"
+										ng-model="sSubject"
+										ng-init="sSubject = 'default'"
+										ng-disabled="iSubject != ''">
 									<option value="default" selected>Выберите предмет из списка</option>
 									<option value="Паспорт">Паспорт</option>
 									<option value="Доверенность">Доверенность</option>
@@ -107,14 +112,30 @@
 						<div class="form-group">
 							<label class="col-sm-4 control-label" for="user_item">Или введите своё:</label>
 							<div class="col-sm-8">
-								<input type="text" name="user_item" id="user_item" class="form-control" placeholder="название предмета" />
+								<input 
+									type="text" 
+									name="user_item" 
+									id="user_item" 
+									class="form-control" 
+									placeholder="название предмета"
+									ng-model="iSubject"
+									ng-init="iSubject = ''"
+									ng-disabled="sSubject != 'default'" />
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label class="col-sm-4 control-label" for="description">Дополнительная информация:</label>
 							<div class="col-sm-8">
-								<textarea name="description" id="description" maxlength="300" class="form-control" placeholder="введите всю информацию" required></textarea>
+								<textarea 
+									ng-model="description"
+									ng-init="description = ''"
+									name="description" 
+									id="description" 
+									maxlength="300" 
+									class="form-control" 
+									placeholder="введите всю информацию"
+									required></textarea>
 							</div>
 						</div>
 
@@ -140,14 +161,27 @@
 							<label class="col-sm-4 control-label" for="phone">Телефон:</label>
 							<div class="col-sm-8">
 								<strong class="phone_prefix">+38</strong>
-								<input type="text" name="phone" id="phone" class="form-control" placeholder="номер телефона" maxlength="10" />
+								<input 
+									type="text" 
+									name="phone" 
+									id="phone" 
+									class="form-control" 
+									placeholder="номер телефона" 
+									maxlength="10"
+									ng-model="phone" />
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label class="col-sm-4 control-label" for="mail">E-mail:</label>
 							<div class="col-sm-8">
-								<input type="text" name="mail" id="mail" class="form-control" placeholder="электронная почта" />
+								<input 
+									type="text" 
+									name="mail" 
+									id="mail" 
+									class="form-control" 
+									placeholder="электронная почта"
+									ng-model="mail" />
 							</div>
 						</div>
 
@@ -186,11 +220,17 @@
 						</label>
 
 						<div class="g-recaptcha" 
-							 data-sitekey="6LetcxwTAAAAADqMNJtSZ1H_YEUZrmK-ygQofI4t"
-							 data-theme="light"></div>
+						     vc-recaptcha
+							 key="'6LetcxwTAAAAADqMNJtSZ1H_YEUZrmK-ygQofI4t'"
+							 theme="'light'"
+							 on-success="setResponse(response)"
+							 on-expire="cbExpiration()"></div>
 
 						<p class="text-center">
-							<button type="submit" class="btn btn-primary" />Добавить!</button>
+							<button 
+								type="submit" 
+								class="btn btn-primary"
+								ng-disabled="!submitted || !description || description == '' || (sSubject == 'default' && iSubject == '') || (!phone && !mail)" />Добавить!</button>
 						</p>
 					</form>
 				</div>
@@ -220,7 +260,8 @@
 	</div>
 	
 	<script type="text/javascript" src="js/global/app.min.js"></script>
-	<script type="text/javascript" src='https://www.google.com/recaptcha/api.js'></script>
+	<script src="https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&amp;render=explicit" async defer
+	></script>
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js"></script>
 	<script type="text/javascript" src="js/modules/upload.js"></script>
 	<script type="text/javascript" src="js/modules/getcoordinates.js"></script>

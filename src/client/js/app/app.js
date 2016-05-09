@@ -1,1 +1,1 @@
-var app = angular.module('luckfind', []);
+var app = angular.module('luckfind', ['vcRecaptcha']);

@@ -37,6 +37,7 @@ module.exports = function(grunt) {
 				src: [
 					'bower_components/jquery/dist/jquery.min.js',
 					'bower_components/angular/angular.min.js',
+					'bower_components/angular-recaptcha/release/angular-recaptcha.min.js',
 					'src/client/js/app/**/*.js'
 				],
 				dest: 'assets/js/app.js'
