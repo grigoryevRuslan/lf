@@ -143,8 +143,11 @@ class User
 
     public function connectdb($db_name, $db_user, $db_pass, $db_host = "localhost")
     {
+        include_once '../globals/common.php';
+        include_once '../globals/db/credentials.php';
+
         try {
-            $this->db = new PDO("mysql:host=127.0.0.1;port=3320;dbname=find", 'root');
+            $this->db = new PDO($pdoConnectionString, $pdoConnectionUsername, $pdoConnectionPassword);
             $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (\pdoexception $e) {
             echo "database error: " . $e->getmessage();
