@@ -4,68 +4,19 @@
 	include_once 'globals/common.php';
 	include_once 'functions/functions.php';
 
-	if (!empty($_POST)) {
+	if (isset($_GET['id']) && isset($_SESSION['user_id'])) {
 
 			include_once 'globals/db/db.php';
 			include_once 'app/save_image.php';
-
-			if (isset ($_POST['mail_delivery']) && $_POST['mail_delivery'] == 'on') {
-				$mail_delivery = 1;
-			} else {
-				$mail_delivery = 0;
-			}
 			
-			if (isset($_POST['item']) && $_POST['item'] != 'default') {
-				$item = $_POST['item'];
-				$user_item = '';
-			} else {
-				if (isset($_POST['user_item'])) {
-					$user_item = $_POST['user_item'];
-					$item = '';
-				}
-			}
-
-			$description = $_POST['description'];
-			$reward = $_POST['reward'];
-			$type = $_POST['type'];
-			$phone = $_POST['phone'];
-			$mail = $_POST['mail'];
-			$meta = $_POST['meta'];
-			$fb_id = $_SESSION['user_id'];
-
-			if (isset($_POST['coordinates'])) {
-				$coordinates = $_POST['coordinates'];
-			} else {
-				$coordinates = '';
-			}
-
-			$mysqltime = date ("Y-m-d H:i:s");
-
-			if (isset($newfilename)) {
-				$fileUrl = $newfilename;
-			} else {
-				$fileUrl = 'no-image-available.png';
-			}
-
-			if (isset($_POST['action'])) {
-				if ($_POST['action'] == 'add') {
-					$query = $pdoConnection->prepare("INSERT INTO items (item, user_item, description, coordinates, reward, type, phone, mail, meta, image_uri, date_publish, mail_delivery, user_id) VALUES ('$item', '$user_item', '$description', '$coordinates', '$reward', '$type', '$phone', '$mail', '$meta', '$fileUrl', '$mysqltime', '$mail_delivery', '$fb_id')");
-				} else {
-					if ($_POST['action'] == 'edit' && isset($_POST['edit_id'])) {
-						$edit_id = $_POST['edit_id'];
-						$query = $pdoConnection->prepare("UPDATE items SET item = '$item', user_item = '$user_item', description = '$description', coordinates = '$coordinates', reward = '$reward', type = '$type', phone = '$phone', mail = '$mail', meta = '$meta', image_uri = '$fileUrl', date_publish = '$mysqltime', mail_delivery = '$mail_delivery' WHERE id = '$edit_id'");
-					}
-				}
-			}
-			
-			$result = $query->execute();
-
-			if(!$result) {
-				die('Error record. ' . $connection->connect_errno . ': ' . $connection->connect_error);
-			}
+			$id = $_GET['id'];
+			$userId = $_SESSION['user_id'];
+			$getEditQuery = $pdoConnection->prepare("SELECT * FROM items WHERE id = '$id' AND user_id = '$userId'");
+			$getEditQuery->execute();
+			$resultGetEditQuery = $getEditQuery->fetchAll();
 	}
 
-	renderHead('Добавление');
+	renderHead('Редактирование объявления');
 
 ?>
 
@@ -76,29 +27,22 @@
 		include_once 'templates/header/header.php';
 
 	?>
-		<?php if ($_GET['type'] == 'found') { ?>
-				<h4 class="text-center" style="margin: 40px 0;">Итак, вы что-то нашли. Чтобы быстрее вернуть это владельцу, пожалуйста заполните форму ниже: </h4>
-		<?php } else { ?>
-				<h4 class="text-center" style="margin: 40px 0;">Итак, вы что-то потеряли. Чтобы быстрее это найти, пожалуйста заполните форму ниже: </h4>
-		<?php } ?>
-	
-		<div class="container" ng-controller="addAdvertController">
+		
+		<?php if ($resultGetEditQuery) { ?>
+
+		<div class="container" ng-controller="editAdvertController">
 
 			<div class="row">
 				<div class="col-md-3"></div>
 				<div class="col-md-6">
 					<form action="add.php" method="POST" autocomplete="off" class="form form_add form-horizontal" accept-charset="UTF-8" enctype="multipart/form-data" validate="true" id="form_add">
 
-						<input type="hidden" name="action" value="add" />
+						<input type="hidden" name="action" value="edit" />
 
-						<?php 
-							if (isset($_GET['type'])) {
-						?>
-							<input type="hidden" name="type" value="<?php echo $_GET['type']; ?>" />
-						<?php
-							}
-						?>
-	
+						<input type="hidden" name="edit_id" value="<?php echo $resultGetEditQuery[0]['id']; ?>" />
+
+						<input type="hidden" name="type" value="<?php echo $resultGetEditQuery[0]['type']; ?>" />
+							
 						<div class="form-group">
 
 							<label class="col-sm-4 control-label" for="item">Предмет</label>
@@ -109,7 +53,7 @@
 										name="item"
 										id="item"
 										ng-model="sSubject"
-										ng-init="sSubject = 'default'"
+										ng-init="sSubject = '<?php if ($resultGetEditQuery[0]['item'] != '') {echo $resultGetEditQuery[0]['item'];} else {echo 'default';} ?>'"
 										ng-disabled="iSubject != ''">
 									<option value="default" selected>Выберите предмет из списка</option>
 									<option value="Паспорт">Паспорт</option>
@@ -131,7 +75,7 @@
 									class="form-control" 
 									placeholder="название предмета"
 									ng-model="iSubject"
-									ng-init="iSubject = ''"
+									ng-init="iSubject = '<?php if ($resultGetEditQuery[0]['user_item'] != '') {echo $resultGetEditQuery[0]['user_item'];} else {echo '';} ?>'"
 									ng-disabled="sSubject != 'default'" />
 							</div>
 						</div>
@@ -140,20 +84,20 @@
 							<label class="col-sm-4 control-label" for="description">Дополнительная информация:</label>
 							<div class="col-sm-8">
 								<textarea 
-									ng-model="description"
-									ng-init="description = ''"
 									name="description" 
+									ng-init="description = '<?php echo $resultGetEditQuery[0]['description']; ?>'"
+									ng-bind="description"
 									id="description" 
 									maxlength="300" 
 									class="form-control" 
 									placeholder="введите всю информацию"
-									required></textarea>
+									required><?php echo $resultGetEditQuery[0]['description'] ?></textarea>
 							</div>
 						</div>
 
 						<div class="form-group reward">
 							<label class="col-sm-4 control-label" for="reward">
-								<?php if ($_GET['type'] == 'found') { ?>
+								<?php if ($resultGetEditQuery[0]['type'] == 'found') { ?>
 									<span>
 											Вознаграждение
 									</span>
@@ -164,7 +108,13 @@
 								<?php } ?>
 							</label>
 							<div class="col-sm-8">
-								<input type="text" name="reward" id="reward" class="form-control" placeholder="введите сумму в грн." value="0" />
+								<input 
+									ng-model="reward"
+									ng-init="reward = '<?php echo $resultGetEditQuery[0]['reward'] ?>'"
+									name="reward" 
+									id="reward" 
+									class="form-control" 
+									placeholder="введите сумму в грн." />
 								<strong class="reward__prefix">грн.</strong>
 							</div>
 						</div>
@@ -180,7 +130,8 @@
 									class="form-control" 
 									placeholder="номер телефона" 
 									maxlength="10"
-									ng-model="phone" />
+									ng-model="phone"
+									ng-init="phone = '<?php echo $resultGetEditQuery[0]['phone'] ?>'" />
 							</div>
 						</div>
 
@@ -193,20 +144,28 @@
 									id="mail" 
 									class="form-control" 
 									placeholder="электронная почта"
-									ng-model="mail" />
+									ng-model="mail"
+									ng-init="mail = '<?php echo $resultGetEditQuery[0]['mail'] ?>'" />
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label class="col-sm-4 control-label" for="meta">Ключевые слова:</label>
 							<div class="col-sm-8">
-								<input type="text" name="meta" id="meta" class="form-control" placeholder="разделенные запятыми" />
+								<input 
+									type="text" 
+									name="meta" 
+									id="meta" 
+									class="form-control" 
+									placeholder="разделенные запятыми"
+									ng-model="meta"
+									ng-init="meta = '<?php echo $resultGetEditQuery[0]['meta'] ?>'" />
 							</div>
 						</div>
 
 						<div class="form-group">
 							<div class="col-sm-12">
-								Поставьте маркер на место <?php if ($_GET['type'] == 'found') { ?> находки <?php } else { ?> пропажи <?php } ?> : 
+								Поставьте маркер на место <?php if ($resultGetEditQuery[0]['type'] == 'found') { ?> находки <?php } else { ?> пропажи <?php } ?> : 
 								
 								<button class="btn btn-mini btn-primary open-popup">Открыть карту</button>
 
@@ -242,7 +201,7 @@
 							<button 
 								type="submit" 
 								class="btn btn-primary"
-								ng-disabled="!submitted || !description || description == '' || (sSubject == 'default' && iSubject == '') || (!phone && !mail)" />Добавить!</button>
+								ng-disabled="!submitted || !description || description == '' || (sSubject == 'default' && iSubject == '') || (!phone && !mail)" />Сохранить</button>
 						</p>
 					</form>
 				</div>
@@ -250,6 +209,10 @@
 			</div>
 
 		</div>
+
+		<?php } else { ?> 
+			<h2 class="text-center">Доступ запрещен! </h2>
+		<?php } ?>
 	</main>
 
 	<footer class="text-center">
