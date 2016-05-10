@@ -52,7 +52,14 @@ $(function() {
 			isMapInit = true;
 		}
 
-		infowindow.close();
+		if (marker) {
+			marker.setMap(null);
+			map.setCenter(latLng);
+		}
+
+		if (infowindow) {
+			infowindow.close();
+		}
 
 		infowindow = new google.maps.InfoWindow({
 			content: 'Перетащите маркер на нужную точку'
@@ -66,7 +73,6 @@ $(function() {
 		});
 
 		infowindow.open(map, marker);
-
 		if ($('#coordinates').length) {
 			updateMarkerPosition(latLng);
 			geocodePosition(latLng);

@@ -214,9 +214,13 @@
 						</div>
 
 						<div class="form-group">
-							<div class="col-sm-12">
-								<input type="hidden" name="coordinates" value="<?php echo $_SESSION['coordinates']; ?>" id="coordinates" />
+							<div class="col-sm-8">
+								<input type="hidden" name="coordinates" id="coordinates" />
 								<p id="gmap-address"></p>
+							</div>
+
+							<div class="col-sm-2">
+								<span id="clearAddress">&times;</span>
 							</div>
 						</div>
 
