@@ -1,0 +1,31 @@
+@media all and (max-width: 768px) {
+	.controls .text-right,
+	.controls .text-left {
+		text-align: center;
+	}
+
+	.donate {
+		display: none;
+	}
+
+	.controls {
+
+		A.btn {
+			margin: 10px 0;
+		}
+	}
+
+	.advert .results {
+		width: 100%;
+
+		LI .result__content,
+		LI .result__image {
+			display: block;
+			width: 100%;
+		}
+
+		LI .result__image {
+			text-align: center;
+		}
+	}
+}

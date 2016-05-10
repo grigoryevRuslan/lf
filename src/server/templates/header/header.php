@@ -8,13 +8,13 @@
 
 		</div>
 
-		<div class="col-md-4 logo">
+		<div class="col-xs-6 col-md-4 logo">
 			
 			<?php include_once 'logo/logo.php';?>
 			
 		</div>
 
-		<div class="col-md-4 user">
+		<div class="col-xs-6 col-md-4 user">
 			
 			<div class="row">
 			
