@@ -3,8 +3,12 @@
 	<div class="row">
 		
 		<div class="col-md-4 text-right">
+
+			<?php if ( $GLOBALS['isAuthorised'] ) { ?>
 			
-			<a href="add.php?type=found" class="btn btn-success">Я нашел</a>
+				<a href="add.php?type=found" class="btn btn-success">Я нашел</a>
+
+			<?php } ?>
 
 		</div>
 
@@ -28,8 +32,12 @@
 		</div>
 
 		<div class="col-md-4 text-left">
+
+			<?php if ( $GLOBALS['isAuthorised'] ) { ?>
 			
-			<a href="add.php?type=lost" class="btn btn-warning">Я потерял</a>
+				<a href="add.php?type=lost" class="btn btn-warning">Я потерял</a>
+
+			<?php } ?>
 
 		</div>
 
