@@ -28,4 +28,13 @@
 			text-align: center;
 		}
 	}
+
+	.popup_auth .popup__container {
+	    width: 90%;
+	    margin-left: -45%;
+
+	    FORM {
+	    	padding: 25px 10px 10px 10px;
+	    }
+	}
 }
