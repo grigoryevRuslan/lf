@@ -118,6 +118,7 @@
 		
 	<script type="text/javascript" src="js/global/app.min.js"></script>
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js"></script>
+	<script type="text/javascript" src="js/modules/ajax-auth.js"></script>
 	<script type="text/javascript" src="js/modules/share.js"></script>
 	<script type="text/javascript" src="js/modules/ajax-counter.js"></script>
 	<script type="text/javascript" src="js/modules/advert-map.js"></script>
