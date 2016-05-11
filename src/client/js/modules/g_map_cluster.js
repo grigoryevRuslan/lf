@@ -60,7 +60,15 @@ $(document).ready(function() {
 	}
 
 	function createCluster(markers) {
-		var mcOptions = {gridSize: 50, maxZoom: 15};
+		var mcOptions = {
+			gridSize: 50,
+			maxZoom: 15,
+			styles: [{
+				height: 44,
+				url: 'http://www.luckfind.me/img/map-cluster.png',
+				width: 44
+			}]
+		};
 		mc = new MarkerClusterer(map, markers, mcOptions);
 	}
 
