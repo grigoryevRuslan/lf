@@ -1,1 +1,1 @@
-var app = angular.module('luckfind', ['vcRecaptcha']);
+var app = angular.module('luckfind', ['vcRecaptcha', 'ngTagsInput']);

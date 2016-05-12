@@ -97,6 +97,8 @@
 
 						<input type="hidden" name="action" value="add" />
 
+						<input type="hidden" name="meta" value="{{meta}}" />
+
 						<?php 
 							if (isset($_GET['type'])) {
 						?>
@@ -218,7 +220,11 @@
 						<div class="form-group">
 							<label class="col-sm-4 control-label" for="meta">Ключевые слова:</label>
 							<div class="col-sm-8">
-								<input type="text" name="meta" id="meta" class="form-control" placeholder="разделенные запятыми" />
+								<tags-input 
+									ng-model="tags"
+									max-tags="10"
+									placeholder="После ввода - Enter">
+								</tags-input>
 							</div>
 						</div>
 

@@ -30,7 +30,7 @@
 		
 		<?php if ($resultGetEditQuery) { ?>
 
-		<div class="container" ng-controller="editAdvertController">
+		<div class="container" ng-controller="addAdvertController" ng-init="preloadTags = '<?php echo $resultGetEditQuery[0]['meta']; ?>'">
 
 			<div class="row">
 				<div class="col-md-3"></div>
@@ -43,6 +43,8 @@
 
 						<input type="hidden" name="type" value="<?php echo $resultGetEditQuery[0]['type']; ?>" />
 							
+						<input type="hidden" name="meta" value="{{meta}}" />
+						
 						<div class="form-group">
 
 							<label class="col-sm-4 control-label" for="item">Предмет</label>
@@ -164,14 +166,11 @@
 						<div class="form-group">
 							<label class="col-sm-4 control-label" for="meta">Ключевые слова:</label>
 							<div class="col-sm-8">
-								<input 
-									type="text" 
-									name="meta" 
-									id="meta" 
-									class="form-control" 
-									placeholder="разделенные запятыми"
-									ng-model="meta"
-									ng-init="meta = '<?php echo $resultGetEditQuery[0]['meta'] ?>'" />
+								<tags-input 
+									ng-model="tags"
+									max-tags="10"
+									placeholder="После ввода - Enter">
+								</tags-input>
 							</div>
 						</div>
 

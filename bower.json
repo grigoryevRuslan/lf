@@ -16,7 +16,8 @@
   "dependencies": {
     "jquery": "~1.11",
     "angular": "~1.5.3",
-    "angular-recaptcha": "^3.0.3"
+    "angular-recaptcha": "^3.0.3",
+    "ng-tags-input": "^3.0.0"
   },
   "devDependencies": {
     "bootstrap-sass": "^3.3.6"
