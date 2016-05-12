@@ -39,7 +39,13 @@
 				$coordinates = '';
 			}
 
-			$mysqltime = date ("Y-m-d H:i:s");
+			if (isset($_POST['date'])) {
+				$item_date = date_format(date_create_from_format('d-m-Y', $_POST['date']), 'Y-m-d H:i:s');
+			} else {
+				$item_date = date("Y-m-d H:i:s");
+			}
+
+			$mysqltime = date("Y-m-d H:i:s");
 
 			if (isset($newfilename)) {
 				$fileUrl = $newfilename;
@@ -49,7 +55,7 @@
 
 			if (isset($_POST['action'])) {
 				if ($_POST['action'] == 'add') {
-					$query = $pdoConnection->prepare("INSERT INTO items (item, user_item, description, coordinates, reward, type, phone, mail, meta, image_uri, date_publish, mail_delivery, user_id) VALUES ('$item', '$user_item', '$description', '$coordinates', '$reward', '$type', '$phone', '$mail', '$meta', '$fileUrl', '$mysqltime', '$mail_delivery', '$fb_id')");
+					$query = $pdoConnection->prepare("INSERT INTO items (item, user_item, description, coordinates, reward, type, phone, mail, meta, image_uri, date_publish, item_date, mail_delivery, user_id) VALUES ('$item', '$user_item', '$description', '$coordinates', '$reward', '$type', '$phone', '$mail', '$meta', '$fileUrl', '$mysqltime', '$item_date', '$mail_delivery', '$fb_id')");
 				} else {
 					if ($_POST['action'] == 'edit' && isset($_POST['edit_id'])) {
 						$edit_id = $_POST['edit_id'];
@@ -133,6 +139,18 @@
 									ng-model="iSubject"
 									ng-init="iSubject = ''"
 									ng-disabled="sSubject != 'default'" />
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-4 control-label">Дата <?php if ($_GET['type'] == 'found') { ?> находки <?php } else { ?> пропажи <?php } ?></label>
+							<div class="col-sm-8 datepicker-wrapper">
+								<input 
+									type="text" 
+									id="datepicker" 
+									name="date" 
+									class="form-control"
+									data-default="12-05-2016" />
 							</div>
 						</div>
 
@@ -275,11 +293,14 @@
 		</div>
 	</div>
 	
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 	<script type="text/javascript" src="js/global/app.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 	<script src="https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&amp;render=explicit" async defer
 	></script>
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js"></script>
 	<script type="text/javascript" src="js/modules/upload.js"></script>
 	<script type="text/javascript" src="js/modules/getcoordinates.js"></script>
+	<script type="text/javascript" src="js/modules/datepicker.js"></script>
 </body>
 </html>

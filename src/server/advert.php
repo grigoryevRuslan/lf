@@ -54,8 +54,8 @@
 						<p><?php echo $result[0]['description']; ?></p>
 						<p><b>Тэги объявления: </b><span class="advert__keywords"><?php echo $result[0]['meta']; ?></span></p>
 						<p>
-							<?php if  ($result[0]['reward'] != 0) {
-								if  ($result[0]['type'] == 'found') { ?>
+							<?php if ($result[0]['reward'] != 0) {
+								if ($result[0]['type'] == 'found') { ?>
 									<span class="advert__reward">Нашедший просит <?php echo $result[0]['reward']; ?> грн.</span>
 								<?php } else { ?>
 									<span class="advert__reward">Владелец обьявил награду: <?php echo $result[0]['reward']; ?> грн.</span>
@@ -66,6 +66,7 @@
 						</p>
 						<p>
 							<span id="views" class="advert__views" title="Просмотры"></span>
+							<span class="advert__time" title="Время <?php if ($result[0]['type'] == 'found') {echo 'находки';} else {echo 'пропажи';} ?>"><?php echo $result[0]['item_date'] ?></span>
 						</p>
 						<?php 
 							include_once 'templates/share/share.php';

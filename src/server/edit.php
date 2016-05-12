@@ -81,6 +81,18 @@
 						</div>
 
 						<div class="form-group">
+							<label class="col-sm-4 control-label">Дата <?php if ($resultGetEditQuery[0]['type'] == 'found') { ?> находки <?php } else { ?> пропажи <?php } ?></label>
+							<div class="col-sm-8 datepicker-wrapper">
+								<input 
+									type="text" 
+									id="datepicker" 
+									name="date" 
+									class="form-control"
+									data-default="<?php echo $resultGetEditQuery[0]['item_date']; ?>" />
+							</div>
+						</div>
+
+						<div class="form-group">
 							<label class="col-sm-4 control-label" for="description">Дополнительная информация:</label>
 							<div class="col-sm-8">
 								<textarea 
@@ -237,11 +249,14 @@
 		</div>
 	</div>
 	
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 	<script type="text/javascript" src="js/global/app.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 	<script src="https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&amp;render=explicit" async defer
 	></script>
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js"></script>
 	<script type="text/javascript" src="js/modules/upload.js"></script>
 	<script type="text/javascript" src="js/modules/getcoordinates.js"></script>
+	<script type="text/javascript" src="js/modules/datepicker.js"></script>
 </body>
 </html>

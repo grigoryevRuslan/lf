@@ -64,9 +64,11 @@
 		}
 	}
 
-	&__views {
+	&__views,
+	&__time {
 		padding-left: 20px;
 		position: relative;
+		margin-right: 10px;
 
 		&:before {
 			content: "";
@@ -74,8 +76,15 @@
 			z-index: 12;
 			left: 0px;
 			top: 0px;
-			@include sprite($ico-views);
 		}
+	}
+
+	&__views:before {
+		@include sprite($ico-views);
+	}
+
+	&__time:before {
+		@include sprite($ico-time);
 	}
 
 	&__image {

@@ -73,4 +73,21 @@
     	font-size: 18px;
     	display: none;
     }
+
+	.datepicker-wrapper {
+
+		INPUT#datepicker {
+			display: inline-block;
+			vertical-align: middle;
+			width: 84%;
+			margin-right: 3px;
+		}
+
+		.ui-datepicker-trigger {
+			background: none;
+			outline: none;
+			border: none;
+		}
+	}
+
 }

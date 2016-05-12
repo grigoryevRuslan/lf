@@ -18,7 +18,7 @@
 
 		$userID = $_SESSION['user_id'];
 		$rows = [];
-		$fetch_q = $pdoConnection->prepare("SELECT * FROM items WHERE user_id = '$userID'");
+		$fetch_q = $pdoConnection->prepare("SELECT * FROM items WHERE user_id = '$userID' ORDER BY date_publish DESC");
 		$fetch_q->execute();
 		$result = $fetch_q->fetchAll();
 
@@ -75,6 +75,7 @@
 
 									<p>
 										<span class="advert__views" title="Просмотры"><?php echo $r['views']; ?></span>
+										<span class="advert__time" title="Время <?php if ($r['type'] == 'found') {echo 'находки';} else {echo 'пропажи';} ?>"><?php echo $r['item_date']; ?></span>
 									</p>
 
 									<p>
