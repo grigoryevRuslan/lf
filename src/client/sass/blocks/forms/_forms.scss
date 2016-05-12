@@ -22,6 +22,8 @@
 	}
 
 	&_add {
+		padding-top: 20px;
+		border-top: 4px solid;
 
 		LABEL.control-label {
 			text-align: left;
@@ -35,6 +37,14 @@
 		.g-recaptcha {
 			margin: 20px 0 30px 0;
 		}
+	}
+
+	&_lost {
+		border-color: $red;
+	}
+
+	&_found {
+		border-color: $green;
 	}
 
 	.phone_prefix {

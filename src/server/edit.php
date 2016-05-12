@@ -35,7 +35,7 @@
 			<div class="row">
 				<div class="col-md-3"></div>
 				<div class="col-md-6">
-					<form action="add.php" method="POST" autocomplete="off" class="form form_add form-horizontal" accept-charset="UTF-8" enctype="multipart/form-data" validate="true" id="form_add">
+					<form action="add.php" method="POST" autocomplete="off" class="form form_add form-horizontal form_<?php echo $resultGetEditQuery[0]['type']; ?>" accept-charset="UTF-8" enctype="multipart/form-data" validate="true" id="form_add">
 
 						<input type="hidden" name="action" value="edit" />
 
