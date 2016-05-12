@@ -93,7 +93,16 @@
 			<div class="row">
 				<div class="col-md-3"></div>
 				<div class="col-md-6">
-					<form action="add.php" method="POST" autocomplete="off" class="form form_add form-horizontal form_<?php echo $_GET['type']; ?>" accept-charset="UTF-8" enctype="multipart/form-data" validate="true" id="form_add">
+					<form 
+						action="add.php" 
+						name="form" 
+						method="POST" 
+						autocomplete="off" 
+						class="form form_add form-horizontal form_<?php echo $_GET['type']; ?>" 
+						accept-charset="UTF-8" 
+						enctype="multipart/form-data" 
+						validate="true" 
+						id="form_add">
 
 						<input type="hidden" name="action" value="add" />
 
@@ -207,8 +216,11 @@
 						<div class="form-group">
 							<label class="col-sm-4 control-label" for="mail">E-mail:</label>
 							<div class="col-sm-8">
+								<span 
+									class="form-error"
+									ng-show="!form.mail.$valid">Неверный формат почты</span>
 								<input 
-									type="text" 
+									type="email" 
 									name="mail" 
 									id="mail" 
 									class="form-control" 
@@ -270,7 +282,7 @@
 							<button 
 								type="submit" 
 								class="btn btn-primary"
-								ng-disabled="!submitted || !description || description == '' || (sSubject == 'default' && iSubject == '') || (!phone && !mail)" />Добавить!</button>
+								ng-disabled="!submitted || !description || description == '' || (sSubject == 'default' && iSubject == '') || (!phone && !mail) || !form.$valid" />Добавить!</button>
 						</p>
 					</form>
 				</div>

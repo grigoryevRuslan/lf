@@ -100,4 +100,16 @@
 		}
 	}
 
+	.form-error {
+		position: absolute;
+	    font-size: 12px;
+	    width: 93px;
+	    padding: 5px;
+	    line-height: 11px;
+	    border-radius: 6px;
+	    color: $red;
+	    border: 1px solid #ccc;
+	    left: -90px;
+	}
+
 }
