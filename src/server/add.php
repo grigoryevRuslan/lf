@@ -59,7 +59,7 @@
 				} else {
 					if ($_POST['action'] == 'edit' && isset($_POST['edit_id'])) {
 						$edit_id = $_POST['edit_id'];
-						$query = $pdoConnection->prepare("UPDATE items SET item = '$item', user_item = '$user_item', description = '$description', coordinates = '$coordinates', reward = '$reward', type = '$type', phone = '$phone', mail = '$mail', meta = '$meta', image_uri = '$fileUrl', date_publish = '$mysqltime', mail_delivery = '$mail_delivery' WHERE id = '$edit_id'");
+						$query = $pdoConnection->prepare("UPDATE items SET item = '$item', user_item = '$user_item', description = '$description', coordinates = '$coordinates', reward = '$reward', type = '$type', phone = '$phone', mail = '$mail', meta = '$meta', image_uri = '$fileUrl', date_publish = '$mysqltime', item_date = '$item_date', mail_delivery = '$mail_delivery' WHERE id = '$edit_id'");
 					}
 				}
 			}
