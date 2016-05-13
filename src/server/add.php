@@ -319,6 +319,5 @@
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js"></script>
 	<script type="text/javascript" src="js/modules/upload.js"></script>
 	<script type="text/javascript" src="js/modules/getcoordinates.js"></script>
-	<script type="text/javascript" src="js/modules/datepicker.js"></script>
 </body>
 </html>
