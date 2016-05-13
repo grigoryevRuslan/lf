@@ -71,7 +71,7 @@
 			}
 	}
 
-	renderHead('Добавление');
+	renderHead('Добавление объявления', 'http://'.$_SERVER['HTTP_HOST'].'/img/svg/logo.svg', 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], 'Добавление объявления бюро находок');
 
 ?>
 

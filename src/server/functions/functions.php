@@ -1,13 +1,16 @@
 <?php 
 	
-	function renderHead ($title) {
+	function renderHead ($title, $image, $url, $description) {
 		echo '<!DOCTYPE html>
 			<html lang="en" ng-app="luckfind">
 			<head>
 				<meta charset="UTF-8">
 				<title>' . $title . '</title>
-				<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
-				<link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA////AN0A/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAERERERAAAAAREREREAAAABEREREQAAAAEAAAABAAAAAQEQEQEAAAABESIhEQAAAAEREhERAAAAARAREBEAAAAREBEQERAAAREREREREQARABERERABEBEREREREREQAREQAAAREQAAAAAAAAAAD//wAA//8AAPAHAADwBwAA8AcAAPAHAADwBwAA8AcAAPAHAADwBwAA4AMAAMABAACAAAAAgAAAAMPhAAD//wAA" rel="icon" type="image/x-icon" />
+				<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />'.
+
+				renderMetaFacebook($title, $image, $url, $description).
+				
+				'<link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA////AN0A/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAERERERAAAAAREREREAAAABEREREQAAAAEAAAABAAAAAQEQEQEAAAABESIhEQAAAAEREhERAAAAARAREBEAAAAREBEQERAAAREREREREQARABERERABEBEREREREREQAREQAAAREQAAAAAAAAAAD//wAA//8AAPAHAADwBwAA8AcAAPAHAADwBwAA8AcAAPAHAADwBwAA4AMAAMABAACAAAAAgAAAAMPhAAD//wAA" rel="icon" type="image/x-icon" />
 				<link rel="stylesheet" type="text/css" href="css/style.css">
 			</head>
 			<body>';
@@ -28,6 +31,16 @@
 				</div>
 
 			</div>
+		';
+	}
+
+	function renderMetaFacebook($title, $image, $url, $description) {
+		echo '
+			<meta property="og:title" content="'.$title.'" />
+			<meta property="og:type" content="article" />
+			<meta property="og:image" content="'.$image.'" />
+			<meta property="og:url" content="'.$url.'" />
+			<meta property="og:description" content="'.$description.'" />
 		';
 	}
 

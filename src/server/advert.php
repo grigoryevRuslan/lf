@@ -16,13 +16,15 @@
 
 		if (sizeof($result[0]) == 0) {
 			$noresults = 'ничего не найдено';
+		} else {
+			$imageUrl = $GLOBALS['domain'].'/upload/'.$result[0]['image_uri'];
 		}
 	} else {
 		header("Location: index.php");
 		exit();
 	}
 
-	renderHead('Объявление');
+	renderHead('Объявление', $imageUrl, 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], $result[0]['description']);
 ?>
 
 	<main>

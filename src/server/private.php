@@ -6,7 +6,7 @@
 	include_once 'globals/db/db.php';
 	include_once 'functions/functions.php';
 
-	renderHead('Личный кабинет');
+	renderHead('Личный кабинет', 'http://'.$_SERVER['HTTP_HOST'].'/img/svg/logo.svg', 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], 'Личный кабинет');
 
 	if ( $GLOBALS['isAuthorised'] ) {
 

@@ -6,7 +6,7 @@
     include_once 'functions/functions.php';
     include_once 'sdk/sphinx/config.php';
 
-    renderHead('Результаты поиска');
+    renderHead('Результаты поиска', 'http://'.$_SERVER['HTTP_HOST'].'/img/svg/logo.svg', 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], 'Результаты поиска по запросу '.$_GET['q']);
 ?>
 
     <main>

@@ -16,7 +16,7 @@
 			$resultGetEditQuery = $getEditQuery->fetchAll();
 	}
 
-	renderHead('Редактирование объявления');
+	renderHead('Редактирование объявления', 'http://'.$_SERVER['HTTP_HOST'].'/img/svg/logo.svg', 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], 'Редактирование объявления бюро находок');
 
 ?>
 
