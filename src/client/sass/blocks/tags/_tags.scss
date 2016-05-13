@@ -6,13 +6,11 @@
 	word-wrap: break-word;
 	cursor: text;
 	background-color: #fff;
-	height: 100%;
 
 	.host & {
 		position: relative;
 		margin-top: 5px;
 		margin-bottom: 5px;
-		height: 100%;
 	}
 
 	.tag-list {
