@@ -18,7 +18,7 @@
 
 		$userID = $_SESSION['user_id'];
 		$rows = [];
-		$fetch_q = $pdoConnection->prepare("SELECT * FROM items WHERE user_id = '$userID' ORDER BY date_publish DESC");
+		$fetch_q = $pdoConnection->prepare("SELECT * FROM items WHERE user_id = '$userID' AND is_published = 1 ORDER BY date_publish DESC");
 		$fetch_q->execute();
 		$result = $fetch_q->fetchAll();
 

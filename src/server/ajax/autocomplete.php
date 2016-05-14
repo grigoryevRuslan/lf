@@ -6,7 +6,7 @@
 	$arr = array();
 	$q = trim($_GET['term']);
 
-	$autocompleteQuery = "SELECT item, user_item FROM items WHERE item LIKE '%$q%' OR user_item LIKE '%$q%';";
+	$autocompleteQuery = "SELECT item, user_item FROM items WHERE is_published = 1 AND (item LIKE '%$q%' OR user_item LIKE '%$q%');";
 	$autocompleteResult = $pdoConnection->prepare($autocompleteQuery);
 	$autocompleteResult->execute();
 	$result = $autocompleteResult->fetchAll();
