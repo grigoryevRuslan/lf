@@ -49,8 +49,10 @@
 	
 		if ( !$GLOBALS['isAuthorised'] ) {
 			renderPopup('auth');
+		} else {
+			renderPopup('feedback');
 		}
- 	
+
  	?>
 
 	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">

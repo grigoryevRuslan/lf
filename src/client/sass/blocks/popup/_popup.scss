@@ -9,6 +9,13 @@
 	background: rgba(0, 0, 0, .7);
 	cursor: pointer;
 
+	&_feedback {
+		.popup__container {
+			width: 650px;
+			margin-left: -325px;
+		}
+	}
+
 	&__container {
 		background: #fff;
 		position: fixed;

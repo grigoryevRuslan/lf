@@ -116,10 +116,12 @@
 		
 	<?php 
 	
-		if ( !$GLOBALS['isAuthorised'] ) {
-			renderPopup('auth');
-		}
-	
+	    if ( !$GLOBALS['isAuthorised'] ) {
+	        renderPopup('auth');
+	    } else {
+	        renderPopup('feedback');
+	    }
+
 	?>
 		
 	<script type="text/javascript" src="js/global/app.min.js"></script>

@@ -3,8 +3,26 @@
 	<div class="row">
 
 		<div class="col-md-4">
-			
-			<?php include_once 'donate/donate.php'; ?>
+
+			<div class="row">
+				
+				<div class="col-md-6">
+				
+					<?php include_once 'donate/donate.php'; ?>
+					
+				</div>
+
+				<div class="col-md-6">
+					
+					<?php if ( $GLOBALS['isAuthorised'] ) { ?>
+							
+						<button class="btn btn-success open-popup">Задать вопрос</button>	
+
+					<?php }?>
+
+				</div>
+
+			</div>
 
 		</div>
 

@@ -23,8 +23,12 @@
 			<div class="popup popup_'. $type .'">
 				
 				<div class="popup__container">';
-					
-		include_once 'templates/auth/auth.php';
+		
+		if ( $type != 'feedback' ) {
+			include_once 'templates/auth/auth.php';
+		} else {
+			include_once 'templates/feedback/feedback.php';
+		}			
 
 		echo '<span class="popup__close">&times;</span>
 
