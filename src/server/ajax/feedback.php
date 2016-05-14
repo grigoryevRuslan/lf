@@ -9,7 +9,7 @@
 	if (sizeof($data) != 0) {
 		$name = $data['name'];
 		$mail = $data['mail'];
-		$text = $date['text'];
+		$text = $data['text'];
 
 		$query = $pdoConnection->prepare("INSERT INTO feedback (name, mail, description) VALUES ('$name', '$mail', '$text')");
 
