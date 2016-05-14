@@ -19,13 +19,26 @@
 	<meta charset="UTF-8">
 	<title>Admin part</title>
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/admin.css">
 </head>
 <body>
+
+	<nav class="navbar navbar-default navbar-fixed-top">
+	  <div class="container">
+	    <div class="row">
+	    	<ul class="nav navbar-nav">
+	    		<li><a href="http://www.luckfind.me">Вернуться на сайт</a></li>
+	    		<li class="active"><a href="index.php">Админка</a></li>
+	    		<li><a href="feedback.php">Вопросы из формы</a></li>
+	    	</ul>
+	    </div>
+	  </div>
+	</nav>
 
 	<div class="container">
 		<div class="row">
 			
-			<h1 class="text-center">Модерация объявлений.</h1>
+			<h1 class="text-center">Вопросы из формы-попапа</h1>
 
 			<?php if (!empty($result)) { ?>
 				

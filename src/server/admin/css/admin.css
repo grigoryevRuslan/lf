@@ -1,0 +1,10 @@
+body {
+	padding-top: 70px;
+}
+.feedbacks .row {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #ccc;
+}
+.feedbacks .row P {
+	word-break: break-all;
+}
