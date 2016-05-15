@@ -1,7 +1,8 @@
 .gmap {
 	position: relative;
 
-	#clusterMap {
+	#clusterMap,
+	&#mapCanvas {
 		min-height: 500px;
 	}
 	
