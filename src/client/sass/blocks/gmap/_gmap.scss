@@ -1,3 +1,15 @@
 .gmap {
-	min-height: 500px;
+	position: relative;
+
+	#clusterMap {
+		min-height: 500px;
+	}
+	
+	.form-control {
+		position: absolute;
+		z-index: 30;
+		top: 50px;
+		left: 10px;
+		width: 240px;
+	}
 }

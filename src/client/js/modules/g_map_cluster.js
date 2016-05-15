@@ -19,6 +19,7 @@ $(document).ready(function() {
 		infowindow = new google.maps.InfoWindow();
 		map = new google.maps.Map(document.getElementById('clusterMap'), myOptions);
 		getCoordinates();
+		initSearchBox();
 	}
 
 	function createMarkers(addresses) {
@@ -82,6 +83,32 @@ $(document).ready(function() {
 		return "<div id='infowindow'><a href='/advert.php?id=" + item.id + "' target='_blank'>" + type + "'</a>&nbsp;&nbsp;<i>'" + name + "'</i><br />'" + item.date_publish + "'<br />'" + reward + "'</div>'";
 		//jscs:enable validateQuoteMarks
 		//jscs:enable requireCamelCaseOrUpperCaseIdentifiers
+	}
+
+	function initSearchBox() {
+		var searchBox = new google.maps.places.SearchBox(document.getElementById('searchPlace'));
+		/*map.controls[google.maps.ControlPosition.TOP_CENTER].push(document.getElementById('pac-input'));*/
+		google.maps.event.addListener(searchBox, 'places_changed', function() {
+			searchBox.set('map', null);
+
+			var places = searchBox.getPlaces(),
+				bounds = new google.maps.LatLngBounds(),
+				i,
+				place;
+
+			places.forEach(function(place) {
+				if (place.geometry.viewport) {
+					bounds.union(place.geometry.viewport);
+				} else {
+					bounds.extend(place.geometry.location);
+				}
+			});
+
+			map.fitBounds(bounds);
+			searchBox.set('map', map);
+			map.setZoom(Math.min(map.getZoom(), 12));
+
+		});
 	}
 
 	initialize();
