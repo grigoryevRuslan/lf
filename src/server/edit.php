@@ -64,19 +64,19 @@
 										name="item"
 										id="item"
 										ng-model="sSubject"
-										ng-init="sSubject = '<?php if ($resultGetEditQuery[0]['item'] != '') {echo $resultGetEditQuery[0]['item'];} else {echo 'default';} ?>'"
-										ng-disabled="iSubject != ''">
+										ng-init="sSubject = '<?php if ($resultGetEditQuery[0]['item'] != '') {echo $resultGetEditQuery[0]['item'];} else {echo 'default';} ?>'">
 									<option value="default" selected>Выберите предмет из списка</option>
 									<option value="Паспорт">Паспорт</option>
 									<option value="Доверенность">Доверенность</option>
 									<option value="Лицензия">Лицензия</option>
 									<option value="Водительские">Водительские права</option>
+									<option value="another">Другое</option>
 								</select>
 								
 							</div>
 						</div>
 
-						<div class="form-group">
+						<div class="form-group" ng-show="sSubject == 'another' || sSubject == 'default'">
 							<label class="col-sm-4 control-label" for="user_item">Или введите своё:</label>
 							<div class="col-sm-8">
 								<input 
@@ -86,8 +86,7 @@
 									class="form-control" 
 									placeholder="название предмета"
 									ng-model="iSubject"
-									ng-init="iSubject = '<?php if ($resultGetEditQuery[0]['user_item'] != '') {echo $resultGetEditQuery[0]['user_item'];} else {echo '';} ?>'"
-									ng-disabled="sSubject != 'default'" />
+									ng-init="iSubject = '<?php if ($resultGetEditQuery[0]['user_item'] != '') {echo $resultGetEditQuery[0]['user_item'];} else {echo '';} ?>'" />
 							</div>
 						</div>
 

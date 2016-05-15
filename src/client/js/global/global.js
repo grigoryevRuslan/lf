@@ -1,22 +1,4 @@
 $(function() {
-	if ($('#register-btn').length) {
-		$('#register-btn').on('click', function(e) {
-			e.preventDefault();
-
-			$('#formLogin').hide();
-			$('#formRegister').show();
-		});
-	}
-
-	if ($('#login-btn').length) {
-		$('#login-btn').on('click', function(e) {
-			e.preventDefault();
-
-			$('#formRegister').hide();
-			$('#formLogin').show();
-		});
-	}
-
 	if ($('.open-popup').length) {
 		$('.open-popup').on('click', function(e) {
 			e.preventDefault();

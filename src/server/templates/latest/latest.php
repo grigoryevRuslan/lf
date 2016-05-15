@@ -4,7 +4,7 @@
 			
 			<p>
 				<span style="color: red;">Новое!&nbsp;&nbsp;</span>
-				Опубликовано {{latest[0].date_publish}}&nbsp;&nbsp;
+				<strong>Опубликовано:</strong> {{latest[0].date_publish}}&nbsp;&nbsp;
 				<span ng-show="latest[0].type == 'lost'"><strong>Потеря:</strong>&nbsp;&nbsp;</span>
 				<span ng-show="latest[0].type == 'found'"><strong>Находка:</strong>&nbsp;&nbsp;</span>
 				<a href="/advert.php?id={{latest[0].id}}">{{latest[0].item || latest[0].user_item}}</a>&nbsp;&nbsp;
