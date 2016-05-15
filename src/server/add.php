@@ -15,7 +15,7 @@
 				$mail_delivery = 0;
 			}
 			
-			if (isset($_POST['item']) && $_POST['item'] != 'default') {
+			if (isset($_POST['item']) && $_POST['item'] != 'another') {
 				$item = $_POST['item'];
 				$user_item = '';
 			} else {
@@ -127,18 +127,19 @@
 										id="item"
 										ng-model="sSubject"
 										ng-init="sSubject = 'default'"
-										ng-disabled="iSubject != ''">
+										ng-change="iSubject = ''">
 									<option value="default" selected>Выберите предмет из списка</option>
 									<option value="Паспорт">Паспорт</option>
 									<option value="Доверенность">Доверенность</option>
 									<option value="Лицензия">Лицензия</option>
 									<option value="Водительские">Водительские права</option>
+									<option value="another">Другое</option>
 								</select>
 								
 							</div>
 						</div>
 
-						<div class="form-group">
+						<div class="form-group" ng-show="sSubject == 'another'">
 							<label class="col-sm-4 control-label" for="user_item">Или введите своё:</label>
 							<div class="col-sm-8">
 								<input 
@@ -148,8 +149,7 @@
 									class="form-control" 
 									placeholder="название предмета"
 									ng-model="iSubject"
-									ng-init="iSubject = ''"
-									ng-disabled="sSubject != 'default'" />
+									ng-init="iSubject = ''" />
 							</div>
 						</div>
 

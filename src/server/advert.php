@@ -52,7 +52,13 @@
 								</div>
 						<?php }
 						?>
-						<h3><?php echo $result[0]['item']; ?></h3>
+						<h3>
+							<?php if ($result[0]['item'] != '') {
+								echo $result[0]['item'];
+							} else {
+								echo $result[0]['user_item'];
+							}?>
+						</h3>
 						<p><?php echo $result[0]['description']; ?></p>
 						<p><b>Тэги объявления: </b><span class="advert__keywords"><?php echo $result[0]['meta']; ?></span></p>
 						<p>
