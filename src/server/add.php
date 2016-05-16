@@ -53,13 +53,17 @@
 				$fileUrl = 'no-image-available.png';
 			}
 
+			if (isset($_POST['secret'])) {
+				$secret = $_POST['secret'];
+			}
+
 			if (isset($_POST['action'])) {
 				if ($_POST['action'] == 'add') {
-					$query = $pdoConnection->prepare("INSERT INTO items (item, user_item, description, coordinates, reward, type, phone, mail, meta, image_uri, date_publish, item_date, mail_delivery, user_id) VALUES ('$item', '$user_item', '$description', '$coordinates', '$reward', '$type', '$phone', '$mail', '$meta', '$fileUrl', '$mysqltime', '$item_date', '$mail_delivery', '$fb_id')");
+					$query = $pdoConnection->prepare("INSERT INTO items (item, user_item, description, coordinates, reward, type, phone, mail, meta, image_uri, date_publish, item_date, mail_delivery, user_id, item_secret) VALUES ('$item', '$user_item', '$description', '$coordinates', '$reward', '$type', '$phone', '$mail', '$meta', '$fileUrl', '$mysqltime', '$item_date', '$mail_delivery', '$fb_id', '$secret')");
 				} else {
 					if ($_POST['action'] == 'edit' && isset($_POST['edit_id'])) {
 						$edit_id = $_POST['edit_id'];
-						$query = $pdoConnection->prepare("UPDATE items SET item = '$item', user_item = '$user_item', description = '$description', coordinates = '$coordinates', reward = '$reward', type = '$type', phone = '$phone', mail = '$mail', meta = '$meta', image_uri = '$fileUrl', date_publish = '$mysqltime', item_date = '$item_date', mail_delivery = '$mail_delivery' WHERE id = '$edit_id'");
+						$query = $pdoConnection->prepare("UPDATE items SET item = '$item', user_item = '$user_item', description = '$description', coordinates = '$coordinates', reward = '$reward', type = '$type', phone = '$phone', mail = '$mail', meta = '$meta', image_uri = '$fileUrl', date_publish = '$mysqltime', item_date = '$item_date', mail_delivery = '$mail_delivery', item_secret = '$secret' WHERE id = '$edit_id'");
 					}
 				}
 			}
@@ -126,20 +130,40 @@
 										name="item"
 										id="item"
 										ng-model="sSubject"
-										ng-init="sSubject = 'default'"
-										ng-change="iSubject = ''">
-									<option value="default" selected>Выберите предмет из списка</option>
-									<option value="Паспорт">Паспорт</option>
-									<option value="Доверенность">Доверенность</option>
-									<option value="Лицензия">Лицензия</option>
-									<option value="Водительские">Водительские права</option>
-									<option value="another">Другое</option>
+										ng-init="sSubject = ''"
+										ng-change="iSubject = ''"
+										ng-options="code as code.name for code in codes track by code.name">
+										<option value="">Выберите из списка ниже:</option>
 								</select>
 								
 							</div>
 						</div>
 
-						<div class="form-group" ng-show="sSubject == 'another'">
+						<div class="form-group"
+							 ng-show="sSubject != '' && sSubject != null && sSubject.id != 1000">
+								
+							<label for="secret" class="col-sm-4 control-label">
+								Секретный код
+								<div class="g-info">
+									<div class="g-info__tooltip">{{sSubject.description}}</div>
+								</div>
+							</label>
+							
+							<div class="col-sm-8">
+							
+								<input type="text" 
+									   class="form-control"
+									   name="secret"
+									   id="secret"
+									   ng-model="secret"
+									   maxlength="100" 
+									   placeholder="Пример: {{sSubject.example}}" />
+
+							</div>	
+
+						</div>
+
+						<div class="form-group" ng-show="sSubject.id == 1000">
 							<label class="col-sm-4 control-label" for="user_item">Или введите своё:</label>
 							<div class="col-sm-8">
 								<input 
@@ -282,7 +306,7 @@
 							<button 
 								type="submit" 
 								class="btn btn-primary"
-								ng-disabled="!submitted || !description || description == '' || (sSubject == 'default' && iSubject == '') || (!phone && !mail) || !form.$valid" />Добавить!</button>
+								ng-disabled="!submitted || !description || description == '' || ((sSubject.id == '' || sSubject == '' || sSubject == null || sSubject.id == 1000) && iSubject == '') || (!phone && !mail) || !form.$valid" />Добавить!</button>
 						</p>
 					</form>
 				</div>

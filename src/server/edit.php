@@ -64,19 +64,41 @@
 										name="item"
 										id="item"
 										ng-model="sSubject"
-										ng-init="sSubject = '<?php if ($resultGetEditQuery[0]['item'] != '') {echo $resultGetEditQuery[0]['item'];} else {echo 'default';} ?>'">
-									<option value="default" selected>Выберите предмет из списка</option>
-									<option value="Паспорт">Паспорт</option>
-									<option value="Доверенность">Доверенность</option>
-									<option value="Лицензия">Лицензия</option>
-									<option value="Водительские">Водительские права</option>
-									<option value="another">Другое</option>
+										ng-init="sSubject = {name: '<?php if ($resultGetEditQuery[0]['item'] != '') {echo $resultGetEditQuery[0]['item'];} else {echo 'null';} ?>'}"
+										ng-change="iSubject = ''; secret = ''"
+										ng-options="code as code.name for code in codes track by code.name">
+										<option value="">Выберите из списка ниже:</option>
 								</select>
 								
 							</div>
 						</div>
 
-						<div class="form-group" ng-show="sSubject == 'another' || sSubject == 'default'">
+						<div class="form-group"
+							 ng-show="sSubject != '' && sSubject != null && sSubject.id != 1000"
+							 ng-init="secret = '<?php echo $resultGetEditQuery[0]['item_secret']; ?>'">
+								
+							<label for="secret" class="col-sm-4 control-label">
+								Секретный код
+								<div class="g-info">
+									<div class="g-info__tooltip">{{sSubject.description}}</div>
+								</div>
+							</label>
+							
+							<div class="col-sm-8">
+							
+								<input type="text"
+									   class="form-control"
+									   name="secret"
+									   id="secret"
+									   ng-model="secret"
+									   maxlength="100" 
+									   placeholder="Пример: {{sSubject.example}}" />
+
+							</div>	
+
+						</div>
+
+						<div class="form-group" ng-show="sSubject.id == 1000">
 							<label class="col-sm-4 control-label" for="user_item">Или введите своё:</label>
 							<div class="col-sm-8">
 								<input 
@@ -226,7 +248,7 @@
 							<button 
 								type="submit" 
 								class="btn btn-primary"
-								ng-disabled="!submitted || !description || description == '' || (sSubject == 'default' && iSubject == '') || (!phone && !mail) || !form.$valid" />Сохранить</button>
+								ng-disabled="!submitted || !description || description == '' || ((sSubject.id == '' || sSubject == '' || sSubject == null || sSubject.id == 1000) && iSubject == '') || (!phone && !mail) || !form.$valid" />Сохранить</button>
 						</p>
 					</form>
 				</div>

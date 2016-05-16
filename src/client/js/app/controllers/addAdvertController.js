@@ -1,6 +1,13 @@
-app.controller('addAdvertController', ['$scope', 'vcRecaptchaService', function($scope, recaptcha) {
+app.controller('addAdvertController', ['$scope', 'vcRecaptchaService', 'secretCodesFactory', function($scope, recaptcha, secretCodesFactory) {
 	$scope.submitted = false;
 	$scope.meta = str2arr('');
+
+	secretCodesFactory.getSecretCodes().success(function(data, status) {
+		$scope.codes = data;
+		$scope.codes.push(
+			{id: 1000, name: 'Другое', example: '', description: ''}
+		);
+	});
 
 	$scope.setResponse = function(response) {
 		if (response && response !== '') {

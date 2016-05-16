@@ -7,3 +7,30 @@
 		border-color: #d58512;
 	}
 }
+
+.g-info {
+	@include sprite($icon-info);
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+	vertical-align: middle;
+
+	&__tooltip {
+		position: absolute;
+		display: none;
+		z-index: 10;
+		bottom: 9px;
+		right: 8px;
+		background: #fff;
+		border: 1px solid $gray;
+		border-radius: 4px;
+		min-width: 230px;
+		height: auto;
+		padding: 3px 9px;
+		font-size: 12px;
+	}
+
+	&:hover .g-info__tooltip {
+		display: block;
+	}
+}

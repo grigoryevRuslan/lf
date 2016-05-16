@@ -24,21 +24,25 @@
 <body>
 
 	<nav class="navbar navbar-default navbar-fixed-top">
-	  <div class="container">
-	    <div class="row">
-	    	<ul class="nav navbar-nav">
-	    		<li><a href="http://www.luckfind.me">Вернуться на сайт</a></li>
-	    		<li class="active"><a href="index.php">Админка</a></li>
-	    		<li><a href="feedback.php">Вопросы из формы</a></li>
-	    	</ul>
-	    </div>
-	  </div>
+		<div class="container">
+			<div class="row">
+				<ul class="nav navbar-nav">
+					<li><a href="http://www.luckfind.me">Домой</a></li>
+					<li class="active"><a href="index.php">Админка</a></li>
+					<li><a href="feedback.php">Вопросы </a></li>
+					<li><a href="secret.php">Секреты</a></li>
+				</ul>
+				<!-- <div class="user">
+					<strong>Пользователь</strong> : <?php echo $_SERVER['PHP_AUTH_USER']; ?>
+				</div> -->
+			</div>
+		</div>
 	</nav>
 
 	<div class="container">
 		<div class="row">
 			
-			<h1 class="text-center">Вопросы из формы-попапа</h1>
+			<h1 class="text-center">Все объявления!</h1>
 
 			<?php if (!empty($result)) { ?>
 				
@@ -68,6 +72,12 @@
 												</h3>
 											</a>
 
+											<?php if ($r['item_secret']) { ?>
+
+												<p><strong>Секретный код:</strong><?php echo $r['item_secret']; ?></p>
+
+											<?php } ?>
+
 											<p><?php echo $r['description']; ?></p>
 											
 											<?php if (isset($r['meta']) && $r['meta'] != "") { ?>
@@ -82,9 +92,9 @@
 												<span class="advert__time" title="Время <?php if ($r['type'] == 'found') {echo 'находки';} else {echo 'пропажи';} ?>"><?php echo $r['item_date']; ?></span>
 											</p>
 
-											<p>
+											<!-- <p>
 												<a class="btn btn-xs btn-warning edit" href="edit.php?id=<?php echo $r['id']; ?>">Редактировать</a>
-											</p>
+											</p> -->
 
 											<p>
 												<?php if (!$r['is_published']) { ?>

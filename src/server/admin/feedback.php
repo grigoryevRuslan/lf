@@ -27,9 +27,10 @@
 	  <div class="container">
 	    <div class="row">
 	    	<ul class="nav navbar-nav">
-	    		<li><a href="http://www.luckfind.me">Вернуться на сайт</a></li>
+	    		<li><a href="http://www.luckfind.me">Домой</a></li>
 	    		<li><a href="index.php">Админка</a></li>
-	    		<li class="active"><a href="feedback.php">Вопросы из формы</a></li>
+	    		<li class="active"><a href="feedback.php">Вопросы </a></li>
+	    		<li><a href="secret.php">Секреты</a></li>
 	    	</ul>
 	    </div>
 	  </div>

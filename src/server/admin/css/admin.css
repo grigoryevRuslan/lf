@@ -8,3 +8,14 @@ body {
 .feedbacks .row P {
 	word-break: break-all;
 }
+.form_secret {
+	margin-top: 50px;
+	border-top: 1px solid #bbb;
+	padding-top: 50px;
+}
+.form_secret TEXTAREA {
+	min-height: 100px;
+}
+.secrets .secret {
+	margin: 20px 0;
+}
