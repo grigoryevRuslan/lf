@@ -157,8 +157,10 @@
 									ng-init="reward = '<?php echo $resultGetEditQuery[0]['reward'] ?>'"
 									name="reward" 
 									id="reward" 
-									class="form-control" 
-									placeholder="введите сумму в грн." />
+									class="form-control"
+									maxlength="6" 
+									placeholder="введите сумму в грн."
+									numeric-only />
 								<strong class="reward__prefix">грн.</strong>
 							</div>
 						</div>
@@ -166,7 +168,7 @@
 						<div class="form-group">
 							<label class="col-sm-4 control-label" for="phone">Телефон:</label>
 							<div class="col-sm-8">
-								<strong class="phone_prefix">+38</strong>
+								<strong class="phone_prefix">+3</strong>
 								<input 
 									type="text" 
 									name="phone" 
@@ -174,7 +176,9 @@
 									class="form-control" 
 									placeholder="номер телефона" 
 									maxlength="10"
+									minlength="10"
 									ng-model="phone"
+									numeric-only
 									ng-init="phone = '<?php echo $resultGetEditQuery[0]['phone'] ?>'" />
 							</div>
 						</div>

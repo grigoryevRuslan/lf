@@ -26,12 +26,17 @@
 			}
 
 			$description = $_POST['description'];
-			$reward = $_POST['reward'];
 			$type = $_POST['type'];
 			$phone = $_POST['phone'];
 			$mail = $_POST['mail'];
 			$meta = $_POST['meta'];
 			$fb_id = $_SESSION['user_id'];
+
+			if (isset($_POST['reward'])) {
+				$reward = $_POST['reward'];
+			} else {
+				$reward = 0;
+			}
 
 			if (isset($_POST['coordinates'])) {
 				$coordinates = $_POST['coordinates'];
@@ -249,7 +254,16 @@
 								<?php } ?>
 							</label>
 							<div class="col-sm-8">
-								<input type="text" name="reward" id="reward" class="form-control" placeholder="введите сумму в грн." value="0" />
+								<input 
+									type="text" 
+									name="reward" 
+									id="reward" 
+									class="form-control" 
+									placeholder="введите сумму в грн."
+									ng-model="reward" 
+									maxlength="6" 
+									value="0"
+									numeric-only />
 								<strong class="reward__prefix">грн.</strong>
 							</div>
 						</div>
@@ -257,7 +271,7 @@
 						<div class="form-group">
 							<label class="col-sm-4 control-label" for="phone">Телефон:</label>
 							<div class="col-sm-8">
-								<strong class="phone_prefix">+38</strong>
+								<strong class="phone_prefix">+3</strong>
 								<input 
 									type="text" 
 									name="phone" 
@@ -265,7 +279,9 @@
 									class="form-control" 
 									placeholder="номер телефона" 
 									maxlength="10"
-									ng-model="phone" />
+									minlength="10" 
+									ng-model="phone"
+									numeric-only />
 							</div>
 						</div>
 
