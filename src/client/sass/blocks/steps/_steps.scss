@@ -1,6 +1,4 @@
 .steps {
-	margin-bottom: 20px;
-
 	.step {
 		display: inline-block;
 		vertical-align: middle;
@@ -9,5 +7,9 @@
 		&.step_check {
 			@include sprite($icon-step-check);
 		}
+	}
+
+	&_wrapper {
+		padding-bottom: 20px;
 	}
 }

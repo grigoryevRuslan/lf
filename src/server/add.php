@@ -94,28 +94,28 @@
 	
 		<div class="container" ng-controller="addAdvertController">
 
-			<div class="row">
+			<div class="row steps_wrapper">
 				
 				<div class="col-md-3"></div>
 
 				<div class="col-md-6 steps">
 
-					<div class="col-md-3 text-center">
+					<div class="col-xs-3 text-center">
 						<span class="step" 
 							  ng-class="((iSubject != '' || sSubject != '') && sSubject != null && (sSubject.id != 1000 || iSubject != '')) ? 'step_check' : ''"></span>
 					</div>
 
-					<div class="col-md-3 text-center">
+					<div class="col-xs-3 text-center">
 						<div class="step"
-							 ng-class="(description != '') ? 'step_check' : ''"></div>
+							 ng-class="(description && description != '') ? 'step_check' : ''"></div>
 					</div>
 
-					<div class="col-md-3 text-center">
+					<div class="col-xs-3 text-center">
 						<div class="step"
 							 ng-class="(phone || mail) ? 'step_check' : ''"></div>
 					</div>
 
-					<div class="col-md-3 text-center">
+					<div class="col-xs-3 text-center">
 						<div class="step"
 							 ng-class="submitted ? 'step_check' : ''"></div>
 					</div>
