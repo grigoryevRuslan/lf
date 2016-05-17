@@ -1,5 +1,5 @@
 <?php 
-	
+
 	function renderHead ($title, $image, $url, $description) {
 		echo '<!DOCTYPE html>
 			<html lang="en" ng-app="luckfind">
@@ -11,7 +11,7 @@
 				renderMetaFacebook($title, $image, $url, $description).
 				
 				'<link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA////AN0A/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAERERERAAAAAREREREAAAABEREREQAAAAEAAAABAAAAAQEQEQEAAAABESIhEQAAAAEREhERAAAAARAREBEAAAAREBEQERAAAREREREREQARABERERABEBEREREREREQAREQAAAREQAAAAAAAAAAD//wAA//8AAPAHAADwBwAA8AcAAPAHAADwBwAA8AcAAPAHAADwBwAA4AMAAMABAACAAAAAgAAAAMPhAAD//wAA" rel="icon" type="image/x-icon" />
-				<link rel="stylesheet" type="text/css" href="css/style.css">
+				<link rel="stylesheet" type="text/css" href="http://'.$GLOBALS['domain'].'/css/style.css">
 			</head>
 			<body>';
 	}

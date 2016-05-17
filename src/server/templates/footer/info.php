@@ -1,9 +1,9 @@
 <div class="info">
 		
 	<ul class="info__links">
-		<li><a href="#">О проекте</a></li>
-		<li><a href="#">Как с нами связаться</a></li>
-		<li><a href="#">Политика конфеденциальности</a></li>
+		<li><a href="content/about.php">О проекте</a></li>
+		<li><a href="content/faq.php">Часто задаваемые вопросы</a></li>
+		<li><a href="content/privacy.php">Политика конфеденциальности</a></li>
 	</ul>
 
 	<p class="info__copyright">

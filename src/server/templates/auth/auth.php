@@ -45,7 +45,21 @@
 
 		<input type="hidden" name="act" value="register">
 
-		<button class="btn btn-primary" type="submit">Регистрация</button>
+		<label for="privacy">
+			<input 
+				type="checkbox"
+				id="privacy"
+				ng-model="privacy"
+				checked />
+			Вы принимаете <a href="content/privacy.php">политику конфеденциальности</a>
+		</label>
+ 		
+ 		<br /><br />
+		
+		<button 
+			class="btn btn-primary" 
+			type="submit"
+			ng-disabled="!privacy">Регистрация</button>
 
 
 		<div class="alert alert-info" style="margin-top:15px;">

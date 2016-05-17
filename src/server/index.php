@@ -17,9 +17,9 @@
 		<?php 
 
 			include_once 'templates/header/header.php';
-			include_once 'templates/controls/controls.php'; 
-			include_once 'templates/counter/counter.php'; 
-			include_once 'templates/latest/latest.php'; 
+			include_once 'templates/controls/controls.php';
+			include_once 'templates/counter/counter.php';
+			include_once 'templates/latest/latest.php';
 
 		?>
 		
