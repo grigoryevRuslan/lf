@@ -1,0 +1,13 @@
+.steps {
+	margin-bottom: 20px;
+
+	.step {
+		display: inline-block;
+		vertical-align: middle;
+		@include sprite($icon-step-disable);
+
+		&.step_check {
+			@include sprite($icon-step-check);
+		}
+	}
+}
