@@ -14,5 +14,14 @@
 			padding: 5px 12px;
 			@include sprite($icon-search);
 		}
+
+		.search__preloader {
+			display: none;
+			position: absolute;
+			z-index: 10;
+			top: 2px;
+			width: 30px;
+			right: 40px;;
+		}
 	}
 }

@@ -26,6 +26,8 @@
 						required />
 			
 				<button class="btn search__btn" id="searchButton" type="submit"></button>
+
+				<img src="img/gif/preloader.gif" class="search__preloader" alt="search__preloader" />
 			
 			</form>
 

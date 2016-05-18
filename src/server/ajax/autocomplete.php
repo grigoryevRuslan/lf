@@ -27,7 +27,7 @@
 		$arr = array_unique($result, SORT_REGULAR);
 		echo json_encode($arr);
 	} else {
-		echo "Search does not work";
+		echo "error";
 	}
 
 	

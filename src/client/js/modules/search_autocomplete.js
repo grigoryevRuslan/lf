@@ -12,6 +12,7 @@ $(function() {
 					},
 
 					success: function(data) {
+						$('#search_form').find('.search__preloader').hide();
 						response(
 
 							//jscs:disable requireCamelCaseOrUpperCaseIdentifiers
@@ -24,11 +25,20 @@ $(function() {
 
 							//jscs:enable requireCamelCaseOrUpperCaseIdentifiers
 						));
+					},
+
+					error: function(data, status) {
+						$('#search_form').find('.search__preloader').hide();
 					}
 				});
 			},
 
+			search: function() {
+				$('#search_form').find('.search__preloader').show();
+			},
+
 			minLength: 3,
+
 			select: function(event, ui) {
 				//$('#search_form').submit();
 			}
