@@ -14,4 +14,36 @@
 		left: 10px;
 		width: 240px;
 	}
+
+	.switch-markers {
+		position: absolute;
+		z-index: 20;
+		right: 4px;
+		top: 4px;
+		background: rgba(255,255,255,1);
+		padding: 10px;
+		border-radius: 7px;
+
+		.icon {
+			display: inline-block;
+			vertical-align: middle;
+			width: 25px;
+			height: 25px;
+			margin: 0 4px;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+
+		&__show-lost {
+			background: $orange;
+		}
+
+		&__show-found {
+			background: $green;
+		}
+
+		&__show-all {
+			background: $gray;
+		}
+	}
 }

@@ -47,7 +47,8 @@ $(function() {
 					position: advert.setCoordinates(latLng),
 					title: 'Место',
 					map: map,
-					icon: 'img/advert-marker.png'
+					icon: 'img/advert-marker.png',
+					animation: google.maps.Animation.DROP
 				});
 			},
 

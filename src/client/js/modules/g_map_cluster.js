@@ -4,7 +4,8 @@ $(document).ready(function() {
 		mc,
 		latlng,
 		lat,
-		lng;
+		lng,
+		markers = [];
 
 	function initialize() {
 		lat = 50.4666825;
@@ -23,14 +24,15 @@ $(document).ready(function() {
 	}
 
 	function createMarkers(addresses) {
-		var markers = [];
 		addresses.forEach(function(item, i, array) {
 			var tempstr = item.coordinates.split(','),
 				markerInfo = createMarkerInfoTemplate(item),
 				latlng = new google.maps.LatLng(tempstr[0], tempstr[1]),
 				marker = new google.maps.Marker({
 					position: latlng,
-					map: map
+					map: map,
+					animation: google.maps.Animation.DROP,
+					type: item.type
 				});
 
 			google.maps.event.addListener(marker, 'click', function() {
@@ -112,5 +114,29 @@ $(document).ready(function() {
 	}
 
 	initialize();
+
+	if ($('.switch-markers').length) {
+		$('.switch-markers .icon').on('click', function() {
+			mc.clearMarkers();
+			var type = $(this).data('show'),
+				newMarkers = [];
+			for (var i = 0; i < markers.length; i++) {
+				if (type !== 'all') {
+					markers[i].setVisible(false);
+					if (markers[i].type === type) {
+						markers[i].setVisible(true);
+						newMarkers.push(markers[i]);
+					} else {
+						markers[i].setVisible(false);
+					}
+				} else {
+					markers[i].setVisible(true);
+					newMarkers.push(markers[i]);
+				}
+			}
+
+			createCluster(newMarkers);
+		});
+	}
 
 });
