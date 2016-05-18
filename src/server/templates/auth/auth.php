@@ -45,13 +45,15 @@
 
 		<input type="hidden" name="act" value="register">
 
-		<label for="privacy">
+		<label for="privacy" style="font-size: 12px;">
 			<input 
 				type="checkbox"
+				style="vertical-align: middle;"
 				id="privacy"
 				ng-model="privacy"
-				checked />
-			Вы принимаете <a href="content/privacy.php">политику конфеденциальности</a>
+				ng-init="privacy = true"
+				checked="true" />
+			Регистрируясь, вы автоматически соглашаетесь с условиями <a href="content/privacy.php">политики конфеденциальности</a> данного ресурса.
 		</label>
  		
  		<br /><br />
