@@ -16,13 +16,21 @@
 			$delete_q->execute();
 		}
 
+		if (isset($_GET['from'])) {
+			$from = $_GET['from'];
+		} else {
+			$from = 0;
+		}
+
 		$userID = $_SESSION['user_id'];
-		$rows = [];
-		$fetch_q = $pdoConnection->prepare("SELECT * FROM items WHERE user_id = '$userID' AND is_published = 1 ORDER BY date_publish DESC");
+
+		$amount = intval( $pdoConnection->query("SELECT COUNT(*) as count FROM items WHERE user_id = '$userID' AND is_published = 1")->fetchColumn() );
+
+		$fetch_q = $pdoConnection->prepare("SELECT * FROM items WHERE user_id = '$userID' AND is_published = 1 ORDER BY date_publish DESC LIMIT $from, 5");
 		$fetch_q->execute();
 		$result = $fetch_q->fetchAll();
 
-		if (sizeof($result) == 0) {
+		if ($amount == 0) {
 			$noresult = 'У вас ещё нет обьявлений';
 		}
 	}
@@ -36,11 +44,41 @@
 		?>
 
 		<div class="container results advert">
+	
+			<?php if ($amount > 5) { ?>
+				
+				<div class="row text-center">
+					<ul class="pagination">
+						
+						<?php for ($i = 0; $i <= $amount; $i+=5) { 
+							if ($i == $from) { ?>
+								
+								<li class="active">
+									<span><?php echo $i; ?>-<?php echo ($i + 5); ?></span>
+								</li>
+								
+							<?php } else { ?>
+							
+								<li>
+									<a href="/private.php?from=<?php echo $i; ?>">
+										<?php echo $i; ?>-<?php echo ($i + 5); ?>
+									</a>
+								</li>
+
+							<?php }
+
+						} ?>		
+
+					</ul>
+				</div>
+
+			<?php } ?>
+
 			<div class="row">
 					<?php 
 						if (!empty($result)) {
 					?>
-					<p class="text-right"><strong>У вас <?php echo sizeof($result); ?> обьявлений</strong></p>
+					<p class="text-right"><strong>У вас <?php echo $amount; ?> обьявлений</strong></p>
 
 					<ul class="results">
 						<?php foreach ($result as $r) { ?>
