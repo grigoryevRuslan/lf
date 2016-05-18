@@ -34,3 +34,11 @@
 		display: block;
 	}
 }
+
+.ordered-list {
+    list-style: decimal inside;
+    LI {
+    	display: list-item;
+    	margin: 0 0 20px 0;
+    }
+}

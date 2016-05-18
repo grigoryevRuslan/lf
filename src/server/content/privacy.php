@@ -13,19 +13,32 @@
 		
 		<?php include_once '../templates/controls/controls.php'; ?>
 
-		<h1 class="text-center">Политика конфеденциальности.</h1>
+		<h1 class="text-center">Правила использования сайта.</h1>
 
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-					</p>
+					
+					<ol class="ordered-list">
+						<li>	 
+							Используя сайт либо регистрируясь на сайте, Пользователь соглашается с настоящими Правилами в полном объеме, без всяких оговорок и исключений.
+						</li>
+						<li>
+							В случае несогласия или частичного несогласия с Правилами,  Пользователь обязан покинуть Сайт. 
+							Сайт не проверяет достоверность публикуемой информации о находках. Ответственность за достоверность публикуемой информации о находках несет Пользователь.
+						</li>
+						<li>
+							Пользователь, нашедший потерянную вещь, и разместивший соответствующую информацию на сайте обязан соблюдать законодательство о находках той страны, в которой данная вещь найдена. 
+						</li>
+						<li>
+							В правоотношениях, а также спорах между Пользователями - собственниками потерянных вещей и лицами их нашедшими Сайт участия не принимает, и не несет ответственность за действия какой-либо из сторон.
+							Все персональные данные, которые Пользователь указывает при регистрации на сайте, в силу природы сайта, являются доступными любому пользователю сети Интернет.
+						</li>
+						<li>
+							Сайт не несет ответственности за действия третьих лиц, получивших в результате использования сайта доступ к информации о Пользователе, которую он указал при регистрации на сайте.
+						</li>
+					</ol>
+					
 				</div>
 			</div>
 		</div>
