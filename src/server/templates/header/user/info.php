@@ -6,9 +6,9 @@
 
 		<span><?php echo $_SESSION['user_name']; ?></span>
 
-		<a href="private.php">Моё</a>
+		<a href="http://<?php echo $GLOBALS['domain']; ?>/private.php">Моё</a>
 
-		<a href="logout.php">Выйти</a>
+		<a href="http://<?php echo $GLOBALS['domain']; ?>/logout.php">Выйти</a>
 
 	</div>
 

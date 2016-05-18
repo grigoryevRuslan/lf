@@ -26,7 +26,7 @@ $(function() {
 			login: function($form, data) {
 				if (data.status === 'ok') {
 					if (data.data && data.data.redirect) {
-						window.location.href = data.data.redirect;
+						window.location.href = 'http://' + window.location.hostname;
 					}
 				}
 			},
@@ -34,7 +34,7 @@ $(function() {
 			logout: function($form, data) {
 				if (data.status === 'ok') {
 					if (data.data && data.data.redirect) {
-						window.location.href = data.data.redirect;
+						window.location.href = 'http://' + window.location.hostname;
 					}
 				}
 			},
@@ -42,7 +42,7 @@ $(function() {
 			register: function($form, data) {
 				if (data.status === 'ok') {
 					if (data.data && data.data.redirect) {
-						window.location.href = data.data.redirect;
+						window.location.href = 'http://' + window.location.hostname;
 					}
 				}
 			}

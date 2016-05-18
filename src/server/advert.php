@@ -3,9 +3,9 @@
 	if (isset($_GET['id'])) {
 		if (!session_start()) die('Sessions does not work');
 
-		include_once 'globals/common.php';
-		include_once 'globals/db/db.php';
-		include_once 'functions/functions.php';
+		include_once $_SERVER['DOCUMENT_ROOT'].'/globals/common.php';
+		include_once $_SERVER['DOCUMENT_ROOT'].'/globals/db/db.php';
+		include_once $_SERVER['DOCUMENT_ROOT'].'/functions/functions.php';
 
 		$id = $_GET['id'];
 
@@ -31,7 +31,7 @@
 		
 		<?php 
 
-			include_once 'templates/header/header.php';
+			include_once $_SERVER['DOCUMENT_ROOT'].'/templates/header/header.php';
 
 		?>
 
@@ -77,7 +77,7 @@
 							<span class="advert__time" title="Время <?php if ($result[0]['type'] == 'found') {echo 'находки';} else {echo 'пропажи';} ?>"><?php echo $result[0]['item_date'] ?></span>
 						</p>
 						<?php 
-							include_once 'templates/share/share.php';
+							include_once $_SERVER['DOCUMENT_ROOT'].'/templates/share/share.php';
 						?>
 					</div>
 
@@ -109,9 +109,9 @@
 	
 		<?php 
 
-			include_once 'templates/footer/social.php';
+			include_once $_SERVER['DOCUMENT_ROOT'].'/templates/footer/social.php';
 	
-			include_once 'templates/footer/info.php';
+			include_once $_SERVER['DOCUMENT_ROOT'].'/templates/footer/info.php';
 	
 		?>
 	

@@ -1,13 +1,13 @@
 <?php
 	if (!session_start()) die('Sessions does not work');
 
-	include_once 'globals/common.php';
-	include_once 'functions/functions.php';
+	include_once $_SERVER['DOCUMENT_ROOT'].'/globals/common.php';
+	include_once $_SERVER['DOCUMENT_ROOT'].'/functions/functions.php';
 
 	if (!empty($_POST)) {
 
-			include_once 'globals/db/db.php';
-			include_once 'app/save_image.php';
+			include_once $_SERVER['DOCUMENT_ROOT'].'/globals/db/db.php';
+			include_once $_SERVER['DOCUMENT_ROOT'].'/app/save_image.php';
 
 			if (isset ($_POST['mail_delivery']) && $_POST['mail_delivery'] == 'on') {
 				$mail_delivery = 1;
@@ -88,7 +88,7 @@
 	
 	<?php 
 
-		include_once 'templates/header/header.php';
+		include_once $_SERVER['DOCUMENT_ROOT'].'/templates/header/header.php';
 
 	?>
 		<?php if ($_GET['type'] == 'found') { ?>
@@ -368,9 +368,9 @@
 	
 		<?php 
 
-			include_once 'templates/footer/social.php';
+			include_once $_SERVER['DOCUMENT_ROOT'].'/templates/footer/social.php';
 	
-			include_once 'templates/footer/info.php';
+			include_once $_SERVER['DOCUMENT_ROOT'].'/templates/footer/info.php';
 	
 		?>
 	

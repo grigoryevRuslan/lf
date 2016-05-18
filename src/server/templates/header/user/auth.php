@@ -2,7 +2,7 @@
 	
 	<li class="auth__fb">
 		
-		<a href="app/facebook.php"></a>
+		<a href="http://<?php echo $GLOBALS['domain']; ?>/app/facebook.php"></a>
 
 	</li>
 	

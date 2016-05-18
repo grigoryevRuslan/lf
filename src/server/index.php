@@ -5,8 +5,8 @@
 
 <?php 
 	
-	include_once 'globals/common.php';
-	include_once 'functions/functions.php';
+	include_once $_SERVER['DOCUMENT_ROOT'].'/globals/common.php';
+	include_once $_SERVER['DOCUMENT_ROOT'].'/functions/functions.php';
 
 	renderHead('Главная страница', 'http://'.$_SERVER['HTTP_HOST'].'/img/svg/logo.svg', 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], 'Бюро находок');
 
@@ -16,10 +16,10 @@
 		
 		<?php 
 
-			include_once 'templates/header/header.php';
-			include_once 'templates/controls/controls.php';
-			include_once 'templates/counter/counter.php';
-			include_once 'templates/latest/latest.php';
+			include_once $_SERVER['DOCUMENT_ROOT'].'/templates/header/header.php';
+			include_once $_SERVER['DOCUMENT_ROOT'].'/templates/controls/controls.php';
+			include_once $_SERVER['DOCUMENT_ROOT'].'/templates/counter/counter.php';
+			include_once $_SERVER['DOCUMENT_ROOT'].'/templates/latest/latest.php';
 
 		?>
 		
@@ -48,8 +48,8 @@
 
 		<?php 
 
-			include_once 'templates/footer/social.php';
-			include_once 'templates/footer/info.php';
+			include_once $_SERVER['DOCUMENT_ROOT'].'/templates/footer/social.php';
+			include_once $_SERVER['DOCUMENT_ROOT'].'/templates/footer/info.php';
 
 		?>
 

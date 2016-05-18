@@ -1,8 +1,8 @@
 <?php 
 	
-	include_once '../globals/common.php';
-	include_once '../functions/functions.php';
-	include_once '../globals/db/db.php';
+	include_once $_SERVER['DOCUMENT_ROOT'].'/globals/common.php';
+	include_once $_SERVER['DOCUMENT_ROOT'].'/functions/functions.php';
+	include_once $_SERVER['DOCUMENT_ROOT'].'/globals/db/db.php';
 	
 	$data = json_decode(file_get_contents('php://input'), true);
 

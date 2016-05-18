@@ -1,6 +1,6 @@
 <?php
-include '../classes/Auth.class.php';
-include '../classes/AjaxRequest.class.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/classes/Auth.class.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/classes/AjaxRequest.class.php';
 
 session_start();
 
@@ -15,7 +15,6 @@ class AuthorizationAjaxRequest extends AjaxRequest
     public function login()
     {
         if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-            // Method Not Allowed
             http_response_code(405);
             header("Allow: POST");
             $this->setFieldError("main", "Method Not Allowed");
@@ -46,7 +45,7 @@ class AuthorizationAjaxRequest extends AjaxRequest
         }
 
         $this->status = "ok";
-        $this->setResponse("redirect", ".");
+        $this->setResponse("redirect", $_SERVER['HTTP_HOST']);
         $this->message = sprintf("Hello, %s! Access granted.", $username);
     }
 
@@ -65,7 +64,7 @@ class AuthorizationAjaxRequest extends AjaxRequest
         $user = new User();
         $user->logout();
 
-        $this->setResponse("redirect", ".");
+        $this->setResponse("redirect", $_SERVER['HTTP_HOST']);
         $this->status = "ok";
     }
 
@@ -116,7 +115,7 @@ class AuthorizationAjaxRequest extends AjaxRequest
         $user->authorize($username, $password1);
 
         $this->message = sprintf("Hello, %s! Thank you for registration.", $username);
-        $this->setResponse("redirect", "/");
+        $this->setResponse("redirect", $_SERVER['HTTP_HOST']);
         $this->status = "ok";
     }
 }

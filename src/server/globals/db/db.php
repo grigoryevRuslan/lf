@@ -1,6 +1,6 @@
 <?php 
 	
-	include_once 'credentials.php';
+	include_once $_SERVER['DOCUMENT_ROOT'].'/globals/db/credentials.php';
 
 	try {
 

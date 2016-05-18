@@ -8,7 +8,7 @@
 				
 				<div class="col-md-6">
 				
-					<?php include_once 'donate/donate.php'; ?>
+					<?php include_once $_SERVER['DOCUMENT_ROOT'].'/templates/header/donate/donate.php'; ?>
 					
 				</div>
 
@@ -28,7 +28,7 @@
 
 		<div class="col-xs-6 col-md-4 logo">
 			
-			<?php include_once 'logo/logo.php';?>
+			<?php include_once $_SERVER['DOCUMENT_ROOT'].'/templates/header/logo/logo.php';?>
 			
 		</div>
 
@@ -39,11 +39,11 @@
 				<?php 
 					if ( $GLOBALS['isAuthorised'] ) {
 
-						include_once 'user/info.php';
+						include_once $_SERVER['DOCUMENT_ROOT'].'/templates/header/user/info.php';
 
 					} else {
 
-						include_once 'user/auth.php';
+						include_once $_SERVER['DOCUMENT_ROOT'].'/templates/header/user/auth.php';
 
 					}
 				?>

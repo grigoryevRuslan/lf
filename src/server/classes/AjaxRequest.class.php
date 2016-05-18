@@ -1,9 +1,5 @@
 <?php
 
-/*
- * Обертка для работы с Ajax-запросами
-*/
-
 class AjaxRequest
 {
     public $actions = array();

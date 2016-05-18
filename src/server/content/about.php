@@ -1,18 +1,18 @@
 <?php 
 	
-	include_once '../globals/common.php';
+	session_start();
 	
-	include_once '../functions/functions.php';
+	include_once $_SERVER['DOCUMENT_ROOT'].'/globals/common.php';
+	
+	include_once $_SERVER['DOCUMENT_ROOT'].'/functions/functions.php';
 
 	renderHead('О проекте', 'http://'.$_SERVER['HTTP_HOST'].'/img/svg/logo.svg', 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], 'О проекте');
 ?>
 
 	<main>
 		
-		<?php include_once '../templates/header/header.php'; ?>
+		<?php include_once $_SERVER['DOCUMENT_ROOT'].'/templates/header/header.php'; ?>
 		
-		<?php include_once '../templates/controls/controls.php'; ?>
-
 		<h1 class="text-center">Бюро находок.</h1>
 
 		<div class="container">
@@ -55,13 +55,27 @@
 
 	<footer class="text-center">
 
-		<?php include_once '../templates/footer/social.php'; ?>
+		<?php include_once $_SERVER['DOCUMENT_ROOT'].'/templates/footer/social.php'; ?>
 		
-		<?php include_once '../templates/footer/info.php'; ?>
+		<?php include_once $_SERVER['DOCUMENT_ROOT'].'/templates/footer/info.php'; ?>
 
 	</footer>
+		
+	<?php 
+	
+		if ( !$GLOBALS['isAuthorised'] ) {
+			renderPopup('auth');
+		} else {
+			renderPopup('feedback');
+		}
 
+	?>
+
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 	<script type="text/javascript" src="http://<?php echo $GLOBALS['domain']; ?>/js/global/app.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="http://<?php echo $GLOBALS['domain']; ?>/js/modules/ajax-auth.js"></script>
+	<script type="text/javascript" src="http://<?php echo $GLOBALS['domain']; ?>/js/modules/search_autocomplete.js"></script>
 
 </body>
 </html>

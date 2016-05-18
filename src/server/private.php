@@ -2,9 +2,9 @@
 
 	if (!session_start()) die('Sessions does not work');
 
-	include_once 'globals/common.php';
-	include_once 'globals/db/db.php';
-	include_once 'functions/functions.php';
+	include_once $_SERVER['DOCUMENT_ROOT'].'/globals/common.php';
+	include_once $_SERVER['DOCUMENT_ROOT'].'/globals/db/db.php';
+	include_once $_SERVER['DOCUMENT_ROOT'].'/functions/functions.php';
 
 	renderHead('Личный кабинет', 'http://'.$_SERVER['HTTP_HOST'].'/img/svg/logo.svg', 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], 'Личный кабинет');
 
@@ -39,7 +39,7 @@
 		
 		<?php 
 
-			include_once 'templates/header/header.php';
+			include_once $_SERVER['DOCUMENT_ROOT'].'/templates/header/header.php';
 
 		?>
 
@@ -144,9 +144,9 @@
 	
 		<?php 
 
-			include_once 'templates/footer/social.php';
+			include_once $_SERVER['DOCUMENT_ROOT'].'/templates/footer/social.php';
 	
-			include_once 'templates/footer/info.php';
+			include_once $_SERVER['DOCUMENT_ROOT'].'/templates/footer/info.php';
 	
 		?>
 	

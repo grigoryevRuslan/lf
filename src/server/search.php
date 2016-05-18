@@ -2,9 +2,9 @@
 
     if (!session_start()) die('Sessions does not work');
 
-    include_once 'globals/common.php';
-    include_once 'functions/functions.php';
-    include_once 'sdk/sphinx/config.php';
+    include_once $_SERVER['DOCUMENT_ROOT'].'/globals/common.php';
+    include_once $_SERVER['DOCUMENT_ROOT'].'/functions/functions.php';
+    include_once $_SERVER['DOCUMENT_ROOT'].'/sdk/sphinx/config.php';
 
     renderHead('Результаты поиска', 'http://'.$_SERVER['HTTP_HOST'].'/img/svg/logo.svg', 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], 'Результаты поиска по запросу '.$_GET['q']);
 ?>
@@ -13,8 +13,8 @@
 
         <?php 
 
-            include_once 'templates/header/header.php';
-            include_once 'templates/controls/controls.php'; 
+            include_once $_SERVER['DOCUMENT_ROOT'].'/templates/header/header.php';
+            include_once $_SERVER['DOCUMENT_ROOT'].'/templates/controls/controls.php'; 
 
         ?>
 
@@ -162,8 +162,8 @@
 
         <?php 
 
-            include_once 'templates/footer/social.php';
-            include_once 'templates/footer/info.php';
+            include_once $_SERVER['DOCUMENT_ROOT'].'/templates/footer/social.php';
+            include_once $_SERVER['DOCUMENT_ROOT'].'/templates/footer/info.php';
 
         ?>
 

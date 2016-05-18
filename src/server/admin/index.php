@@ -1,7 +1,7 @@
 <?php 
 	
-	include_once '../globals/common.php';
-	include_once '../globals/db/db.php';
+	include_once $_SERVER['DOCUMENT_ROOT'].'/globals/common.php';
+	include_once $_SERVER['DOCUMENT_ROOT'].'/globals/db/db.php';
 
 	$query = $pdoConnection->prepare("SELECT * FROM items ORDER BY date_publish DESC");
 	$query->execute();

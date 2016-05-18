@@ -1,8 +1,8 @@
 <?php 
 	if (isset($_POST['id'])) {
 
-		include_once '../globals/common.php';
-		include_once '../globals/db/db.php';
+		include_once $_SERVER['DOCUMENT_ROOT'].'/globals/common.php';
+		include_once $_SERVER['DOCUMENT_ROOT'].'/globals/db/db.php';
 
 		$id = $_POST['id'];
 

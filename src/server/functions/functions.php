@@ -25,9 +25,9 @@
 				<div class="popup__container">';
 		
 		if ( $type != 'feedback' ) {
-			include_once 'templates/auth/auth.php';
+			include_once $_SERVER['DOCUMENT_ROOT'].'/templates/auth/auth.php';
 		} else {
-			include_once 'templates/feedback/feedback.php';
+			include_once $_SERVER['DOCUMENT_ROOT'].'/templates/feedback/feedback.php';
 		}			
 
 		echo '<span class="popup__close">&times;</span>

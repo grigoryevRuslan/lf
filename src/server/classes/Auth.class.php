@@ -143,8 +143,8 @@ class User
 
     public function connectdb($db_name, $db_user, $db_pass, $db_host = "localhost")
     {
-        include_once '../globals/common.php';
-        include_once '../globals/db/credentials.php';
+        include_once $_SERVER['DOCUMENT_ROOT'].'/globals/common.php';
+        include_once $_SERVER['DOCUMENT_ROOT'].'/globals/db/credentials.php';
 
         try {
             $this->db = new PDO($pdoConnectionString, $pdoConnectionUsername, $pdoConnectionPassword);

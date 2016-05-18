@@ -1,4 +1,6 @@
 <?php 
+	
+	session_start();
 
 	include_once '../globals/common.php';
 	
@@ -11,8 +13,6 @@
 		
 		<?php include_once '../templates/header/header.php'; ?>
 		
-		<?php include_once '../templates/controls/controls.php'; ?>
-
 		<h1 class="text-center">Правила использования сайта.</h1>
 
 		<div class="container">
@@ -53,8 +53,22 @@
 		<?php include_once '../templates/footer/info.php'; ?>
 
 	</footer>
+		
+	<?php 
+	
+		if ( !$GLOBALS['isAuthorised'] ) {
+			renderPopup('auth');
+		} else {
+			renderPopup('feedback');
+		}
 
+	?>
+
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 	<script type="text/javascript" src="http://<?php echo $GLOBALS['domain']; ?>/js/global/app.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="http://<?php echo $GLOBALS['domain']; ?>/js/modules/ajax-auth.js"></script>
+	<script type="text/javascript" src="http://<?php echo $GLOBALS['domain']; ?>/js/modules/search_autocomplete.js"></script>
 
 </body>
 </html>

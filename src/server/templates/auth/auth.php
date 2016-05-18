@@ -3,7 +3,7 @@
 	<form 
 		class="form form_signin ajax" 
 		method="post"
-		action="ajax/authentication.php" 
+		action="http://<?php echo $_SERVER['HTTP_HOST']; ?>/ajax/authentication.php" 
 		id="formLogin"
 		ng-init="login = true"
 		ng-show="login == true">
@@ -30,7 +30,7 @@
 	<form 
 		class="form form_signin ajax" 
 		method="post" 
-		action="ajax/authentication.php" 
+		action="http://<?php echo $_SERVER['HTTP_HOST']; ?>/ajax/authentication.php" 
 		id="formRegister"
 		ng-init="enter = false"
 		ng-show="enter == true">

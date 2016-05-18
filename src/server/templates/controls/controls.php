@@ -6,7 +6,7 @@
 
 			<?php if ( $GLOBALS['isAuthorised'] ) { ?>
 			
-				<a href="add.php?type=found" class="btn btn-success">Я нашел</a>
+				<a href="http://<?php echo $GLOBALS['domain']; ?>/add.php?type=found" class="btn btn-success">Я нашел</a>
 
 			<?php } ?>
 
@@ -27,7 +27,7 @@
 			
 				<button class="btn search__btn" id="searchButton" type="submit"></button>
 
-				<img src="img/gif/preloader.gif" class="search__preloader" alt="search__preloader" />
+				<img src="http://<?php echo $GLOBALS['domain']; ?>/img/gif/preloader.gif" class="search__preloader" alt="search__preloader" />
 			
 			</form>
 
@@ -37,7 +37,7 @@
 
 			<?php if ( $GLOBALS['isAuthorised'] ) { ?>
 			
-				<a href="add.php?type=lost" class="btn btn-warning">Я потерял</a>
+				<a href="http://<?php echo $GLOBALS['domain']; ?>/add.php?type=lost" class="btn btn-warning">Я потерял</a>
 
 			<?php } ?>
 
