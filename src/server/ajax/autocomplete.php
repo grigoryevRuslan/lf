@@ -12,18 +12,20 @@
 	$result = $autocompleteResult->fetchAll(PDO::FETCH_ASSOC);
 
 	if (sizeof($result) != 0) {
-	    foreach($result as &$val) {
-	    	if ($val['item'] == null || $val['item'] == '') {
-				$val['item'] = $val['user_item'];
-	    	}
+		foreach($result as &$val) {
+			$val['item'] = mb_strtolower($val['item'], "UTF-8");
+			$val['user_item'] = mb_strtolower($val['user_item'], "UTF-8");
 
-	    	if ($val['user_item'] == null || $val['user_item'] == '') {
-	    		$val['user_item'] = $val['item'];
-	    	}
-	    	
-	    }
-	    $arr = array_unique($result, SORT_REGULAR);
-	    echo json_encode($arr);
+			if ($val['item'] == null || $val['item'] == '') {
+				$val['item'] = mb_strtolower($val['user_item'], "UTF-8");
+			}
+
+			if ($val['user_item'] == null || $val['user_item'] == '') {
+				$val['user_item'] = mb_strtolower($val['item'], "UTF-8");
+			}
+		}
+		$arr = array_unique($result, SORT_REGULAR);
+		echo json_encode($arr);
 	} else {
 		echo "Search does not work";
 	}
