@@ -103,7 +103,7 @@ class User
 
     public function create($username, $password) {
         $user_exists = $this->getSalt($username);
-        $user_uniqueid = uniqid();
+        $user_uniqueid = hexdec(substr(uniqid(), -5));
 
         if ($user_exists) {
             throw new \Exception("User exists: " . $username, 1);
