@@ -9,13 +9,13 @@
 
 		$id = $_GET['id'];
 
-		$getAdvert = "SELECT * FROM items WHERE id = $id";
+		$getAdvert = "SELECT * FROM items WHERE id = $id AND is_published = 1";
 		$q = $pdoConnection->prepare($getAdvert);
 		$q->execute();
 		$result = $q->fetchAll();
 
 		if (sizeof($result[0]) == 0) {
-			$noresults = 'ничего не найдено';
+			$noresults = 'Обьявление проверяется модератом.';
 		} else {
 			$imageUrl = $GLOBALS['domain'].'/upload/'.$result[0]['image_uri'];
 		}
@@ -109,7 +109,7 @@
 	?>
 		<div class="container">
 			<div class="row">
-				<p class="center"><?php echo $noresults; ?></p>
+				<h2 class="text-center"><?php echo $noresults; ?></h2>
 			</div>
 		</div>
 	<?php
