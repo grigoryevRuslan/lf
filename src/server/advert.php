@@ -96,7 +96,9 @@
 				<?php if($result[0]['coordinates'] != '') { ?>
 				
 					<div class="col-md-6">
-						<div id="advertMap"></div>
+						<div id="advertMap">
+							<img src="http://<?php echo $GLOBALS['domain']; ?>/img/gif/preloader.gif" class="search__preloader" alt="search__preloader" />
+						</div>
 					</div>
 					
 				<?php } ?>

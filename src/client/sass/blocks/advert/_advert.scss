@@ -93,6 +93,15 @@
 
 	#advertMap {
 		min-height: 300px;
+
+		.search__preloader {
+			position: absolute;
+			z-index: 10;
+			top: 50%;
+			margin-top: -10px;
+			left: 50%;
+			margin-left: -10px;
+		}
 	}
 
 	PRE.results {
