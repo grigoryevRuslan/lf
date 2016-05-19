@@ -11,6 +11,10 @@
 
 	.controls {
 
+		.col-xs-6 {
+			z-index: 99;
+		}
+
 		A.btn {
 			margin: 10px 0;
 		}
@@ -45,6 +49,16 @@
 		#phone {
 			margin-left: 30px;
 			width: 89%;
+		}
+	}
+
+	.counter,
+	.latest {
+		margin-bottom: 7px;
+
+		P {
+			font-size: 12px;
+			text-align: center;
 		}
 	}
 }

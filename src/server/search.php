@@ -16,12 +16,6 @@
             include_once $_SERVER['DOCUMENT_ROOT'].'/templates/header/header.php';
             include_once $_SERVER['DOCUMENT_ROOT'].'/templates/controls/controls.php'; 
 
-        ?>
-
-    </main>
-
-    <?php 
-
         if (!empty($_GET['q'])) require("sdk/sphinx/sphinxapi.php");
 
         //Sanitise the input
@@ -157,6 +151,8 @@
         }
 
     ?>
+    
+    </main>
 
     <footer class="text-center">
 

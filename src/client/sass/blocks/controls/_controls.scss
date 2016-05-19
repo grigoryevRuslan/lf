@@ -1,5 +1,11 @@
 .controls {
-	padding: 20px 0;
+	padding: 20px 15px;
+	width: 100%;
+
+	.row {
+		width: 100%;
+		margin: 0;
+	}
 
 	&__search {
 		position: relative;

@@ -2,7 +2,7 @@
 	
 	<div class="row">
 		
-		<div class="col-md-4 text-right">
+		<div class="col-xs-6 col-md-4 text-right">
 
 			<?php if ( $GLOBALS['isAuthorised'] ) { ?>
 			
@@ -12,7 +12,7 @@
 
 		</div>
 
-		<div class="col-md-4 text-center user__search">
+		<div class="col-xs-12 col-md-4 text-center user__search">
 				
 			<form method="GET" action="search.php" id="search_form" validate="true" class="controls__search">
 			

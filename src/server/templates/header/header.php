@@ -26,13 +26,13 @@
 
 		</div>
 
-		<div class="col-xs-6 col-md-4 logo">
+		<div class="col-xs-5 col-md-4 logo">
 			
 			<?php include_once $_SERVER['DOCUMENT_ROOT'].'/templates/header/logo/logo.php';?>
 			
 		</div>
 
-		<div class="col-xs-6 col-md-4 user">
+		<div class="col-xs-7 col-md-4 user">
 			
 			<div class="row">
 			
