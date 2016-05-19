@@ -32,9 +32,6 @@
 					<li><a href="feedback.php">Вопросы </a></li>
 					<li><a href="secret.php">Секреты</a></li>
 				</ul>
-				<!-- <div class="user">
-					<strong>Пользователь</strong> : <?php echo $_SERVER['PHP_AUTH_USER']; ?>
-				</div> -->
 			</div>
 		</div>
 	</nav>
@@ -72,12 +69,6 @@
 												</h3>
 											</a>
 
-											<?php if ($r['item_secret']) { ?>
-
-												<p><strong>Секретный код:</strong><?php echo $r['item_secret']; ?></p>
-
-											<?php } ?>
-
 											<p><?php echo $r['description']; ?></p>
 											
 											<?php if (isset($r['meta']) && $r['meta'] != "") { ?>
@@ -107,6 +98,12 @@
 														ng-click="publishAction(<?php echo $r['id']; ?>, false)">Убрать из публикации</button>
 												<?php } ?>
 											</p>
+
+											<h4>Доп.информация, которая доступна только из админки.</h4>
+
+											<p><strong>Телефон: </strong><?php echo $r['phone']; ?></p>
+											<p><strong>Почта: </strong><?php echo $r['email']; ?></p>
+											<p><strong>Секретный код: </strong><?php echo $r['item_secret']; ?></p>
 										</div>
 										<div class="result__image">
 											<img src="/upload/<?php echo $r['image_uri']; ?>">
