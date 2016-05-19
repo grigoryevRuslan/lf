@@ -16,7 +16,7 @@
 					
 					<?php if ( $GLOBALS['isAuthorised'] ) { ?>
 							
-						<button class="btn btn-success open-popup btn-feedback">Задать вопрос</button>	
+						<button class="btn btn-success open-popup btn-feedback" data-type="feedback">Задать вопрос</button>	
 
 					<?php }?>
 

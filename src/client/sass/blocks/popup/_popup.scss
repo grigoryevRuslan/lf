@@ -9,11 +9,10 @@
 	background: rgba(0, 0, 0, .7);
 	cursor: pointer;
 
-	&_feedback {
-		.popup__container {
-			width: 650px;
-			margin-left: -325px;
-		}
+	&_feedback .popup__container,
+	&_ad-remove .popup__container {
+		width: 650px;
+		margin-left: -325px;
 	}
 
 	&__container {
@@ -22,6 +21,7 @@
 		top: 100px;
 		left: 50%;
 		cursor: initial;
+		padding: 60px;
 	}
 
 	&__close {

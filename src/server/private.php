@@ -10,8 +10,8 @@
 
 	if ( $GLOBALS['isAuthorised'] ) {
 
-		if (isset($_GET['delete'])) {
-			$deleteID = $_GET['delete'];
+		if (isset($_POST['delete'])) {
+			$deleteID = intval($_POST['delete']);
 			$delete_q = $pdoConnection->prepare("DELETE FROM items WHERE id = '$deleteID'");
 			$delete_q->execute();
 		}
@@ -40,6 +40,12 @@
 		<?php 
 
 			include_once $_SERVER['DOCUMENT_ROOT'].'/templates/header/header.php';
+
+			if ($amount == 0) {
+
+				include_once $_SERVER['DOCUMENT_ROOT'].'/templates/controls/controls.php';
+
+			}
 
 		?>
 
@@ -117,7 +123,10 @@
 									</p>
 
 									<p>
-										<a class="btn btn-xs btn-danger delete" href="?delete=<?php echo $r['id']; ?>">Удалить</a>
+										<a class="btn btn-xs btn-danger delete open-popup" 
+											data-type="ad-remove" 
+											href="#"
+											data-remove="<?php echo $r['id']; ?>">Удалить</a>
 										
 										<a class="btn btn-xs btn-warning edit" href="edit.php?id=<?php echo $r['id']; ?>">Редактировать</a>
 									</p>
@@ -158,6 +167,7 @@
 	        renderPopup('auth');
 	    } else {
 	        renderPopup('feedback');
+	        renderPopup('ad-remove');
 	    }
 
 	?>

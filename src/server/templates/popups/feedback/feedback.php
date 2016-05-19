@@ -6,7 +6,7 @@
 	ng-controller="feedbackController"
 	validate="true">
 	
-	<h2>Оставьте ваш вопрос здесь:</h2>
+	<h2 class="text-center">Задайте нам любой вопрос:</h2>
 	
 	<input 
 		class="form-control"

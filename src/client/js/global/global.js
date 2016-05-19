@@ -2,9 +2,14 @@ $(function() {
 	if ($('.open-popup').length) {
 		$('.open-popup').on('click', function(e) {
 			e.preventDefault();
+			var type = $(this).data('type');
 
-			if ($('.popup').length) {
-				$('.popup').fadeIn(500);
+			if ($('.popup.popup_' + type).length) {
+				if ($(this).data('remove')) {
+					$('.popup.popup_' + type).find('form #ad-remove').val($(this).data('remove'));
+				}
+
+				$('.popup.popup_' + type).fadeIn(500);
 			}
 		});
 	}
