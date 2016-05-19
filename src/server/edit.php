@@ -231,7 +231,7 @@
 						</div>
 
 						<label>
-							<span>Добавьте изображение (размером меньше 1 Мб):</span>
+							<span>Добавьте изображение (размером не более 10 Мб):</span>
 							<input type='file' id="addUploadFile" name="fileToUpload" />
 							<img id="addUploadFilePreview" src="." alt="advert image" />
 						</label>
