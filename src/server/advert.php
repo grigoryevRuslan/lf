@@ -129,6 +129,8 @@
 		
 	<script type="text/javascript" src="js/global/app.min.js"></script>
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js"></script>
+	<script src="https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&amp;render=explicit" async defer
+	></script>
 	<script type="text/javascript" src="js/modules/ajax-auth.js"></script>
 	<script type="text/javascript" src="js/modules/share.js"></script>
 	<script type="text/javascript" src="js/modules/ajax-counter.js"></script>
