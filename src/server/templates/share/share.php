@@ -10,10 +10,10 @@
 
 		<b>Поделиться:</b>
 		
-		<i onclick="Share.facebook('<?php echo $page_uri ?>',
-									'Всеукраинское бюро находок',
-									'<?php echo $image_uri; ?>',
-									'<?php echo $result[0]['item']; ?>')" class="share__btn share__btn_fb"></i>
+		<i class="share__btn share__btn_fb fb-share-button" 
+		   data-href="http://<?php echo $_SERVER[HTTP_HOST].$_SERVER[REQUEST_URI] ?>" 
+		   data-layout="icon"
+		   data-mobile-iframe="true"></i>
 
 		<i onclick="Share.vkontakte('<?php echo $page_uri ?>',
 									'Всеукраинское бюро находок',

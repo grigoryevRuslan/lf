@@ -10,7 +10,8 @@
         cursor: pointer;
     }
     &__btn_fb {
-       @include sprite ($share-fb);
+       transform: scale(2.6);
+       transform-origin: top left;
     }
     &__btn_vk {
        @include sprite ($share-vk);
@@ -20,5 +21,10 @@
     }
     &__btn_gplus {
        @include sprite ($share-gplus);
+    }
+    
+    .fb_iframe_widget span {
+        width: 36px !important;
+        height: 36px !important;
     }
 }

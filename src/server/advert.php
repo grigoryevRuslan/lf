@@ -24,7 +24,7 @@
 		exit();
 	}
 
-	renderHead('Объявление', $imageUrl, 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], $result[0]['description']);
+	renderHead('Объявление в бюро находок LuckFind', $imageUrl, 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], $result[0]['description']);
 ?>
 
 	<main>
@@ -76,6 +76,16 @@
 							<span id="views" class="advert__views" title="Просмотры"></span>
 							<span class="advert__time" title="Время <?php if ($result[0]['type'] == 'found') {echo 'находки';} else {echo 'пропажи';} ?>"><?php echo $result[0]['item_date'] ?></span>
 						</p>
+						
+						<div id="fb-root"></div>
+						<script>(function(d, s, id) {
+						  var js, fjs = d.getElementsByTagName(s)[0];
+						  if (d.getElementById(id)) return;
+						  js = d.createElement(s); js.id = id;
+						  js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.6&appId=1688370178097956";
+						  fjs.parentNode.insertBefore(js, fjs);
+						}(document, 'script', 'facebook-jssdk'));</script>
+
 						<?php 
 							include_once $_SERVER['DOCUMENT_ROOT'].'/templates/share/share.php';
 						?>
