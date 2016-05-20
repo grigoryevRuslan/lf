@@ -1,5 +1,7 @@
 <?php 
 	
+	if (!session_start()) die('Sessions does not work');
+	
 	include_once $_SERVER['DOCUMENT_ROOT'].'/globals/common.php';
 	
 	include_once $_SERVER['DOCUMENT_ROOT'].'/functions/functions.php';
