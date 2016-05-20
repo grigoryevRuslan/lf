@@ -14,6 +14,8 @@
        transform-origin: top left;
     }
     &__btn_vk {
+        position: relative;
+        z-index: 99;
        @include sprite ($share-vk);
     }
     &__btn_tw {
