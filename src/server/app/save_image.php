@@ -1,7 +1,6 @@
 <?php
 
 	if (isset($_FILES["fileToUpload"])) {
-
 		$allowedExts = array("gif", "jpeg", "jpg", "png");
 		$temp = explode(".", $_FILES["fileToUpload"]["name"]);
 		$extension = strtolower(end($temp));
