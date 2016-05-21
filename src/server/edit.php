@@ -64,7 +64,7 @@
 										name="item"
 										id="item"
 										ng-model="sSubject"
-										ng-init="sSubject = {name: '<?php if ($resultGetEditQuery[0]['item'] != '') {echo $resultGetEditQuery[0]['item'];} else {echo 'null';} ?>'}"
+										ng-init="sSubject = {name: '<?php if ($resultGetEditQuery[0]['item'] != '') {echo $resultGetEditQuery[0]['item'];} else {echo 'Другое';} ?>'}"
 										ng-change="iSubject = ''; secret = ''"
 										ng-options="code as code.name for code in codes track by code.name">
 										<option value="">Выберите из списка ниже:</option>
@@ -108,7 +108,11 @@
 									class="form-control" 
 									placeholder="название предмета"
 									ng-model="iSubject"
-									ng-init="iSubject = '<?php if ($resultGetEditQuery[0]['user_item'] != '') {echo $resultGetEditQuery[0]['user_item'];} else {echo '';} ?>'" />
+									ng-init="
+										<?php if ($resultGetEditQuery[0]['item'] == '') { ?>
+											iSubject = '<?php echo $resultGetEditQuery[0]['user_item']; ?>';
+											sSubject.id = 1000;
+										<?php } else { echo ''; } ?>" />
 							</div>
 						</div>
 

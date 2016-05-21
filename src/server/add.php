@@ -14,15 +14,13 @@
 			} else {
 				$mail_delivery = 0;
 			}
-			
-			if (isset($_POST['item']) && $_POST['item'] != 'another') {
+
+			if (isset($_POST['user_item'])) {
+				$user_item = $_POST['user_item'];
+				$item = '';
+			} else {
 				$item = $_POST['item'];
 				$user_item = '';
-			} else {
-				if (isset($_POST['user_item'])) {
-					$user_item = $_POST['user_item'];
-					$item = '';
-				}
 			}
 
 			$description = $_POST['description'];
