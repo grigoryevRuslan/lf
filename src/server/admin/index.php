@@ -84,7 +84,7 @@
 											</p>
 
 											<p>
-												<?php if (isset($r['is_deleted'])) { ?>
+												<?php if (!isset($r['is_deleted'])) { ?>
 													<?php if (!$r['is_published']) { ?>
 														<button 
 															class="btn btn-xs btn-primary" 

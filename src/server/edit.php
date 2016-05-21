@@ -36,7 +36,7 @@
 				<div class="col-md-3"></div>
 				<div class="col-md-6">
 					<form 
-						action="add.php" 
+						action="complete.php" 
 						name="form" 
 						method="POST" 
 						autocomplete="off" 
