@@ -271,15 +271,9 @@
 	</main>
 
 	<footer class="text-center">
-	
-		<?php 
 
-			include_once $_SERVER['DOCUMENT_ROOT'].'/templates/footer/social.php';
-	
-			include_once $_SERVER['DOCUMENT_ROOT'].'/templates/footer/info.php';
-	
-		?>
-	
+		<?php include_once $_SERVER['DOCUMENT_ROOT'].'/templates/footer/footer.php'; ?>
+		
 	</footer>
 
 	<div class="popup popup_map">

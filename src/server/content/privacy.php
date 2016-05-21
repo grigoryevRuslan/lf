@@ -45,13 +45,10 @@
 
 	</main>
 
-
 	<footer class="text-center">
 
-		<?php include_once '../templates/footer/social.php'; ?>
+		<?php include_once $_SERVER['DOCUMENT_ROOT'].'/templates/footer/footer.php'; ?>
 		
-		<?php include_once '../templates/footer/info.php'; ?>
-
 	</footer>
 		
 	<?php 
