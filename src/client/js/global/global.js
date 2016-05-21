@@ -54,7 +54,7 @@ $(function() {
 		$dp.datepicker({
 			dateFormat: 'dd-mm-yy',
 			showOn: 'both',
-			buttonImage: 'img/icon-datepicker.png',
+			buttonImage: '/img/icon-datepicker.png',
 			buttonText: 'Выберите дату',
 			changeMonth: true,
 			changeYear: true,
