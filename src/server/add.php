@@ -302,12 +302,8 @@
 		</div>
 	</main>
 
-	<footer class="text-center">
-
-		<?php include_once $_SERVER['DOCUMENT_ROOT'].'/templates/footer/footer.php'; ?>
+	<?php include_once $_SERVER['DOCUMENT_ROOT'].'/templates/footer/footer.php'; ?>
 		
-	</footer>
-
 	<div class="popup popup_map">
 		<div class="popup__container">
 			<div id="mapCanvas" class="gmap"></div>

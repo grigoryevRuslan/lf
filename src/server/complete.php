@@ -104,12 +104,8 @@
 
 	</main>
 
-	<footer class="text-center">
-
-		<?php include_once $_SERVER['DOCUMENT_ROOT'].'/templates/footer/footer.php'; ?>
+	<?php include_once $_SERVER['DOCUMENT_ROOT'].'/templates/footer/footer.php'; ?>
 		
-	</footer>
-	
 	<script type="text/javascript" src="js/global/app.min.js"></script>
 	<script src="https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&amp;render=explicit" async defer
 	></script>
