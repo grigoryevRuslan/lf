@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-md-12 text-right">
 			
-			<p>
+			<p ng-show="latest[0]">
 				<span style="color: red;">Новое!&nbsp;&nbsp;</span>
 				<strong>Опубликовано:</strong> {{latest[0].date_publish}}&nbsp;&nbsp;
 				<span ng-show="latest[0].type == 'lost'"><strong>Потеря:</strong>&nbsp;&nbsp;</span>
