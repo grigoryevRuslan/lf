@@ -216,29 +216,43 @@
 						</div>
 
 						<div class="form-group">
-							<div class="col-sm-12">
+							<label class="col-sm-4">
 								Поставьте маркер на место <?php if ($resultGetEditQuery[0]['type'] == 'found') { ?> находки <?php } else { ?> пропажи <?php } ?> : 
+							</label>
 								
+							<div class="col-sm-3">
 								<button class="btn btn-mini btn-primary open-popup">Открыть карту</button>
+							</div>
 
+							<div class="col-sm-5">
+								<div class="row">
+									<div class="col-sm-8">
+										<input type="hidden" name="coordinates" value="<?php if ( isset($resultGetEditQuery[0]['coordinates']) && $resultGetEditQuery[0]['coordinates'] != '' ) { echo $resultGetEditQuery[0]['coordinates'];} ?>" id="coordinates" />
+										<p id="gmap-address"></p>
+									</div>
+									<div class="col-sm-2">
+										<span id="clearAddress">&times;</span>
+									</div>
+								</div>
 							</div>
 						</div>
 
-						<div class="form-group">
-							<div class="col-sm-10">
-								<input type="hidden" name="coordinates" value="<?php if ( isset($resultGetEditQuery[0]['coordinates']) && $resultGetEditQuery[0]['coordinates'] != '' ) { echo $resultGetEditQuery[0]['coordinates'];} ?>" id="coordinates" />
-								<p id="gmap-address"></p>
-							</div>
-							<div class="col-sm-2">
-								<span id="clearAddress">&times;</span>
-							</div>
-						</div>
+						<div class="form-group image_edit">
 
-						<label>
-							<span>Добавьте изображение (размером не более 10 Мб):</span>
-							<input type='file' id="addUploadFile" name="fileToUpload" />
-							<img id="addUploadFilePreview" src="." alt="advert image" />
-						</label>
+							<label class="col-sm-4">
+								Изображение <br />(не более 10 Мб)
+							</label>
+
+							<div class="col-sm-8">
+								<label class="btn btn-default btn-file">
+									<span>Загрузить</span>
+									<input type='file' id="addUploadFile" name="fileToUpload" />
+									
+								</label>
+								<img id="addUploadFilePreview" src="/upload/<?php echo $resultGetEditQuery[0]['image_uri']; ?>" alt="advert image" />
+							</div>
+
+						</div>
 
 						<label for="mail_delivery">
 							<input type="checkbox" name="mail_delivery" id="mail_delivery" checked />

@@ -4,7 +4,7 @@
 	include_once $_SERVER['DOCUMENT_ROOT'].'/globals/common.php';
 	include_once $_SERVER['DOCUMENT_ROOT'].'/functions/functions.php';
 
-	renderHead('Успешное добавление объявления', 'http://'.$_SERVER['HTTP_HOST'].'/img/svg/logo.svg', 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], 'Вы добавили обьявление');
+	renderHead('Добавление объявления', 'http://'.$_SERVER['HTTP_HOST'].'/img/svg/logo.svg', 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], 'Добавление объявления');
 
 ?>
 
