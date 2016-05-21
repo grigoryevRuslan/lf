@@ -12,7 +12,15 @@
 
 		if (isset($_POST['delete'])) {
 			$deleteID = intval($_POST['delete']);
-			$delete_q = $pdoConnection->prepare("DELETE FROM items WHERE id = '$deleteID'");
+			$delete_q = $pdoConnection->prepare("
+				UPDATE 
+					items 
+				SET 
+					is_deleted = 1,
+					is_published = 0
+				WHERE 
+					id = '$deleteID'
+			");
 			$delete_q->execute();
 		}
 
@@ -26,7 +34,15 @@
 
 		$amount = intval( $pdoConnection->query("SELECT COUNT(*) as count FROM items WHERE user_id = '$userID' AND is_published = 1")->fetchColumn() );
 
-		$fetch_q = $pdoConnection->prepare("SELECT * FROM items WHERE user_id = '$userID' AND is_published = 1 ORDER BY date_publish DESC LIMIT $from, 5");
+		$fetch_q = $pdoConnection->prepare("
+			SELECT * 
+			FROM items 
+			WHERE user_id = '$userID' 
+			AND is_published = 1 
+			ORDER BY date_publish DESC 
+			LIMIT $from, 5
+		");
+		
 		$fetch_q->execute();
 		$result = $fetch_q->fetchAll();
 

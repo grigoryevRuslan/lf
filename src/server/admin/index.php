@@ -5,7 +5,7 @@
 
 	$query = $pdoConnection->prepare("SELECT * FROM items ORDER BY date_publish DESC");
 	$query->execute();
-	$result = $query->fetchAll();
+	$result = $query->fetchAll(PDO::FETCH_ASSOC);
 
 	if(!$result) {
 		die('Error record. ' . $connection->connect_errno . ': ' . $connection->connect_error);
@@ -88,21 +88,29 @@
 											</p> -->
 
 											<p>
-												<?php if (!$r['is_published']) { ?>
-													<button 
-														class="btn btn-xs btn-primary" 
-														ng-click="publishAction(<?php echo $r['id']; ?>, true)">Публиковать</button>
+												<?php if (isset($r['is_deleted'])) { ?>
+													<?php if (!$r['is_published']) { ?>
+														<button 
+															class="btn btn-xs btn-primary" 
+															ng-click="publishAction(<?php echo $r['id']; ?>, true)">Публиковать</button>
+													<?php } else { ?>
+														<button 
+															class="btn btn-xs btn-primary" 
+															ng-click="publishAction(<?php echo $r['id']; ?>, false)">Убрать из публикации</button>
+													<?php } ?>
 												<?php } else { ?>
-													<button 
-														class="btn btn-xs btn-primary" 
-														ng-click="publishAction(<?php echo $r['id']; ?>, false)">Убрать из публикации</button>
+
+														<button 
+															class="btn btn-xs btn-danger" 
+															disabled="true)">Удалено пользователем</button>	
+
 												<?php } ?>
 											</p>
 
 											<h4>Доп.информация, которая доступна только из админки.</h4>
 
 											<p><strong>Телефон: </strong><?php echo $r['phone']; ?></p>
-											<p><strong>Почта: </strong><?php echo $r['email']; ?></p>
+											<p><strong>Почта: </strong><?php echo $r['mail']; ?></p>
 											<p><strong>Секретный код: </strong><?php echo $r['item_secret']; ?></p>
 										</div>
 										<div class="result__image">

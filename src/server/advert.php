@@ -76,6 +76,63 @@
 							<span id="views" class="advert__views" title="Просмотры"></span>
 							<span class="advert__time" title="Время <?php if ($result[0]['type'] == 'found') {echo 'находки';} else {echo 'пропажи';} ?>"><?php echo $result[0]['item_date'] ?></span>
 						</p>
+
+						<?php 
+							if ($_SESSION['user_id'] != $result[0]['user_id']) {
+
+								if ($GLOBALS['isAuthorised']) { ?>
+							
+									<div class="verify"
+										 ng-controller="verifyController"
+										 ng-init="verify.hideField = true;
+										 		  verify.advertId = <?php echo $id; ?>;
+										 		  verify.advertType = '<?php echo $result[0]['type']; ?>';">
+
+										<button
+											class="btn btn-s btn-success" 
+											ng-click="verify.hideField = !verify.hideField;
+													  response.success = false;
+													  response.error = false;
+													  response.sending = false;">Сообщить</button>
+
+										<form 
+											class="verify__request"
+											method="POST"
+											action="."
+											ng-hide="verify.hideField">
+
+											<p>Отправьте заявку личным сообщением автору объявления</p>
+
+											<textarea 
+												maxlength="300"
+												class="form-control"
+												row="10"
+												cols="30"
+												ng-init="verify.request = ''"
+												ng-model="verify.request"
+												placeholder="Введите уникальную особенность (ФИО, номер лицензии, содержимое кошелька"></textarea>
+
+											<p>
+												<button
+													class="btn btn-s btn-primary"
+													ng-click="sendRequest($event);"
+													ng-disabled="response.sending || !verify.request">Отправить автору</button>
+											</p>
+
+										</form>
+
+										<p ng-show="response.success || response.error">{{response.success || response.error}}</p>
+									</div>							
+
+								<?php } else { ?>
+									
+									<p>
+										<a href="#" class="open-popup" data-type="auth">Зарегистрируйтесь</a>, чтобы отправить заявку автору объявления
+									</p>
+
+								<?php }
+
+							} ?>
 						
 						<div id="fb-root"></div>
 						<script>(function(d, s, id) {

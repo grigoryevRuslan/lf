@@ -15,7 +15,7 @@
 				$mail_delivery = 0;
 			}
 
-			if (isset($_POST['user_item'])) {
+			if (isset($_POST['user_item']) && $_POST['user_item'] != '') {
 				$user_item = $_POST['user_item'];
 				$item = '';
 			} else {
