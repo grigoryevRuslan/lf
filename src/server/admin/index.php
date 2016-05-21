@@ -83,10 +83,6 @@
 												<span class="advert__time" title="Время <?php if ($r['type'] == 'found') {echo 'находки';} else {echo 'пропажи';} ?>"><?php echo $r['item_date']; ?></span>
 											</p>
 
-											<!-- <p>
-												<a class="btn btn-xs btn-warning edit" href="edit.php?id=<?php echo $r['id']; ?>">Редактировать</a>
-											</p> -->
-
 											<p>
 												<?php if (isset($r['is_deleted'])) { ?>
 													<?php if (!$r['is_published']) { ?>
@@ -98,6 +94,7 @@
 															class="btn btn-xs btn-primary" 
 															ng-click="publishAction(<?php echo $r['id']; ?>, false)">Убрать из публикации</button>
 													<?php } ?>
+														<a class="btn btn-xs btn-warning edit" href="edit.php?id=<?php echo $r['id']; ?>">Редактировать</a>
 												<?php } else { ?>
 
 														<button 
