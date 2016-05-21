@@ -10,8 +10,7 @@
 			include_once $_SERVER['DOCUMENT_ROOT'].'/app/save_image.php';
 			
 			$id = $_GET['id'];
-			$userId = $_SESSION['user_id'];
-			$getEditQuery = $pdoConnection->prepare("SELECT * FROM items WHERE id = '$id' AND user_id = '$userId'");
+			$getEditQuery = $pdoConnection->prepare("SELECT * FROM items WHERE id = '$id'");
 			$getEditQuery->execute();
 			$resultGetEditQuery = $getEditQuery->fetchAll();
 	}

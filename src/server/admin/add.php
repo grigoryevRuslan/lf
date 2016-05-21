@@ -1,5 +1,5 @@
 <?php
-	if (!session_start()) die('Sessions does not work');
+ob_start();
 
 	include_once $_SERVER['DOCUMENT_ROOT'].'/globals/common.php';
 	include_once $_SERVER['DOCUMENT_ROOT'].'/functions/functions.php';
@@ -28,7 +28,6 @@
 			$phone = $_POST['phone'];
 			$mail = $_POST['mail'];
 			$meta = $_POST['meta'];
-			$fb_id = $_SESSION['user_id'];
 
 			if (isset($_POST['reward'])) {
 				$reward = $_POST['reward'];
@@ -71,9 +70,11 @@
 
 			if(!$result) {
 				die('Error record. ' . $connection->connect_errno . ': ' . $connection->connect_error);
+			} else {
+				header('Location: http://'.$_SERVER['HTTP_HOST'].'/admin');
 			}
 	}
-
+	ob_flush();
 ?>
 
 </body>
