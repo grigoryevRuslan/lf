@@ -237,30 +237,44 @@
 						</div>
 
 						<div class="form-group">
-							<div class="col-sm-12">
-								Поставьте маркер на место <?php if ($_GET['type'] == 'found') { ?> находки <?php } else { ?> пропажи <?php } ?> : 
-								
-								<button class="btn btn-mini btn-primary open-popup">Открыть карту</button>
+							<label class="col-sm-4">
+								Отметьте на карте место <?php if ($_GET['type'] == 'found') { ?> находки <?php } else { ?> пропажи <?php } ?> : 
+							</label>
 
+							<div class="col-sm-3">
+								<button class="btn btn-mini btn-primary open-popup">Открыть карту</button>
+							</div>
+
+							<div class="col-sm-5">
+								<div class="row">
+									<div class="col-sm-8">
+										<input type="hidden" name="coordinates" id="coordinates" />
+										<p id="gmap-address"></p>
+									</div>
+
+									<div class="col-sm-2">
+										<span id="clearAddress">&times;</span>
+									</div>
+								</div>
 							</div>
 						</div>
 
 						<div class="form-group">
-							<div class="col-sm-8">
-								<input type="hidden" name="coordinates" id="coordinates" />
-								<p id="gmap-address"></p>
-							</div>
 
-							<div class="col-sm-2">
-								<span id="clearAddress">&times;</span>
+							<label class="col-sm-4">
+								Изображение <br />(не более 10 Мб)
+							</label>
+
+							<div class="col-sm-8">
+
+								<label class="btn btn-default btn-file">
+									<span>Загрузить</span>
+									<input type='file' id="addUploadFile" name="fileToUpload" />
+								</label>
+								<img id="addUploadFilePreview" src="." alt="advert image" />
+							
 							</div>
 						</div>
-
-						<label>
-							<span>Добавьте изображение (размером не более 10 Мб):</span>
-							<input type='file' id="addUploadFile" name="fileToUpload" />
-							<img id="addUploadFilePreview" src="." alt="advert image" />
-						</label>
 
 						<label for="mail_delivery">
 							<input type="checkbox" name="mail_delivery" id="mail_delivery" checked />
