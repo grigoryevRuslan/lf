@@ -44,15 +44,15 @@
 		';
 	}
 
-	function sendMail () {
+	function sendMail($mailTo) {
 		/* тема/subject */
 		$subject = "Вы опубликовали объявление на www.luckfind.me";
 
 		/* сообщение */
-		$message = 'Спасибо. Ваше обьявление будет рассмотрено модераторами сайта.';
+		$message = 'Спасибо. Ваше обьявление будет рассмотрено и опубликовано модераторами сайта.';
 
 		mail(
-		"rus.grigoryev@gmail.com",
+		$mailTo,
 		$subject, 
 		$message,
 		"From: no-reply@luckfind.me");
