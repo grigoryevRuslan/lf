@@ -3,7 +3,7 @@
 	include_once $_SERVER['DOCUMENT_ROOT'].'/globals/common.php';
 	include_once $_SERVER['DOCUMENT_ROOT'].'/globals/db/db.php';
 
-	$query = $pdoConnection->prepare("SELECT * FROM feedback");
+	$query = $pdoConnection->prepare("SELECT * FROM feedback ORDER BY id DESC");
 	$query->execute();
 	$result = $query->fetchAll();
 
@@ -47,22 +47,25 @@
 
 					<div class="row">
 
-						<div class="col-md-8 feedbacks">
+						<div class="col-md-12 feedbacks">
 
 							<?php foreach ($result as $r) { ?>
 								
 								<div class="row">
 
-									<p>Обращение # <strong><?php echo $r['id']; ?></strong></p>
-									
 									<p>
+										Обращение # 
+										<strong><?php echo $r['id']; ?></strong>
+
+										<strong>&nbsp;&nbsp;|&nbsp;&nbsp;</strong>
+
 										<strong>Имя: </strong>
 										<span>
 											<?php echo $r['name'] ?>
 										</span>
-									</p>
 
-									<p>	
+										<strong>&nbsp;&nbsp;|&nbsp;&nbsp;</strong>
+
 										<strong>Электропочта: </strong>
 										<span>
 											<?php echo $r['mail']; ?>
