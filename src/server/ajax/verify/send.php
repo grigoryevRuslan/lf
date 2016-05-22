@@ -15,15 +15,62 @@
 		if (isset($data['request'])) { $request = $data['request'];}
 		if (isset($_SESSION['user_id'])) { $user_id = $_SESSION['user_id'];}
 
-		$query = $pdoConnection->prepare("INSERT INTO request (advert_id, user_id, advert_type, request, status) VALUES ('$advert_id', '$user_id', '$advert_type', '$request', 0)");
+		$checkLimitQuery = $pdoConnection->prepare("
+			SELECT 
+				counter 
+			FROM 
+				request_limit
+			WHERE
+				user_id = '$user_id'
+			AND
+				advert_id = '$advert_id'
+		");
+		
+		$checkLimitQuery->execute();
+		$counter = $checkLimitQuery->fetch(PDO::FETCH_NUM);
+		$response['limitCounter'] = intval($counter['0']);
 
-		$result = $query->execute();
+		if ($response['limitCounter'] < 5) {
+			$query = $pdoConnection->prepare("INSERT INTO request (advert_id, user_id, advert_type, request, status) VALUES ('$advert_id', '$user_id', '$advert_type', '$request', 0)");
 
-		if(!$result) {
-			die('Error record. ' . $connection->connect_errno . ': ' . $connection->connect_error);
+			$result = $query->execute();
+
+			if (!$counter) {
+				$actionLimitQuery = $pdoConnection->prepare("
+					INSERT INTO 
+							request_limit
+						(user_id, counter, advert_id)
+					VALUES
+						('$user_id', 1, '$advert_id')
+				");
+			} else {
+				$actionLimitQuery = $pdoConnection->prepare("
+					UPDATE
+						request_limit
+					SET
+						counter = counter + 1
+					WHERE
+						user_id = '$user_id'
+					AND
+						advert_id = '$advert_id'
+				");
+			}
+
+			$resAction = $actionLimitQuery->execute();
+
+			$response['text'] = "Заявка отправлена автору объявления.";
+			
+			if(!$result) {
+				die('Error record. ' . $connection->connect_errno . ': ' . $connection->connect_error);
+			}
+
+		} else {
+
+			$response['text'] = "Вы превысили лимит на сегодня. Попробуйте завтра.";
+
 		}
-
-		echo json_encode('Заявка отправлена автору объявления.', JSON_UNESCAPED_UNICODE);
+		
+		echo json_encode($response, JSON_UNESCAPED_UNICODE);
 
 	} else {
 	

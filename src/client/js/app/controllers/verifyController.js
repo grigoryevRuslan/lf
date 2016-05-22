@@ -16,7 +16,8 @@ app.controller('verifyController', ['$scope', '$http', function($scope, $http) {
 				}
 			}
 		).then(function success(response) {
-			$scope.response.success = response.data;
+			$scope.response.success = response.data.text;
+			$scope.response.limitCounter = response.data.limitCounter;
 			$scope.verify.hideField = true;
 		}, function error(response) {
 			$scope.response.error = response.data;
