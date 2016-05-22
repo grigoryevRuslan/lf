@@ -4,6 +4,8 @@
 	include_once $_SERVER['DOCUMENT_ROOT'].'/globals/common.php';
 	include_once $_SERVER['DOCUMENT_ROOT'].'/functions/functions.php';
 
+	if (!$GLOBALS['isAuthorised']) {header('Location: http://'.$_SERVER['HTTP_HOST'].'/');}
+	
 	renderHead('Добавление объявления', 'http://'.$_SERVER['HTTP_HOST'].'/img/svg/logo.svg', 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], 'Добавление объявления');
 
 ?>
@@ -242,7 +244,7 @@
 							</label>
 
 							<div class="col-sm-3">
-								<button class="btn btn-mini btn-primary open-popup">Открыть карту</button>
+								<button class="btn btn-mini btn-primary open-popup btn-map" data-type="map">Открыть карту</button>
 							</div>
 
 							<div class="col-sm-5">
@@ -304,12 +306,10 @@
 
 	<?php include_once $_SERVER['DOCUMENT_ROOT'].'/templates/footer/footer.php'; ?>
 		
-	<div class="popup popup_map">
-		<div class="popup__container">
-			<div id="mapCanvas" class="gmap"></div>
-			<span class="popup__close">&times;</span>
-		</div>
-	</div>
+	<?php 
+		renderPopup('feedback'); 
+		renderPopup('map'); 
+	?>
 	
 	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 	<script type="text/javascript" src="js/global/app.min.js"></script>

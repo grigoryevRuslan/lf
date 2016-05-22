@@ -1,11 +1,12 @@
 <?php 
-
 	if (!session_start()) die('Sessions does not work');
-
+	
 	include_once $_SERVER['DOCUMENT_ROOT'].'/globals/common.php';
-	include_once $_SERVER['DOCUMENT_ROOT'].'/globals/db/db.php';
 	include_once $_SERVER['DOCUMENT_ROOT'].'/functions/functions.php';
-
+	include_once $_SERVER['DOCUMENT_ROOT'].'/globals/db/db.php';
+	
+	if (!$GLOBALS['isAuthorised']) {header('Location: http://'.$_SERVER['HTTP_HOST'].'/');}
+	
 	renderHead('Личный кабинет', 'http://'.$_SERVER['HTTP_HOST'].'/img/svg/logo.svg', 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], 'Личный кабинет');
 
 	if ( $GLOBALS['isAuthorised'] ) {

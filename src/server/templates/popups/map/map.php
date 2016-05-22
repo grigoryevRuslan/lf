@@ -1,0 +1,1 @@
+<div id="mapCanvas" class="gmap"></div>

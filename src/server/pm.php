@@ -1,11 +1,12 @@
 <?php 
-	
 	if (!session_start()) die('Sessions does not work');
 	
 	include_once $_SERVER['DOCUMENT_ROOT'].'/globals/common.php';
 	include_once $_SERVER['DOCUMENT_ROOT'].'/functions/functions.php';
 	include_once $_SERVER['DOCUMENT_ROOT'].'/globals/db/db.php';
-
+	
+	if (!$GLOBALS['isAuthorised']) {header('Location: http://'.$_SERVER['HTTP_HOST'].'/');}
+	
 	if (isset($_SESSION['user_id'])) { 
 		$user_id = $_SESSION['user_id'];
 	} else {

@@ -1,8 +1,10 @@
-<?php
+<?php 
 	if (!session_start()) die('Sessions does not work');
-
+	
 	include_once $_SERVER['DOCUMENT_ROOT'].'/globals/common.php';
 	include_once $_SERVER['DOCUMENT_ROOT'].'/functions/functions.php';
+	
+	if (!$GLOBALS['isAuthorised']) {header('Location: http://'.$_SERVER['HTTP_HOST'].'/');}
 
 	if (!empty($_POST)) {
 
@@ -77,13 +79,15 @@
 					}
 				}
 			}
-
-			sendMail();
 			
 			$result = $query->execute();
 
 			if(!$result) {
 				die('Error record. ' . $connection->connect_errno . ': ' . $connection->connect_error);
+			} else {
+				if ($_POST['action'] != 'edit') {
+					sendMail();
+				}
 			}
 	}
 
