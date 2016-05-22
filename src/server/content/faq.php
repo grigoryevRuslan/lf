@@ -6,7 +6,7 @@
 	
 	include_once $_SERVER['DOCUMENT_ROOT'].'/functions/functions.php';
 
-	renderHead('Ответы на часто задаваемые вопросы.', 'http://'.$_SERVER['HTTP_HOST'].'/img/svg/logo.svg', 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], 'Ответы на часто задаваемые вопросы.');
+	renderHead('Ответы на часто задаваемые вопросы.', ''.$_SERVER['HTTP_HOST'].'/img/svg/logo.svg', 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], 'Ответы на часто задаваемые вопросы.');
 ?>
 
 	<main>

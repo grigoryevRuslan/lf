@@ -6,7 +6,7 @@
 	
 	if (!$GLOBALS['isAuthorised']) {header('Location: http://'.$_SERVER['HTTP_HOST'].'/');}
 
-	renderHead('404. Страница потерялась', 'http://'.$_SERVER['HTTP_HOST'].'/img/svg/logo.svg', 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], '404. Страница потерялась');
+	renderHead('404. Страница потерялась', ''.$_SERVER['HTTP_HOST'].'/img/svg/logo.svg', 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], '404. Страница потерялась');
 ?>
 
 	<main>

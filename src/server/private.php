@@ -7,7 +7,7 @@
 	
 	if (!$GLOBALS['isAuthorised']) {header('Location: http://'.$_SERVER['HTTP_HOST'].'/');}
 	
-	renderHead('Личный кабинет', 'http://'.$_SERVER['HTTP_HOST'].'/img/svg/logo.svg', 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], 'Личный кабинет');
+	renderHead('Личный кабинет', ''.$_SERVER['HTTP_HOST'].'/img/svg/logo.svg', 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], 'Личный кабинет');
 
 	if ( $GLOBALS['isAuthorised'] ) {
 

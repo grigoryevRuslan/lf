@@ -6,7 +6,7 @@
 	
 	if (!$GLOBALS['isAuthorised']) {header('Location: http://'.$_SERVER['HTTP_HOST'].'/');}
 	
-	renderHead('500. Внутренняя ошибка сервера', 'http://'.$_SERVER['HTTP_HOST'].'/img/svg/logo.svg', 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], '500. Внутренняя ошибка сервера');
+	renderHead('500. Внутренняя ошибка сервера', ''.$_SERVER['HTTP_HOST'].'/img/svg/logo.svg', 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], '500. Внутренняя ошибка сервера');
 ?>
 
 	<main>

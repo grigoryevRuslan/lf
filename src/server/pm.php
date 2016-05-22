@@ -51,7 +51,7 @@
 	$myRequests->execute();
 	$resultMyRequests = $myRequests->fetchAll(PDO::FETCH_ASSOC);
 
-	renderHead('Ответы на объявления', 'http://'.$_SERVER['HTTP_HOST'].'/img/svg/logo.svg', 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], 'Ответы на объявления');
+	renderHead('Ответы на объявления', ''.$_SERVER['HTTP_HOST'].'/img/svg/logo.svg', 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], 'Ответы на объявления');
 ?>
 
 	<main>

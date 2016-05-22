@@ -6,7 +6,7 @@
 	
 	include_once '../functions/functions.php';
 
-	renderHead('Политика конфеденциальности', 'http://'.$_SERVER['HTTP_HOST'].'/img/svg/logo.svg', 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], 'Политика конфеденциальности');
+	renderHead('Политика конфеденциальности', ''.$_SERVER['HTTP_HOST'].'/img/svg/logo.svg', 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], 'Политика конфеденциальности');
 ?>
 
 	<main>
