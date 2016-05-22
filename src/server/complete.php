@@ -53,7 +53,9 @@
 			if (isset($newfilename)) {
 				$fileUrl = $newfilename;
 			} else {
-				$fileUrl = 'no-image-available.png';
+				if ($_POST['action'] != 'edit') {
+					$fileUrl = 'no-image-available.png';
+				}
 			}
 
 			if (isset($_POST['secret'])) {
@@ -66,7 +68,12 @@
 				} else {
 					if ($_POST['action'] == 'edit' && isset($_POST['edit_id'])) {
 						$edit_id = $_POST['edit_id'];
-						$query = $pdoConnection->prepare("UPDATE items SET item = '$item', user_item = '$user_item', description = '$description', coordinates = '$coordinates', reward = '$reward', type = '$type', phone = '$phone', mail = '$mail', meta = '$meta', image_uri = '$fileUrl', date_publish = '$mysqltime', item_date = '$item_date', mail_delivery = '$mail_delivery', item_secret = '$secret' WHERE id = '$edit_id'");
+						if (isset($fileUrl)) {
+							$query = $pdoConnection->prepare("UPDATE items SET item = '$item', user_item = '$user_item', description = '$description', coordinates = '$coordinates', reward = '$reward', type = '$type', phone = '$phone', mail = '$mail', meta = '$meta', image_uri = '$fileUrl', date_publish = '$mysqltime', item_date = '$item_date', mail_delivery = '$mail_delivery', item_secret = '$secret' WHERE id = '$edit_id'");
+						} else {
+							$query = $pdoConnection->prepare("UPDATE items SET item = '$item', user_item = '$user_item', description = '$description', coordinates = '$coordinates', reward = '$reward', type = '$type', phone = '$phone', mail = '$mail', meta = '$meta', date_publish = '$mysqltime', item_date = '$item_date', mail_delivery = '$mail_delivery', item_secret = '$secret' WHERE id = '$edit_id'");
+						}
+						
 					}
 				}
 			}

@@ -79,9 +79,6 @@
 								
 							<label for="secret" class="col-sm-4 control-label">
 								Секретный код
-								<div class="g-info">
-									<div class="g-info__tooltip">{{sSubject.description}}</div>
-								</div>
 							</label>
 							
 							<div class="col-sm-8">
@@ -245,11 +242,11 @@
 
 							<div class="col-sm-8">
 								<label class="btn btn-default btn-file">
-									<span>Загрузить</span>
+									<span>Изменить</span>
 									<input type='file' id="addUploadFile" name="fileToUpload" />
-									
 								</label>
-								<img id="addUploadFilePreview" src="/upload/<?php echo $resultGetEditQuery[0]['image_uri']; ?>" alt="advert image" />
+								<img id="uploadFilePreview" src="/upload/<?php echo $resultGetEditQuery[0]['image_uri']; ?>" alt="advert image" />
+								<img id="addUploadFilePreview" src="." alt="advert image" />
 							</div>
 
 						</div>
