@@ -96,7 +96,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					
-					<p>Вернуться на <a href="<?php echo 'http://'.$_SERVER['HTTP_HOST']; ?>">главную</a></p>
+					<p>Объявление будет опубликовано на сайте после проверки модератором. Вернуться на <a href="<?php echo 'http://'.$_SERVER['HTTP_HOST']; ?>">главную</a></p>
 					
 				</div>
 			</div>

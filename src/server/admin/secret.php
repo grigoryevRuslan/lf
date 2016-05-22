@@ -98,7 +98,7 @@
 							placeholder="Наименование предмета"
 							required="true"
 							ng-model="name"
-							maxlength="20" />
+							maxlength="30" />
 
 					</div>
 
