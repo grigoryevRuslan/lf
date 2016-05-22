@@ -19,7 +19,13 @@
 			die('Error record. ' . $connection->connect_errno . ': ' . $connection->connect_error);
 		}
 
-		echo json_encode('Спасибо, '.$name.'! Ваше обращение будет рассмотрено в ближайшее время.', JSON_UNESCAPED_UNICODE);
+		mail(
+			"rus.grigoryev@gmail.com",
+		 	$name, 
+		 	$text,
+		 	"From: no-reply@luckfind.me");
+
+		echo json_encode('Спасибо, '.$name.'!Ваше обращение будет рассмотрено в ближайшее время.', JSON_UNESCAPED_UNICODE);
 	
 	} else {
 	

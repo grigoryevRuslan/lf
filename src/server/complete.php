@@ -70,6 +70,8 @@
 					}
 				}
 			}
+
+			sendMail();
 			
 			$result = $query->execute();
 
@@ -105,6 +107,16 @@
 	</main>
 
 	<?php include_once $_SERVER['DOCUMENT_ROOT'].'/templates/footer/footer.php'; ?>
+	
+	<?php 
+	
+		if ( !$GLOBALS['isAuthorised'] ) {
+			renderPopup('auth');
+		} else {
+			renderPopup('feedback');
+		}
+
+	?>	
 		
 	<script type="text/javascript" src="js/global/app.min.js"></script>
 	<script src="https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&amp;render=explicit" async defer

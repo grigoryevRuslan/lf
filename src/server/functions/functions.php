@@ -44,4 +44,18 @@
 		';
 	}
 
+	function sendMail () {
+		/* тема/subject */
+		$subject = "Вы опубликовали объявление на www.luckfind.me";
+
+		/* сообщение */
+		$message = 'Спасибо. Ваше обьявление будет рассмотрено модераторами сайта.';
+
+		mail(
+		"rus.grigoryev@gmail.com",
+		$subject, 
+		$message,
+		"From: no-reply@luckfind.me");
+	}
+
 ?>
