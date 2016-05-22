@@ -52,7 +52,6 @@
                 if(!$resultUserIDQuery){
                     $insertUserQuery = $pdoConnection->prepare("INSERT INTO users (Fuid, username, Femail, Fbirthday) VALUES ($_fbid, '$_fbname', '$_fbmail', '$_fbuser_birthday')");
                     $insertUserQuery->execute();
-                    $resultInsertUserQuery = $insertUserQuery->fetch();
                 } else { 
                     $updateUserQuery = $pdoConnection->prepare("UPDATE users SET username = '$_fbname', Femail = '$_fbmail', Fbirthday = '$_fbuser_birthday' where Fuid = $_fbid");
                     $updateUserQuery->execute();
