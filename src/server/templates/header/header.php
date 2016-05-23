@@ -6,20 +6,10 @@
 
 			<div class="row">
 				
-				<div class="col-md-6">
+				<div class="col-md-12">
 				
 					<?php include_once $_SERVER['DOCUMENT_ROOT'].'/templates/header/donate/donate.php'; ?>
 					
-				</div>
-
-				<div class="col-md-6">
-					
-					<?php if ( $GLOBALS['isAuthorised'] ) { ?>
-							
-						<button class="btn btn-success open-popup btn-feedback" data-type="feedback">Задать вопрос</button>	
-
-					<?php }?>
-
 				</div>
 
 			</div>

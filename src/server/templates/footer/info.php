@@ -4,6 +4,7 @@
 		<li><a href="http://<?php echo $GLOBALS['domain'] ?>/content/about.php">О проекте</a></li>
 		<li><a href="http://<?php echo $GLOBALS['domain'] ?>/content/faq.php">Часто задаваемые вопросы</a></li>
 		<li><a href="http://<?php echo $GLOBALS['domain'] ?>/content/privacy.php">Политика конфеденциальности</a></li>
+		<li><a class="open-popup btn-feedback" href="#" data-type="feedback">Задать вопрос</a></li>
 	</ul>
 
 	<p class="info__copyright">
