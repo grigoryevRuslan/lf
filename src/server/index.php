@@ -15,12 +15,8 @@
 	<main>
 		
 		<?php 
-
 			include_once $_SERVER['DOCUMENT_ROOT'].'/templates/header/header.php';
 			include_once $_SERVER['DOCUMENT_ROOT'].'/templates/controls/controls.php';
-			include_once $_SERVER['DOCUMENT_ROOT'].'/templates/counter/counter.php';
-			include_once $_SERVER['DOCUMENT_ROOT'].'/templates/latest/latest.php';
-
 		?>
 		
 		<div class="container" ng-controller="gmapController">
@@ -40,6 +36,13 @@
 			</div>
 
 		</div>
+
+		<?php 
+			if ( $GLOBALS['isAuthorised'] ) {
+				include_once $_SERVER['DOCUMENT_ROOT'].'/templates/counter/counter.php';
+				include_once $_SERVER['DOCUMENT_ROOT'].'/templates/latest/latest.php';
+			}
+		?>
 
 	</main>
 

@@ -2,11 +2,11 @@
 	
 	<div class="row">
 		
-		<div class="col-xs-6 col-md-4 text-right">
+		<div class="col-xs-5 col-md-4 text-center controls__btn">
 
 			<?php if ( $GLOBALS['isAuthorised'] ) { ?>
 			
-				<a href="http://<?php echo $GLOBALS['domain']; ?>/add.php?type=found" class="btn btn-success">Я нашел</a>
+				<a href="http://<?php echo $GLOBALS['domain']; ?>/add.php?type=found" class="btn btn-success">Добавить находку</a>
 
 			<?php } ?>
 
@@ -33,11 +33,11 @@
 
 		</div>
 
-		<div class="col-md-4 text-left">
+		<div class="col-md-4 text-center controls__btn btn_lost">
 
 			<?php if ( $GLOBALS['isAuthorised'] ) { ?>
 			
-				<a href="http://<?php echo $GLOBALS['domain']; ?>/add.php?type=lost" class="btn btn-warning">Я потерял</a>
+				<a href="http://<?php echo $GLOBALS['domain']; ?>/add.php?type=lost" class="btn btn-warning">Добавить пропажу</a>
 
 			<?php } ?>
 

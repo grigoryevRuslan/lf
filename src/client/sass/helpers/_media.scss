@@ -18,6 +18,14 @@
 		A.btn {
 			margin: 10px 0;
 		}
+
+		.text-center {
+			padding: 0;
+		}
+
+		.btn_lost {
+			text-align: right;
+		}
 	}
 
 	.advert .results {
@@ -54,11 +62,19 @@
 
 	.counter,
 	.latest {
-		margin-bottom: 7px;
+		margin-top: 10px;
 
 		P {
 			font-size: 12px;
 			text-align: center;
+		}
+	}
+
+	footer {
+		.info__links {
+			LI {
+				display: block;
+			}
 		}
 	}
 }

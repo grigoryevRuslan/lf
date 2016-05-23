@@ -1,6 +1,6 @@
 <div class="container latest" ng-controller="latestController">
 	<div class="row">
-		<div class="col-md-12 text-right">
+		<div class="col-md-12">
 			
 			<p ng-show="latest[0]">
 				<span style="color: red;">Новое!&nbsp;&nbsp;</span>
