@@ -33,17 +33,19 @@
 
 					<div class="col-xs-3 text-center">
 						<span class="step" 
-							  ng-class="((iSubject != '' || sSubject != '') && sSubject != null && (sSubject.id != 1000 || iSubject != '')) ? 'step_check' : ''"></span>
+							  ng-init="iSubject = ''"
+							  ng-class="!!iSubject || (sSubject != '' && sSubject != null && sSubject.id != 1000) ? 'step_check' : ''"></span>
 					</div>
 
-					<div class="col-xs-3 text-center">
+					<div class="col-xs-3 text-center"
+						ng-init="sSubject = ''">
 						<div class="step"
 							 ng-class="(description && description != '') ? 'step_check' : ''"></div>
 					</div>
 
 					<div class="col-xs-3 text-center">
 						<div class="step"
-							 ng-class="(phone || mail) ? 'step_check' : ''"></div>
+							 ng-class="(mail != '' &&mail) ? 'step_check' : ''"></div>
 					</div>
 
 					<div class="col-xs-3 text-center">
@@ -93,8 +95,7 @@
 										name="item"
 										id="item"
 										ng-model="sSubject"
-										ng-init="sSubject = ''"
-										ng-change="iSubject = ''"
+							 		    ng-change="iSubject = ''"
 										ng-options="code as code.name for code in codes track by code.name">
 										<option value="">Выберите из списка ниже:</option>
 								</select>
@@ -136,7 +137,7 @@
 									class="form-control" 
 									placeholder="название предмета"
 									ng-model="iSubject"
-									ng-init="iSubject = ''" />
+									ng-required="sSubject.id == 1000" />
 							</div>
 						</div>
 
@@ -163,7 +164,7 @@
 									maxlength="300" 
 									class="form-control" 
 									placeholder="введите всю информацию"
-									required></textarea>
+									required ></textarea>
 							</div>
 						</div>
 
@@ -197,33 +198,32 @@
 						<div class="form-group">
 							<label class="col-sm-4 control-label" for="phone">Телефон:</label>
 							<div class="col-sm-8">
-								<strong class="phone_prefix">+3</strong>
 								<input 
 									type="text" 
 									name="phone" 
 									id="phone" 
-									class="form-control" 
-									placeholder="номер телефона" 
-									maxlength="10"
-									minlength="10" 
 									ng-model="phone"
-									numeric-only />
+									ng-init="phone = ''"
+									class="form-control" 
+									placeholder="(___) ___-__-__"
+									ui-mask="(999) 999-99-99"
+									ui-mask-placeholder
+									ui-mask-placeholder-char="_" />
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label class="col-sm-4 control-label" for="mail">E-mail:</label>
 							<div class="col-sm-8">
-								<span 
-									class="form-error"
-									ng-show="!form.mail.$valid">Неверный формат почты</span>
 								<input 
 									type="email" 
 									name="mail" 
 									id="mail" 
 									class="form-control" 
 									placeholder="электронная почта"
-									ng-model="mail" />
+									ng-model="mail"
+									ng-init="mail = ''"
+									required />
 							</div>
 						</div>
 
@@ -294,7 +294,7 @@
 							<button 
 								type="submit" 
 								class="btn btn-primary"
-								ng-disabled="!submitted || !description || description == '' || ((sSubject.id == '' || sSubject == '' || sSubject == null || sSubject.id == 1000) && iSubject == '') || (!phone && !mail) || !form.$valid" />Добавить!</button>
+								ng-disabled="!submitted || !description || description == '' || ((sSubject.id == '' || sSubject == '' || sSubject == null || sSubject.id == 1000) && iSubject == '') || !mail || !form.$valid" />Добавить!</button>
 						</p>
 					</form>
 				</div>

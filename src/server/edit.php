@@ -109,9 +109,10 @@
 									ng-model="iSubject"
 									ng-init="
 										<?php if ($resultGetEditQuery[0]['item'] == '') { ?>
-											iSubject = '<?php echo $resultGetEditQuery[0]['user_item']; ?>';
+											iSubject = '<?php echo $resultGetEditQuery[0]['user_item']; ?>'
 											sSubject.id = 1000;
-										<?php } else { echo ''; } ?>" />
+										<?php } else { ?>iSubject = '';<?php } ?>" 
+									ng-required="sSubject.id == 1000" />
 							</div>
 						</div>
 
@@ -134,11 +135,12 @@
 									name="description" 
 									ng-init="description = '<?php echo $resultGetEditQuery[0]['description']; ?>'"
 									ng-bind="description"
+									ng-model="description"
 									id="description" 
 									maxlength="300" 
 									class="form-control" 
 									placeholder="введите всю информацию"
-									required><?php echo $resultGetEditQuery[0]['description'] ?></textarea>
+									required ><?php echo $resultGetEditQuery[0]['description'] ?></textarea>
 							</div>
 						</div>
 
@@ -171,27 +173,23 @@
 						<div class="form-group">
 							<label class="col-sm-4 control-label" for="phone">Телефон:</label>
 							<div class="col-sm-8">
-								<strong class="phone_prefix">+3</strong>
 								<input 
 									type="text" 
 									name="phone" 
 									id="phone" 
-									class="form-control" 
-									placeholder="номер телефона" 
-									maxlength="10"
-									minlength="10"
 									ng-model="phone"
-									numeric-only
-									ng-init="phone = '<?php echo $resultGetEditQuery[0]['phone'] ?>'" />
+									ng-init="phone = '<?php echo $resultGetEditQuery[0]['phone'] ?>'"
+									class="form-control" 
+									placeholder="(___) ___-__-__"
+									ui-mask="(999) 999-99-99"
+									ui-mask-placeholder
+									ui-mask-placeholder-char="_" />
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label class="col-sm-4 control-label" for="mail">E-mail:</label>
 							<div class="col-sm-8">
-								<span 
-									class="form-error"
-									ng-show="!form.mail.$valid">Неверный формат почты</span>
 								<input 
 									type="email" 
 									name="mail" 
@@ -199,7 +197,8 @@
 									class="form-control" 
 									placeholder="электронная почта"
 									ng-model="mail"
-									ng-init="mail = '<?php echo $resultGetEditQuery[0]['mail'] ?>'" />
+									ng-init="mail = '<?php echo $resultGetEditQuery[0]['mail'] ?>'" 
+									required />
 							</div>
 						</div>
 
@@ -269,7 +268,7 @@
 							<button 
 								type="submit" 
 								class="btn btn-primary"
-								ng-disabled="!submitted || !description || description == '' || ((sSubject.id == '' || sSubject == '' || sSubject == null || sSubject.id == 1000) && iSubject == '') || (!phone && !mail) || !form.$valid" />Сохранить</button>
+								ng-disabled="!submitted || !description || description == '' || ((sSubject.id == '' || sSubject == '' || sSubject == null || sSubject.id == 1000) && iSubject == '') || !mail || !form.$valid" />Сохранить</button>
 						</p>
 					</form>
 				</div>

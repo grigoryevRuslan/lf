@@ -147,7 +147,6 @@
 		INPUT#datepicker {
 			display: inline-block;
 			vertical-align: middle;
-			width: 83%;
 			margin-right: 3px;
 		}
 
@@ -155,6 +154,10 @@
 			background: none;
 			outline: none;
 			border: none;
+			position: absolute;
+			z-index: 10;
+			top: -1px;
+			right: 11px;
 		}
 	}
 
@@ -172,5 +175,11 @@
 
 	#gmap-address {
 		margin: 0;
+	}
+
+	INPUT.ng-invalid,
+	TEXTAREA.ng-invalid,
+	SELECT.ng-empty {
+		border-color: red;
 	}
 }
