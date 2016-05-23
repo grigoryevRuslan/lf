@@ -1,3 +1,5 @@
+<div class="popup__header">Задайте нам любой вопрос:</div>
+
 <form 
 	method="POST" 
 	class="form form_feedback"
@@ -6,7 +8,6 @@
 	ng-controller="feedbackController"
 	validate="true">
 	
-	<h2 class="text-center">Задайте нам любой вопрос:</h2>
 	
 	<input 
 		class="form-control"

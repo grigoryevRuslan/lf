@@ -14,20 +14,6 @@
 		}
 	}
 
-	.auth__fb {
-
-		A {
-			@include sprite($icon-fb);
-		}
-	}
-
-	.auth__simple {
-
-		A {
-			@include sprite($icon-simple-reg);
-		}
-	}
-
 	&__info {
 
 		IMG {

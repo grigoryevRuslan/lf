@@ -1,4 +1,7 @@
+
 <div ng-controller="authController">
+	
+	<div class="popup__header">{{head}}</div>
 	
 	<form 
 		class="form form_signin ajax" 
@@ -6,18 +9,14 @@
 		action="http://<?php echo $_SERVER['HTTP_HOST']; ?>/ajax/authentication.php" 
 		id="formLogin"
 		name="loginForm"
-		ng-init="login = true"
+		ng-init="login = true;head = 'Вход'"
 		ng-show="login == true">
 
 		<div class="form__error alert alert-danger"></div>
 
-		<input name="username" type="email" class="form-control" placeholder="почта" autofocus ng-model="email">
-		
-		<span 
-			class="form-error"
-			ng-show="!loginForm.$valid">Неверный формат почты</span>
+		<input name="username" type="email" class="form-control" placeholder="почта" autofocus ng-model="email" required />
 
-		<input name="password" type="password" class="form-control" placeholder="пароль">
+		<input name="password" type="password" class="form-control" placeholder="пароль" required />
 		
 		<label class="checkbox">
 			<input name="remember-me" type="checkbox" value="remember-me" checked>Запомнить меня
@@ -27,8 +26,10 @@
 		
 		<button class="btn btn-primary" type="submit" ng-disabled="!loginForm.$valid">Войти</button>
 
+		<a class="btn btn-primary" href="http://<?php echo $GLOBALS['domain']; ?>/app/facebook.php">Войти через facebook</a>
+
 		<div class="alert alert-info" style="margin-top:15px;">
-			<p>Ещё нет аккаунта? <a href="#"  id="register-btn" ng-click="moveToRegister()">Зарегистрируйтесь.</a>
+			<p>Ещё нет аккаунта? <a href="#"  id="register-btn" ng-click="moveToRegister();head='Регистрация'">Зарегистрируйтесь.</a>
 		</div>
 	</form>
 
@@ -38,20 +39,16 @@
 		action="http://<?php echo $_SERVER['HTTP_HOST']; ?>/ajax/authentication.php" 
 		id="formRegister"
 		name="registerForm"
-		ng-init="enter = false"
+		ng-init="enter = false;"
 		ng-show="enter == true">
 
 		<div class="form__error alert alert-danger"></div>
 
-		<input name="username" type="email" ng-model="emailNew" class="form-control" placeholder="почта" autofocus required="true">
+		<input name="username" type="email" ng-model="emailNew" class="form-control" placeholder="почта" autofocus required />
 		
-		<span 
-			class="form-error"
-			ng-show="!registerForm.username.$valid">Неверный формат почты</span>
+		<input name="password1" type="password" class="form-control" placeholder="пароль" required />
 
-		<input name="password1" type="password" class="form-control" placeholder="пароль">
-
-		<input name="password2" type="password" class="form-control" placeholder="подтвердите пароль">
+		<input name="password2" type="password" class="form-control" placeholder="подтвердите пароль" required />
 
 		<input type="hidden" name="act" value="register">
 
@@ -75,11 +72,11 @@
 		<button 
 			class="btn btn-primary" 
 			type="submit"
-			ng-disabled="!privacy || !registerForm.$valid || !submitted">Регистрация</button>
+			ng-disabled="!privacy || !registerForm.$valid || !submitted">Зарегистрироваться</button>
 
 
 		<div class="alert alert-info" style="margin-top:15px;">
-			<p>Уже есть аккаунт? <a href="#"  id="login-btn" ng-click="login = true;enter = false;">Войти.</a>
+			<p>Уже есть аккаунт? <a href="#"  id="login-btn" ng-click="login = true;enter = false;;head='Вход'">Войти.</a>
 		</div>
 	</form>
 </div>
