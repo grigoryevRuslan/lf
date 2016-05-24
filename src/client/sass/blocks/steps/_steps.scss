@@ -12,4 +12,57 @@
 	&_wrapper {
 		padding-bottom: 20px;
 	}
+
+	&_main {
+		margin: 20px auto 20px;
+
+		P {
+			color: #5e686e;
+			font-size: 16px;
+			text-align: center;
+		}
+
+		.visual {
+			position: absolute;
+			z-index: 10;
+			top: 0px;
+			left: 0px;
+			right: 0px;
+			height: 5px;
+			background: $gray-light;
+
+			&:before {
+				content: '';
+				position: absolute;
+				display: inline-block;
+				z-index: 20;
+				top: -8px;
+				left: 0px;
+				@include sprite($icon-connection-link);
+			}
+		}
+
+		.item {
+			position: relative;
+			padding-top: 20px;
+
+			&:first-child {
+				.visual:before {
+					@include sprite($icon-connection-link-start);
+				}
+			}
+
+			&:last-child {
+				.visual:after {
+					content: '';
+					position: absolute;
+					display: inline-block;
+					z-index: 20;
+					top: -8px;
+					right: 0px;
+					@include sprite($icon-connection-link-end);
+				}
+			}
+		}
+	}
 }

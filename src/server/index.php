@@ -39,6 +39,7 @@
 
 		<?php 
 			if ( $GLOBALS['isAuthorised'] ) {
+				include_once $_SERVER['DOCUMENT_ROOT'].'/templates/steps/main.php';
 				include_once $_SERVER['DOCUMENT_ROOT'].'/templates/counter/counter.php';
 				include_once $_SERVER['DOCUMENT_ROOT'].'/templates/latest/latest.php';
 			}

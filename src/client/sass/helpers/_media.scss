@@ -97,4 +97,17 @@
 	.gmap-wrapper .gmap #clusterMap {
 		min-height: 300px;
 	}
+
+	.steps_main .visual:before,
+	.steps_main .visual:after {
+		left: 45%;
+	}
+
+	.steps_main .visual:after {
+		left: 44%;
+	}
+
+	.steps_main .item:last-child .visual:before {
+		display: none;
+	}
 }
