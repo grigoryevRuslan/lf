@@ -19,7 +19,7 @@
 			include_once $_SERVER['DOCUMENT_ROOT'].'/templates/controls/controls.php';
 		?>
 		
-		<div class="container" ng-controller="gmapController">
+		<div class="container gmap-wrapper" ng-controller="gmapController">
 			
 			<div class="row gmap">
 
