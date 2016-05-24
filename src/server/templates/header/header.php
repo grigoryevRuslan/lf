@@ -2,8 +2,15 @@
 	
 	<div class="row">
 
-		<div class="col-md-4">
-
+		<div class="col-xs-12 col-md-4 user-links" ng-controller="pmController">
+				
+			<?php 
+				if ( $GLOBALS['isAuthorised'] ) {
+					
+					include_once $_SERVER['DOCUMENT_ROOT'].'/templates/header/user/links.php';
+					
+				}
+			?>
 		</div>
 
 		<div class="col-xs-5 col-md-4 logo">

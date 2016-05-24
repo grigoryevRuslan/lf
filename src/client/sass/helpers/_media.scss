@@ -37,10 +37,21 @@
 		}
 	}
 
-	.popup .popup__container {
-	    width: 90%;
-	    margin-left: -45%;
-	    padding: 25px 10px 10px 10px;
+	.popup {
+
+		.popup__container {
+		    width: 90%;
+		    margin-left: -45%;
+
+		    .form_feedback,
+		    .form_signin {
+		    	padding: 25px 10px 10px 10px;
+		    }
+		}
+
+		.popup__header {
+			font-size: 15px;
+		}
 	}
 
 	.form {
@@ -70,6 +81,16 @@
 			LI {
 				display: block;
 			}
+		}
+	}
+
+	.user-links {
+		text-align: center;
+		margin-bottom: 10px;
+
+		P {
+			display: inline-block;
+			padding: 0 10px;
 		}
 	}
 }
