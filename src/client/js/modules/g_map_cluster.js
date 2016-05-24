@@ -117,25 +117,29 @@ $(document).ready(function() {
 
 	if ($('.switch-markers').length) {
 		$('.switch-markers .icon').on('click', function() {
-			mc.clearMarkers();
-			var type = $(this).data('show'),
-				newMarkers = [];
-			for (var i = 0; i < markers.length; i++) {
-				if (type !== 'all') {
-					markers[i].setVisible(false);
-					if (markers[i].type === type) {
+			if (!$(this).hasClass('icon_active')) {
+				$('.switch-markers .icon').removeClass('icon_active');
+				$(this).addClass('icon_active');
+				mc.clearMarkers();
+				var type = $(this).data('show'),
+					newMarkers = [];
+				for (var i = 0; i < markers.length; i++) {
+					if (type !== 'all') {
+						markers[i].setVisible(false);
+						if (markers[i].type === type) {
+							markers[i].setVisible(true);
+							newMarkers.push(markers[i]);
+						} else {
+							markers[i].setVisible(false);
+						}
+					} else {
 						markers[i].setVisible(true);
 						newMarkers.push(markers[i]);
-					} else {
-						markers[i].setVisible(false);
 					}
-				} else {
-					markers[i].setVisible(true);
-					newMarkers.push(markers[i]);
 				}
-			}
 
-			createCluster(newMarkers);
+				createCluster(newMarkers);
+			}
 		});
 	}
 

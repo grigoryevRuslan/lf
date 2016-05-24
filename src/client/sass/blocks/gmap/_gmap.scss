@@ -28,23 +28,33 @@
 		.icon {
 			display: inline-block;
 			vertical-align: middle;
-			width: 25px;
-			height: 25px;
 			margin: 0 4px;
 			border-radius: 4px;
 			cursor: pointer;
 		}
 
 		&__show-lost {
-			background: $orange;
+			@include sprite($icon-markers-lost);
+
+			&.icon_active {
+				@include sprite($icon-markers-lost-active);
+			}
 		}
 
 		&__show-found {
-			background: $green;
+			@include sprite($icon-markers-found);
+
+			&.icon_active {
+				@include sprite($icon-markers-found-active);
+			}
 		}
 
 		&__show-all {
-			background: $gray;
+			@include sprite($icon-markers-all);
+
+			&.icon_active {
+				@include sprite($icon-markers-all-active);
+			}
 		}
 	}
 }
