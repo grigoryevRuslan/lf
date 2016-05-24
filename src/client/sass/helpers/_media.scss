@@ -26,14 +26,22 @@
 	.advert .results {
 		width: 100%;
 
-		LI .result__content,
-		LI .result__image {
-			display: block;
-			width: 100%;
-		}
+		LI {
+			padding: 20px 20px 30px 20px;
 
-		LI .result__image {
-			text-align: center;
+			.result__content,
+			.result__image {
+				display: block;
+				width: 100%;
+			}
+
+			.result__image {
+				text-align: center;
+			}
+			
+			.result__badge {
+				left: 20px;
+			}
 		}
 	}
 

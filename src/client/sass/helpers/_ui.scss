@@ -46,3 +46,9 @@
 .btn {
 	box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.3);
 }
+
+.pagination > .active > span,
+.pagination > .active > span:hover {
+	background: $gray;
+	border-color: $gray-light;
+}

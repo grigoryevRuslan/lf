@@ -1,6 +1,6 @@
 <form 
 	method="POST" 
-	class="form"
+	class="form form_remove"
 	action='<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/private.php' ?>' >
 	
 	<input type="hidden" name="delete" id="ad-remove"></input>

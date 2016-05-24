@@ -55,49 +55,14 @@
 	<main>
 		
 		<?php 
-
 			include_once $_SERVER['DOCUMENT_ROOT'].'/templates/header/header.php';
-
-			if ($amount == 0) {
-
-				include_once $_SERVER['DOCUMENT_ROOT'].'/templates/controls/controls.php';
-
-			}
-
+			include_once $_SERVER['DOCUMENT_ROOT'].'/templates/controls/controls.php';
 		?>
 
 		<div class="container results advert">
-	
-			<?php if ($amount > 5) { ?>
-				
-				<div class="row text-center">
-					<ul class="pagination">
-						
-						<?php for ($i = 0; $i <= $amount; $i+=5) { 
-							if ($i == $from) { ?>
-								
-								<li class="active">
-									<span><?php echo $i; ?>-<?php echo ($i + 5); ?></span>
-								</li>
-								
-							<?php } else { ?>
-							
-								<li>
-									<a href="/private.php?from=<?php echo $i; ?>">
-										<?php echo $i; ?>-<?php echo ($i + 5); ?>
-									</a>
-								</li>
-
-							<?php }
-
-						} ?>		
-
-					</ul>
-				</div>
-
-			<?php } ?>
 
 			<div class="row">
+			
 					<?php 
 						if (!empty($result)) {
 					?>
@@ -106,11 +71,12 @@
 					<ul class="results">
 						<?php foreach ($result as $r) { ?>
 							<li class="result <?php echo $r['type']; ?>">
+								<div class="result__badge">
+									<?php if($r['type'] == 'found'){echo 'Найден';} else {echo 'Потерян';} ?>
+								</div>
 								<div class="result__content">
 									<?php if (isset($r['date_publish'])) { ?>
-										<p class='text-left'>
-											<span class="time">Добавлено: <?php echo $r['date_publish'] ?></span>
-										</p>
+										<span class="time">Добавлено: <?php echo $r['date_publish'] ?></span>
 									<?php } ?>
 									
 									<a href="advert.php?id=<?php echo $r['id']; ?>">
@@ -130,7 +96,15 @@
 									<?php if (isset($r['meta']) && $r['meta'] != "") { ?>
 										<p>
 											<b>Тэги объявления: </b>
-											<span class="result-keywords"><?php echo $r['meta']; ?></span>
+											<span class="result-keywords">
+												<?php
+													$meta = explode(',', $r['meta']);
+													foreach ($meta as $metakey) {
+														$metatext = trim($metakey);
+														echo "<a href='http://".$_SERVER['HTTP_HOST']."/search.php?q=".$metatext."' class='result__tag'>".$metatext."</a>, ";
+													}
+												?>
+											</span>
 										</p>
 									<?php } ?>
 
@@ -162,7 +136,41 @@
 					<?php } ?>
 
 			</div>
+
 		</div>
+
+		<?php if ($amount > 5) { ?>
+
+			<div class="container">
+				
+				<div class="row text-center">
+					<ul class="pagination">
+						
+						<?php for ($i = 0; $i <= $amount; $i+=5) { 
+							if ($i == $from) { ?>
+								
+								<li class="active">
+									<span><?php echo $i; ?>-<?php echo ($i + 5); ?></span>
+								</li>
+								
+							<?php } else { ?>
+							
+								<li>
+									<a href="/private.php?from=<?php echo $i; ?>">
+										<?php echo $i; ?>-<?php echo ($i + 5); ?>
+									</a>
+								</li>
+
+							<?php }
+
+						} ?>		
+
+					</ul>
+				</div>
+
+			</div>
+
+		<?php } ?>
 		
 	</main>
 	
