@@ -19,6 +19,14 @@
 		</div>
 	</div>
 
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<?php include_once $_SERVER['DOCUMENT_ROOT'].'/templates/header/donate/donate.php'; ?>
+			</div>
+		</div>
+	</div>
+
 	<p class="info__copyright">
 		Copyright&nbsp;&nbsp;©&nbsp;&nbsp;2016&nbsp;&nbsp;<a href="http://<?php echo $GLOBALS['domain']; ?>">www.luckfind.me</a>
 	</p>

@@ -4,16 +4,6 @@
 
 		<div class="col-md-4">
 
-			<div class="row">
-				
-				<div class="col-md-12">
-				
-					<?php include_once $_SERVER['DOCUMENT_ROOT'].'/templates/header/donate/donate.php'; ?>
-					
-				</div>
-
-			</div>
-
 		</div>
 
 		<div class="col-xs-5 col-md-4 logo">

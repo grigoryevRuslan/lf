@@ -14,8 +14,8 @@
 			position: absolute;
 			border: none;
 			z-index: 11;
-			top: 4px;
-			right: 4px;
+			top: 0px;
+			right: 1px;
 			background: #fff;
 			padding: 5px 12px;
 			@include sprite($icon-search);

@@ -26,9 +26,9 @@
 				<input type="text" class="form-control" placeholder="Введите улицу, район, город ..." id="searchPlace" />
 
 				<div class="switch-markers">
-					<span class="icon icon_active switch-markers__show-all" data-show="all"></span>
-					<span class="icon switch-markers__show-found" data-show="found"></span>
-					<span class="icon switch-markers__show-lost" data-show="lost"></span>
+					<span class="icon switch-markers__show-all" data-show="all" title="Показать всё"></span>
+					<span class="icon icon_active switch-markers__show-found" data-show="found" title="Показать находки"></span>
+					<span class="icon switch-markers__show-lost" data-show="lost" title="Показать пропажи"></span>
 				</div>
 
 				<div class="col-md-12" id="clusterMap"></div>
