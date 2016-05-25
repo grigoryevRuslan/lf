@@ -38,7 +38,7 @@
 				z-index: 20;
 				top: -8px;
 				left: 0px;
-				@include sprite($icon-connection-link);
+				@include sprite($icon-link);
 			}
 		}
 
@@ -48,7 +48,7 @@
 
 			&:first-child {
 				.visual:before {
-					@include sprite($icon-connection-link-start);
+					@include sprite($icon-link-start);
 				}
 			}
 
@@ -60,7 +60,30 @@
 					z-index: 20;
 					top: -8px;
 					right: 0px;
-					@include sprite($icon-connection-link-end);
+					@include sprite($icon-link-end);
+				}
+			}
+		}
+	}
+
+	&_form {
+		.step_check {
+			.visual {
+				background: $green;
+				&:before {
+					@include sprite($icon-link-active);
+				}
+			}
+
+			&:first-child {
+				.visual:before {
+					@include sprite($icon-link-start-active);
+				}
+			}
+
+			&:last-child {
+				.visual:after {
+					@include sprite($icon-link-end-active);
 				}
 			}
 		}

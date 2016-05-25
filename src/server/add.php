@@ -15,49 +15,13 @@
 	<?php 
 
 		include_once $_SERVER['DOCUMENT_ROOT'].'/templates/header/header.php';
+		include_once $_SERVER['DOCUMENT_ROOT'].'/templates/controls/controls.php';
 
 	?>
-		<?php if ($_GET['type'] == 'found') { ?>
-				<h4 class="text-center" style="margin: 40px 0;">Итак, вы что-то нашли. Чтобы быстрее вернуть это владельцу, пожалуйста заполните форму ниже: </h4>
-		<?php } else { ?>
-				<h4 class="text-center" style="margin: 40px 0;">Итак, вы что-то потеряли. Чтобы быстрее это найти, пожалуйста заполните форму ниже: </h4>
-		<?php } ?>
 	
 		<div class="container" ng-controller="addAdvertController">
 
-			<div class="row steps_wrapper">
-				
-				<div class="col-md-3"></div>
-
-				<div class="col-md-6 steps">
-
-					<div class="col-xs-3 text-center">
-						<span class="step" 
-							  ng-init="iSubject = ''"
-							  ng-class="!!iSubject || (sSubject != '' && sSubject != null && sSubject.id != 1000) ? 'step_check' : ''"></span>
-					</div>
-
-					<div class="col-xs-3 text-center"
-						ng-init="sSubject = ''">
-						<div class="step"
-							 ng-class="(description && description != '') ? 'step_check' : ''"></div>
-					</div>
-
-					<div class="col-xs-3 text-center">
-						<div class="step"
-							 ng-class="(mail != '' &&mail) ? 'step_check' : ''"></div>
-					</div>
-
-					<div class="col-xs-3 text-center">
-						<div class="step"
-							 ng-class="submitted ? 'step_check' : ''"></div>
-					</div>
-
-				</div>
-
-				<div class="col-md-3"></div>
-			
-			</div>
+			<?php include_once $_SERVER['DOCUMENT_ROOT'].'/templates/steps/form.php'; ?>
 
 			<div class="row">
 				<div class="col-md-3"></div>
