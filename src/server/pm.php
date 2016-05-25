@@ -14,18 +14,12 @@
 	}
 
 	$requestToMeQuery = "
-		SELECT 
-			a.item, a.user_item, a.item_secret, a.phone, a.mail, b.id, b.advert_id, b.user_id, b.advert_type, b.request, b.status
-		FROM 
-			items a, request b 
-		WHERE 
-			a.user_id = '$user_id' 
-		AND 
-			a.is_published = 1 
-		AND 
-			b.advert_id = a.id 
-		AND 
-			b.user_id != '$user_id'
+		SELECT i.id, i.item, i.user_item, i.item_secret, r.user_id, r.id as req_id, r.request, r.status, u.username
+		FROM items i
+		INNER JOIN request r ON i.id = r.advert_id
+		INNER JOIN users u  ON u.Fuid = r.user_id
+		WHERE i.user_id = '$user_id'
+		AND i.is_published = 1
 	";
 
 	$requestToMe = $pdoConnection->prepare($requestToMeQuery);
@@ -82,9 +76,9 @@
 								<?php foreach ($resultRequestToMe as $r) { ?>
 									<tr 
 										class="request__item"
-										ng-init="reqs[<?php echo $r['id']; ?>] = {isAction: false}">
+										ng-init="reqs[<?php echo $r['req_id']; ?>] = {isAction: false}">
 										<td>
-											<a href="/advert.php?id=<?php echo $r['advert_id']; ?>">
+											<a href="/advert.php?id=<?php echo $r['id']; ?>">
 												<?php if (isset($r['item']) && $r['item'] != '') {echo $r['item'];} else {echo $r['user_item'];} ?>
 											</a>
 										</td>
@@ -123,17 +117,11 @@
 														case 1: {
 																echo "<span>Вы одобрили запрос. <br />Ваши контактные данные отправлены автору объявления.</span>
 																	<p>Контакты автора: </p>";
-																
-																if (isset($r['phone']) && $r['phone'] != '') {
-																	echo "<p><strong>Телефон:</strong> +38".
-																		$r['phone'].
-																		"</p>";
-																}
 
-																if (isset($r['mail']) && $r['mail'] != '') {
+																if (isset($r['username']) && $r['username'] != '') {
 																	echo '<p><strong>Почта:  </strong>'.
-																		'<a href="mailto:'.$r['mail'].'"'.'>'.
-																		$r['mail'].
+																		'<a href="mailto:'.$r['username'].'"'.'>'.
+																		$r['username'].
 																		'</a></p>';
 																}
 
@@ -156,15 +144,15 @@
 											<td>
 												<button 
 													class="btn btn-sm btn-success"
-													ng-click="actionRequest(<?php echo $r['id']; ?>, true)"
-													ng-disabled="reqs[<?php echo $r['id']; ?>].isAction">Открыть контакты</button>
+													ng-click="actionRequest(<?php echo $r['req_id']; ?>, true)"
+													ng-disabled="reqs[<?php echo $r['req_id']; ?>].isAction">Открыть контакты</button>
 											</td>
 
 											<td>
 												<button 
 													class="btn btn-sm btn-danger"
-													ng-click="actionRequest(<?php echo $r['id']; ?>, false)"
-													ng-disabled="reqs[<?php echo $r['id']; ?>].isAction">Отклонить запрос</button>
+													ng-click="actionRequest(<?php echo $r['req_id']; ?>, false)"
+													ng-disabled="reqs[<?php echo $r['req_id']; ?>].isAction">Отклонить запрос</button>
 											</td>	
 
 										<?php } else { ?>
@@ -221,12 +209,6 @@
 
 										<td>
 											<p>
-												<?php echo $r['request']; ?>
-											</p>
-										</td>
-
-										<td>
-											<p>
 												
 												<?php if (isset($r['item_secret']) && $r['item_secret'] != '') {
 
@@ -238,6 +220,12 @@
 
 												}?>
 
+											</p>
+										</td>
+
+										<td>
+											<p>
+												<?php echo $r['request']; ?>
 											</p>
 										</td>
 
