@@ -97,6 +97,11 @@
                                 $row = $rows[$id];
                                 ?>
                                     <li class="result <?php echo $row['type']; ?>">
+                                        
+                                        <div class="result__badge">
+                                            <?php if($row['type'] == 'found'){echo 'Найден';} else {echo 'Потерян';} ?>
+                                        </div>
+
                                         <div class="result__content">
 
                                             <?php  if (isset($row['date_publish'])) {  ?>
@@ -117,7 +122,21 @@
 
                                             <p><?php echo $row['description']; ?></p>
 
-                                            <b>Тэги объявления: </b><span class="result-keywords"><?php echo $row['meta']; ?></span>
+                                            
+                                            <?php if (isset($row['meta']) && $row['meta'] != "") { ?>
+                                                <p>
+                                                    <b>Тэги объявления: </b>
+                                                    <span class="result-keywords">
+                                                        <?php
+                                                            $meta = explode(',', $row['meta']);
+                                                            foreach ($meta as $metakey) {
+                                                                $metatext = trim($metakey);
+                                                                echo "<a href='http://".$_SERVER['HTTP_HOST']."/search.php?q=".$metatext."' class='result__tag'>".$metatext."</a>, ";
+                                                            }
+                                                        ?>
+                                                    </span>
+                                                </p>
+                                            <?php } ?>
 
                                             <?php 
                                                 if ($row['reward'] != 0) {

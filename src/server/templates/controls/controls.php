@@ -2,7 +2,7 @@
 	
 	<div class="row">
 		
-		<div class="col-xs-5 col-md-4 controls__btn">
+		<div class="col-xs-12 col-md-4 controls__btn">
 
 			<?php if ( $GLOBALS['isAuthorised'] ) { ?>
 			
@@ -33,7 +33,7 @@
 
 		</div>
 
-		<div class="col-md-4 text-right controls__btn btn_lost">
+		<div class="col-xs-12 col-md-4 text-right controls__btn btn_lost">
 
 			<?php if ( $GLOBALS['isAuthorised'] ) { ?>
 			
