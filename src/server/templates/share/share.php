@@ -8,7 +8,7 @@
  
 	<p class="share">
 
-		<b>Поделиться:</b>
+		<b>Рассказать об этом в ленте:</b>
 		
 		<i class="share__btn share__btn_fb fb-share-button" 
 		   data-href="http://<?php echo $_SERVER[HTTP_HOST].$_SERVER[REQUEST_URI] ?>" 

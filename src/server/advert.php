@@ -60,13 +60,28 @@
 							}?>
 						</h3>
 						<p><?php echo $result[0]['description']; ?></p>
-						<p><b>Тэги объявления: </b><span class="advert__keywords"><?php echo $result[0]['meta']; ?></span></p>
+
+						<?php if (isset($result[0]['meta']) && $result[0]['meta'] != "") { ?>
+							<p>
+								<b>Тэги объявления: </b>
+								<span class="result-keywords">
+									<?php
+										$meta = explode(',', $result[0]['meta']);
+										foreach ($meta as $metakey) {
+											$metatext = trim($metakey);
+											echo "<a href='http://".$_SERVER['HTTP_HOST']."/search.php?q=".$metatext."' class='result__tag'>".$metatext."</a>, ";
+										}
+									?>
+								</span>
+							</p>
+						<?php } ?>
+
 						<p>
 							<?php if ($result[0]['reward'] != 0) {
 								if ($result[0]['type'] == 'found') { ?>
-									<span class="advert__reward">Нашедший просит <?php echo $result[0]['reward']; ?> грн.</span>
+									<span class="advert__reward">Нашедший просит <strong><?php echo $result[0]['reward']; ?></strong> грн.</span>
 								<?php } else { ?>
-									<span class="advert__reward">Владелец обьявил награду: <?php echo $result[0]['reward']; ?> грн.</span>
+									<span class="advert__reward">Владелец обьявил награду: <strong><?php echo $result[0]['reward']; ?></strong> грн.</span>
 								<?php }
 							} else { ?>
 								<span class="advert__reward">Информации о деньгах - нет.</span>
@@ -93,7 +108,7 @@
 											ng-click="verify.hideField = !verify.hideField;
 													  response.success = false;
 													  response.error = false;
-													  response.sending = false;">Сообщить</button>
+													  response.sending = false;"><?php if ($result[0]['type'] == 'lost') {echo 'Я нашёл';} else {echo 'Я потерял';} ?>. Написать автору</button>
 
 										<form 
 											class="verify__request"
@@ -101,16 +116,18 @@
 											action="."
 											ng-hide="verify.hideField">
 
-											<p>Отправьте заявку личным сообщением автору объявления</p>
+											<br />
 
 											<textarea 
 												maxlength="300"
 												class="form-control"
-												row="10"
+												row="20"
 												cols="30"
 												ng-init="verify.request = ''"
 												ng-model="verify.request"
-												placeholder="Введите уникальную особенность (ФИО, номер лицензии, содержимое кошелька"></textarea>
+												placeholder="Отправьте заявку личным сообщением автору объявления. Для этого введите уникальную особенность (ФИО, номер лицензии, содержимое кошелька или ваш вариант."></textarea>
+
+											<br />
 
 											<p>
 												<button
@@ -120,6 +137,8 @@
 											</p>
 
 										</form>
+										
+										<br /><br />
 
 										<p ng-show="response.success || response.error">{{response.success || response.error}}</p>
 									</div>							

@@ -15,7 +15,7 @@ $(function() {
 				map = new google.maps.Map(document.getElementById('advertMap'), {
 					zoom: 17,
 					center: center,
-					mapTypeId: google.maps.MapTypeId.HYBRID
+					mapTypeId: google.maps.MapTypeId.ROADMAP
 				});
 			},
 
