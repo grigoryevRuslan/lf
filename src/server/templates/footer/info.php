@@ -12,8 +12,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 text-center logo">
-				<a href="http://luckfind-dev.me">
-					<img src="http://luckfind-dev.me/img/svg/logo.svg" alt="logo">
+				<a href="http://www.luckfind.me">
+					<img src="http://www.luckfind.me/img/svg/logo.svg" alt="logo">
 				</a>		
 			</div>
 		</div>

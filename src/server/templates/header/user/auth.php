@@ -2,7 +2,7 @@
 	
 	<li class="auth__simple">
 		
-		<a href="#" class="open-popup" data-type="auth">Регистрация</a>
+		<a href="#" class="open-popup" data-type="auth">Авторизация / Вход</a>
 
 	</li>
 	
