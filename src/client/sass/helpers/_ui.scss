@@ -52,3 +52,27 @@
 	background: $gray;
 	border-color: $gray-light;
 }
+
+.btn-geo {
+	position: relative;
+	padding-left: 30px;
+	text-decoration: underline;
+	cursor: pointer;
+	line-height: 30px;
+	display: inline-block;
+	vertical-align: middle;
+	min-width: 130px;
+
+	&_green {
+		color: $green;
+
+		&:before {
+			content: '';
+			@include sprite($icon-geo-green);
+			position: absolute;
+			z-index: 20;
+			left: 0px;
+			top: 1px;
+		}
+	}
+}

@@ -208,7 +208,7 @@
 							</label>
 
 							<div class="col-sm-3">
-								<button class="btn btn-mini btn-primary open-popup btn-map" data-type="map">Открыть карту</button>
+								<a class="btn-geo btn-geo_green open-popup btn-map" data-type="map">Открыть карту</a>
 							</div>
 
 							<div class="col-sm-5">
@@ -257,7 +257,7 @@
 						<p class="text-center">
 							<button 
 								type="submit" 
-								class="btn btn-primary"
+								class="btn btn-success"
 								ng-disabled="!submitted || !description || description == '' || ((sSubject.id == '' || sSubject == '' || sSubject == null || sSubject.id == 1000) && iSubject == '') || !mail || !form.$valid" />Добавить!</button>
 						</p>
 					</form>
