@@ -86,6 +86,8 @@ $(function() {
 				geocodePosition(marker.getPosition());
 			});
 		}
+
+		initSearchBox();
 	}
 
 	function getCoordinates() {
@@ -135,6 +137,41 @@ $(function() {
 		initCoords = getCoordinates();
 		latLng = new google.maps.LatLng(initCoords.lat, initCoords.lng);
 		geocodePosition(latLng);
+	}
+
+	function initSearchBox() {
+		var searchBox = new google.maps.places.SearchBox(document.getElementById('searchPlace'));
+		/*map.controls[google.maps.ControlPosition.TOP_CENTER].push(document.getElementById('pac-input'));*/
+		google.maps.event.addListener(searchBox, 'places_changed', function() {
+			searchBox.set('map', null);
+
+			var places = searchBox.getPlaces(),
+				bounds = new google.maps.LatLngBounds(),
+				i,
+				place;
+
+			places.forEach(function(place) {
+				if (place.geometry.viewport) {
+					bounds.union(place.geometry.viewport);
+				} else {
+					bounds.extend(place.geometry.location);
+				}
+			});
+
+			map.fitBounds(bounds);
+			searchBox.set('map', map);
+			map.setZoom(Math.min(map.getZoom(), 12));
+
+			marker = new google.maps.Marker({
+				position: places[0].geometry.location,
+				map: map,
+				animation: google.maps.Animation.DROP
+			});
+
+			geocodePosition(places[0].geometry.location);
+			updateMarkerPosition(marker.getPosition());
+
+		});
 	}
 
 });
