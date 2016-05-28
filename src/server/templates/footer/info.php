@@ -11,16 +11,6 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12 text-center logo">
-				<a href="http://www.luckfind.me">
-					<img src="http://www.luckfind.me/img/svg/logo.svg" alt="logo">
-				</a>		
-			</div>
-		</div>
-	</div>
-
-	<div class="container">
-		<div class="row">
 			<div class="col-md-12">
 				<?php include_once $_SERVER['DOCUMENT_ROOT'].'/templates/header/donate/donate.php'; ?>
 			</div>

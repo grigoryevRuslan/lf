@@ -19,7 +19,7 @@
 				<input type="text" 
 						class="form-control" 
 						name="q"
-						placeholder="Найти предмет..." 
+						placeholder="Найти..." 
 						id="suggest"
 						autocomplete="off" 
 						value="<?php isset($_GET['q'])?htmlentities($_GET['q']):''?>"

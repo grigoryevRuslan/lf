@@ -98,14 +98,14 @@
 						</div>
 
 						<div class="form-group" ng-show="sSubject.id == 1000">
-							<label class="col-sm-4 control-label" for="user_item">Или введите своё:</label>
+							<label class="col-sm-4 control-label" for="user_item">Или введите своё</label>
 							<div class="col-sm-8">
 								<input 
 									type="text" 
 									name="user_item" 
 									id="user_item" 
 									class="form-control" 
-									placeholder="название предмета"
+									placeholder="название..."
 									ng-model="iSubject"
 									ng-init="
 										<?php if ($resultGetEditQuery[0]['item'] == '') { ?>
