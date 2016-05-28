@@ -7,15 +7,8 @@
 		<?php if ( $GLOBALS['isAuthorised'] ) { ?>
 			<li><a class="open-popup btn-feedback" href="#" data-type="feedback">Задать вопрос</a></li>
 		<?php } ?>
+		<li><a href="https://www.liqpay.com/api/3/checkout?data=eyJ2ZXJzaW9uIjozLCJhY3Rpb24iOiJwYXkiLCJwdWJsaWNfa2V5IjoiaTE1NDA0NTY0NTk2IiwiYW1vdW50IjoiMTAiLCJjdXJyZW5jeSI6IlVBSCIsImRlc2NyaXB0aW9uIjoi0J%2FQvtC80L7Rh9GMINC%2F0YDQvtC10LrRgtGDIiwidHlwZSI6ImJ1eSIsImxhbmd1YWdlIjoicnUifQ%3D%3D&signature=jCswg60o3uQQku%2BsHJwibh5TJl8%3D">Помочь проекту</a></li>
 	</ul>
-
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<?php include_once $_SERVER['DOCUMENT_ROOT'].'/templates/header/donate/donate.php'; ?>
-			</div>
-		</div>
-	</div>
 
 	<p class="info__copyright">
 		Copyright&nbsp;&nbsp;©&nbsp;&nbsp;2016&nbsp;&nbsp;<a href="http://<?php echo $GLOBALS['domain']; ?>">www.luckfind.me</a>
