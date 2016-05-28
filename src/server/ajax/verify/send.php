@@ -31,15 +31,18 @@
 		$response['limitCounter'] = intval($counter['0']);
 
 		if ($response['limitCounter'] < 5) {
-			$query = $pdoConnection->prepare("INSERT INTO request (advert_id, user_id, advert_type, request, status) VALUES ('$advert_id', '$user_id', '$advert_type', '$request', 0)");
+			$query = $pdoConnection->prepare("
+				INSERT INTO 
+					request (advert_id, user_id, advert_type, request, status, is_published) 
+				VALUES 
+					('$advert_id', '$user_id', '$advert_type', '$request', 0, 0)");
 
 			$result = $query->execute();
 
 			if (!$counter) {
 				$actionLimitQuery = $pdoConnection->prepare("
 					INSERT INTO 
-							request_limit
-						(user_id, counter, advert_id)
+						request_limit (user_id, counter, advert_id)
 					VALUES
 						('$user_id', 1, '$advert_id')
 				");

@@ -20,6 +20,7 @@
 		INNER JOIN users u  ON u.Fuid = r.user_id
 		WHERE i.user_id = '$user_id'
 		AND i.is_published = 1
+		AND r.is_published = 1
 	";
 
 	$requestToMe = $pdoConnection->prepare($requestToMeQuery);
@@ -39,6 +40,8 @@
 			i.is_published = 1
 		AND 
 			r.user_id = '$user_id'
+		AND
+			r.is_published = 1
 	";
 
 	$myRequests = $pdoConnection->prepare($myRequestQuery);

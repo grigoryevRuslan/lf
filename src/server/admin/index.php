@@ -31,6 +31,7 @@
 					<li class="active"><a href="index.php">Админка</a></li>
 					<li><a href="feedback.php">Вопросы </a></li>
 					<li><a href="secret.php">Секреты</a></li>
+					<li><a href="apps.php">Отклики</a></li>
 				</ul>
 			</div>
 		</div>

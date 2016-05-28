@@ -27,6 +27,8 @@
 				b.user_id != '$user_id'
 			AND 
 				b.status = 0
+			AND
+				b.is_published = 1
 		";
 
 		$pmAmount = $pdoConnection->prepare($query);
