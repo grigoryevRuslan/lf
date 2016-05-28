@@ -108,23 +108,22 @@
                                                 <span class="time">Добавлено: <?php echo $row['date_publish'] ?></span>
                                             <?php } ?>
 
-                                            <a href="advert.php?id=<?php echo $row['id']; ?>">
-                                                <h3>
-                                                    <?php
-                                                        if ($row['item'] == '') {
-                                                            echo $row['user_item'];
-                                                        } else {
-                                                            echo $row['item'];
-                                                        }
-                                                    ?>
-                                                </h3>
-                                            </a>
+                                            <a class="link" href="advert.php?id=<?php echo $row['id']; ?>"></a>
+                                            
+                                            <h3>
+                                                <?php
+                                                    if ($row['item'] == '') {
+                                                        echo $row['user_item'];
+                                                    } else {
+                                                        echo $row['item'];
+                                                    }
+                                                ?>
+                                            </h3>
 
                                             <p><?php echo $row['description']; ?></p>
-
                                             
                                             <?php if (isset($row['meta']) && $row['meta'] != "") { ?>
-                                                <p>
+                                                <p class="meta">
                                                     <b>Тэги объявления: </b>
                                                     <span class="result-keywords">
                                                         <?php

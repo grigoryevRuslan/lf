@@ -4,3 +4,19 @@
 		min-height: 100px;
 	}
 }
+
+#search-results {
+	.link {
+		position: absolute;
+		z-index: 20;
+		top:0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+
+	.meta {
+		position: relative;
+		z-index: 21;
+	}
+}
