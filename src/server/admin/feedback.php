@@ -69,7 +69,8 @@
 
 										<strong>Электропочта: </strong>
 										<span>
-											<?php echo $r['mail']; ?>
+											<?php echo '<a href="mailto:'.$r['mail'].'"'.'>'.
+											$r['mail'].'</a>'; ?>
 										</span>
 									</p>
 

@@ -4,7 +4,7 @@
 	include_once $_SERVER['DOCUMENT_ROOT'].'/globals/common.php';
 	include_once $_SERVER['DOCUMENT_ROOT'].'/functions/functions.php';
 
-	if (isset($_GET['id']) && isset($_SESSION['user_id'])) {
+	if (isset($_GET['id'])) {
 
 			include_once $_SERVER['DOCUMENT_ROOT'].'/globals/db/db.php';
 			include_once $_SERVER['DOCUMENT_ROOT'].'/app/save_image.php';
