@@ -24,7 +24,22 @@
 #searchPlace {
 	position: absolute;
 	z-index: 30;
-	top: 50px;
-	left: 10px;
-	width: 240px;
+	top: 10px;
+	left: 50%;
+	width: 360px;
+	margin-left: -180px;
+}
+
+#infowindow {
+	.image {
+		width: 50px;
+		height: 50px;
+		margin-right: 10px;
+	}
+
+	.image,
+	.content {
+		display: inline-block;
+		vertical-align: top;
+	}
 }

@@ -78,18 +78,19 @@ $(document).ready(function() {
 	//jscs:disable requireCamelCaseOrUpperCaseIdentifiers
 	function createMarkerInfoTemplate(item) {
 		var type = (item.type === 'lost' ? 'Потеря' : 'Находка'),
+			image_uri = '/upload/' + item.image_uri,
 			reward = (item.reward !== 0 ? (item.type === 'lost' ? ('Вознаграждение составляет: <b>' + item.reward + '</b> грн.') : ('Ожидаемое вознаграждение: <b>' + item.reward + '</b> грн.')) : ''),
 			name = (item.item ? item.item : item.user_item);
 
 		//jscs:disable validateQuoteMarks
-		return "<div id='infowindow'><a href='/advert.php?id=" + item.id + "' target='_blank'>" + type + "'</a>&nbsp;&nbsp;<i>'" + name + "'</i><br />'" + item.date_publish + "'<br />'" + reward + "'</div>'";
+		return "<div id='infowindow'><a href='/advert.php?id=" + item.id + "' target='_blank'><img class='image' src=" + image_uri + " /></a><div class='content'><a href='/advert.php?id=" + item.id + "' target='_blank'>" + type + "'</a>&nbsp;&nbsp;<i>'" + name + "'</i><br />'" + item.date_publish + "'<br />'" + reward + "'</div></div>'";
 		//jscs:enable validateQuoteMarks
 		//jscs:enable requireCamelCaseOrUpperCaseIdentifiers
 	}
 
 	function initSearchBox() {
 		var searchBox = new google.maps.places.SearchBox(document.getElementById('searchPlace'));
-		/*map.controls[google.maps.ControlPosition.TOP_CENTER].push(document.getElementById('pac-input'));*/
+
 		google.maps.event.addListener(searchBox, 'places_changed', function() {
 			searchBox.set('map', null);
 

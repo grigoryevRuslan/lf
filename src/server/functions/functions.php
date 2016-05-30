@@ -28,7 +28,7 @@
 		include_once $_SERVER['DOCUMENT_ROOT'].'/templates/popups/'.$type.'/'.$type.'.php';
 
 		if ($type == 'map') {
-			echo '<input type="text" class="form-control" placeholder="Введите улицу, район, город ..." id="searchPlace" />';
+			echo '<input type="text" class="form-control" placeholder="Найти на карте..." id="searchPlace" />';
 		}
 
 		echo '<span class="popup__close">&times;</span>

@@ -5,7 +5,7 @@
 		include_once $_SERVER['DOCUMENT_ROOT'].'/globals/db/db.php';
 
 		if ($_POST['action'] == 'all') {
-			$getCoordinatesQuery = "SELECT id, coordinates, item, user_item, type, date_publish, reward FROM items WHERE coordinates IS NOT NULL AND is_published = 1 AND coordinates != ''";
+			$getCoordinatesQuery = "SELECT id, coordinates, image_uri, item, user_item, type, date_publish, reward FROM items WHERE coordinates IS NOT NULL AND is_published = 1 AND coordinates != ''";
 		} else {
 			if (isset($_POST['id'])) {
 				$id = $_POST['id'];
@@ -15,7 +15,7 @@
 		
 		$q = $pdoConnection->prepare($getCoordinatesQuery);
 		$q->execute();
-		$result = $q->fetchAll();
+		$result = $q->fetchAll(PDO::FETCH_ASSOC);
 		
 		echo json_encode($result);
 	}

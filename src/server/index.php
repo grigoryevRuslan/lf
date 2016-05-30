@@ -23,7 +23,7 @@
 			
 			<div class="row gmap">
 
-				<input type="text" class="form-control" placeholder="Введите улицу, район, город ..." id="searchPlace" />
+				<input type="text" class="form-control" placeholder="Найти на карте..." id="searchPlace" />
 
 				<div class="switch-markers">
 					<span class="icon switch-markers__show-all" data-show="all" title="Показать всё"></span>
