@@ -55,6 +55,8 @@
 						<input type="hidden" name="type" value="<?php echo $resultGetEditQuery[0]['type']; ?>" />
 							
 						<input type="hidden" name="meta" value="{{meta}}" />
+
+						<input type="hidden" name="reward" value="{{reward}}" />
 						
 						<div class="form-group">
 
