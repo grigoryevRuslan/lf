@@ -26,7 +26,15 @@
 		
 		<button class="btn btn-primary" type="submit" ng-disabled="!loginForm.$valid">Войти</button>
 
-		<a class="btn btn-primary" href="http://<?php echo $GLOBALS['domain']; ?>/app/facebook.php">Войти через facebook</a>
+		<div class="row">
+			<div class="col-md-6">
+				<a class="btn btn-primary" href="http://<?php echo $GLOBALS['domain']; ?>/app/facebook.php">Войти через facebook</a>
+			</div>
+			<div class="col-md-6">
+				<a class="btn btn-primary" href="http://<?php echo $GLOBALS['domain']; ?>/app/vk.php">Войти через vkontakte</a>
+				
+			</div>
+		</div>
 
 		<div class="alert alert-info" style="margin-top:15px;">
 			<p>Ещё нет аккаунта? <a href="#"  id="register-btn" ng-click="moveToRegister();head='Регистрация'">Зарегистрируйтесь.</a>
