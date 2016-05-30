@@ -28,11 +28,14 @@ $(document).ready(function() {
 			var tempstr = item.coordinates.split(','),
 				markerInfo = createMarkerInfoTemplate(item),
 				latlng = new google.maps.LatLng(tempstr[0], tempstr[1]),
+				iconBaseUrl = 'img/',
+				iconName = item.type === 'found' ? 'gmap-icon-found.png' : 'gmap-icon-lost.png',
 				marker = new google.maps.Marker({
 					position: latlng,
 					map: map,
 					animation: google.maps.Animation.DROP,
-					type: item.type
+					type: item.type,
+					icon: iconBaseUrl + iconName
 				});
 
 			google.maps.event.addListener(marker, 'mouseover', function() {
