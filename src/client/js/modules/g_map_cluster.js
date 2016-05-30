@@ -35,7 +35,7 @@ $(document).ready(function() {
 					type: item.type
 				});
 
-			google.maps.event.addListener(marker, 'click', function() {
+			google.maps.event.addListener(marker, 'mouseover', function() {
 				infowindow.close();
 				infowindow.setContent(markerInfo);
 				infowindow.open(map, marker);
