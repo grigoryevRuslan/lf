@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-md-2 col-xs-12 item">
 			<div class="visual"></div>
-			<p>Взгляните на карту выше, скорее всего ваша вещь уже там.</p>
+			<p>Взгляните на карту выше. Скорее всего, ваша вещь уже там.</p>
 		</div>
 		<div class="col-md-2 col-xs-12 item">
 			<div class="visual"></div>

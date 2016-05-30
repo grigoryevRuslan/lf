@@ -14,7 +14,7 @@
 	<div class="col-md-3 col-xs-12 item"
 		 ng-class="(mail != '' &&mail) ? 'step_check' : ''">
 		<div class="visual"></div>
-		<p>Оставьте контакты (телефон или почту). Будут видны только в случае успешной идентификации вас как владельца.</p>
+		<p>Ваши контактные данные будут видны только в случае успешной идентификации вас как владельца.</p>
 	</div>
 	<div class="col-md-3 col-xs-12 item"
 		 ng-class="submitted ? 'step_check' : ''">
