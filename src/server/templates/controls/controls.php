@@ -4,11 +4,7 @@
 		
 		<div class="col-xs-12 col-md-4 controls__btn">
 
-			<?php if ( $GLOBALS['isAuthorised'] ) { ?>
-			
-				<a href="http://<?php echo $GLOBALS['domain']; ?>/add.php?type=found" class="btn btn-success">Добавить находку</a>
-
-			<?php } ?>
+			<a href="http://<?php echo $GLOBALS['domain']; ?>/add.php?type=found" class="btn btn-success">Добавить находку</a>
 
 		</div>
 
@@ -35,11 +31,7 @@
 
 		<div class="col-xs-12 col-md-4 text-right controls__btn btn_lost">
 
-			<?php if ( $GLOBALS['isAuthorised'] ) { ?>
-			
-				<a href="http://<?php echo $GLOBALS['domain']; ?>/add.php?type=lost" class="btn btn-warning">Добавить пропажу</a>
-
-			<?php } ?>
+			<a href="http://<?php echo $GLOBALS['domain']; ?>/add.php?type=lost" class="btn btn-warning">Добавить пропажу</a>
 
 		</div>
 

@@ -4,8 +4,6 @@
 	include_once $_SERVER['DOCUMENT_ROOT'].'/globals/common.php';
 	include_once $_SERVER['DOCUMENT_ROOT'].'/functions/functions.php';
 
-	if (!$GLOBALS['isAuthorised']) {header('Location: http://'.$_SERVER['HTTP_HOST'].'/');}
-	
 	renderHead('Добавление объявления', ''.$_SERVER['HTTP_HOST'].'/img/svg/logo.svg', 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], 'Добавление объявления');
 
 ?>
@@ -26,6 +24,19 @@
 			<div class="row">
 				<div class="col-md-3"></div>
 				<div class="col-md-6">
+					<?php if (!$GLOBALS['isAuthorised']) { ?>
+
+						<div class="row">
+							<div class="col-md-12 text-center">
+								<p>
+									<strong>Перед заполнением формы <a href="#" class="open-popup" data-type="auth">авторизуйтесь</a> на сайте.</strong>
+								</p>
+							</div>
+						</div>
+
+					<?php } ?>
+
+
 					<form 
 						action="complete.php" 
 						name="form" 
@@ -246,13 +257,17 @@
 							 theme="'light'"
 							 on-success="setResponse(response)"
 							 on-expire="cbExpiration()"></div>
+							
+						<?php if ($GLOBALS['isAuthorised']) { ?>
 
-						<p class="text-center">
-							<button 
-								type="submit" 
-								class="btn btn-success"
-								ng-disabled="!submitted || !description || description == '' || ((sSubject.id == '' || sSubject == '' || sSubject == null || sSubject.id == 1000) && iSubject == '') || !mail || !form.$valid" />Добавить!</button>
-						</p>
+							<p class="text-center">
+								<button 
+									type="submit" 
+									class="btn btn-success"
+									ng-disabled="!submitted || !description || description == '' || ((sSubject.id == '' || sSubject == '' || sSubject == null || sSubject.id == 1000) && iSubject == '') || !mail || !form.$valid" />Добавить!</button>
+							</p>
+
+						<?php } ?>
 					</form>
 				</div>
 				<div class="col-md-3"></div>
@@ -265,7 +280,8 @@
 		
 	<?php 
 		renderPopup('feedback'); 
-		renderPopup('map'); 
+		renderPopup('map');
+		renderPopup('auth');
 	?>
 	
 	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
