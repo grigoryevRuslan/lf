@@ -14,7 +14,7 @@
 				<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,500,700&subset=latin,cyrillic" rel="stylesheet" type="text/css">
 				<link rel="stylesheet" type="text/css" href="http://'.$GLOBALS['domain'].'/css/style.css">
 			</head>
-			<body>';
+			<body class='.$GLOBALS['useragent_type'].'>';
 	}
 
 	// Render popup

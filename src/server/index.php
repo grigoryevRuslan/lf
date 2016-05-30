@@ -19,23 +19,25 @@
 			include_once $_SERVER['DOCUMENT_ROOT'].'/templates/controls/controls.php';
 		?>
 		
-		<div class="container gmap-wrapper" ng-controller="gmapController">
+		<?php if ($GLOBALS['useragent_type'] == 'desktop') { ?>
+
+			<div class="container gmap-wrapper" ng-controller="gmapController">
+				<div class="row gmap">
+
+					<input type="text" class="form-control" placeholder="Найти на карте..." id="searchPlace" />
+
+					<div class="switch-markers">
+						<span class="icon icon_active switch-markers__show-all" data-show="all" title="Показать всё"></span>
+						<span class="icon switch-markers__show-found" data-show="found" title="Показать находки"></span>
+						<span class="icon switch-markers__show-lost" data-show="lost" title="Показать пропажи"></span>
+					</div>
+
+					<div class="col-md-12" id="clusterMap"></div>
 			
-			<div class="row gmap">
-
-				<input type="text" class="form-control" placeholder="Найти на карте..." id="searchPlace" />
-
-				<div class="switch-markers">
-					<span class="icon icon_active switch-markers__show-all" data-show="all" title="Показать всё"></span>
-					<span class="icon switch-markers__show-found" data-show="found" title="Показать находки"></span>
-					<span class="icon switch-markers__show-lost" data-show="lost" title="Показать пропажи"></span>
 				</div>
-
-				<div class="col-md-12" id="clusterMap"></div>
-		
 			</div>
 
-		</div>
+		<?php } ?>
 
 		<?php 
 			if ( $GLOBALS['isAuthorised'] ) {
