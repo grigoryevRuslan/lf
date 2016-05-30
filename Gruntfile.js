@@ -45,6 +45,7 @@ module.exports = function(grunt) {
 					'bower_components/angular-recaptcha/release/angular-recaptcha.min.js',
 					'bower_components/ng-tags-input/ng-tags-input.min.js',
 					'bower_components/angular-ui-mask/dist/mask.min.js',
+					'bower_components/angular-rangeslider/angular.rangeSlider.js',
 					'src/client/js/app/**/*.js',
 					'src/client/js/global/**/*.js'
 				],

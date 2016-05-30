@@ -156,17 +156,12 @@
 									</span>
 								<?php } ?>
 							</label>
-							<div class="col-sm-8">
-								<input 
-									ng-model="reward"
-									ng-init="reward = '<?php echo $resultGetEditQuery[0]['reward'] ?>'"
-									name="reward" 
-									id="reward" 
-									class="form-control"
-									maxlength="6" 
-									placeholder="введите сумму в грн."
-									numeric-only />
-								<strong class="reward__prefix">грн.</strong>
+							<div class="col-sm-5" 
+								 ng-init="reward = '<?php echo $resultGetEditQuery[0]['reward'] ?>'">
+								<div range-slider min="0" max="10000" model-max="reward" pin-handle="min"></div>
+							</div>
+							<div class="col-sm-3 text-center" style="margin: 9px 0 0 0;">
+								{{reward == 0 ? '+ в карму' : reward + ' грн'}}.
 							</div>
 						</div>
 

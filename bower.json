@@ -21,6 +21,7 @@
     "angular-ui-mask": "^1.8.4"
   },
   "devDependencies": {
-    "bootstrap-sass": "^3.3.6"
+    "bootstrap-sass": "^3.3.6",
+    "angular-rangeslider": "^0.0.14"
   }
 }
