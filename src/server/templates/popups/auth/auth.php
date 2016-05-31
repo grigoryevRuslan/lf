@@ -28,10 +28,10 @@
 
 		<div class="row">
 			<div class="col-md-6">
-				<a class="btn btn-primary" href="http://<?php echo $GLOBALS['domain']; ?>/app/facebook.php">Войти через facebook</a>
+				<a class="btn btn-primary" href="http://<?php echo $GLOBALS['domain']; ?>/app/facebook.php?from_uri=<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>">Войти через facebook</a>
 			</div>
 			<div class="col-md-6">
-				<a class="btn btn-primary" href="http://<?php echo $GLOBALS['domain']; ?>/app/vk.php">Войти через vkontakte</a>
+				<a class="btn btn-primary" href="http://<?php echo $GLOBALS['domain']; ?>/app/vk.php?from_uri=<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>">Войти через vkontakte</a>
 				
 			</div>
 		</div>

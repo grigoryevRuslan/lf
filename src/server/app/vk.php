@@ -1,8 +1,8 @@
 <?php
 
-    $client_id = '5483966'; // ID приложения
-    $client_secret = 'Bvtsi3LDvRwcTFPkFSLF'; // Защищённый ключ
-    $redirect_uri = 'http://www.luckfind.me/app/vk.php'; // Адрес сайта
+    $client_id = '5483966';
+    $client_secret = 'Bvtsi3LDvRwcTFPkFSLF';
+    $redirect_uri = 'http://www.luckfind.me/app/vk.php';
 
     $url = 'http://oauth.vk.com/authorize';
 
@@ -59,12 +59,14 @@
             }
             
             $_SESSION['user_id'] = $userInfo['uid'];            
-            $_SESSION['user_name'] = $userInfo['first_name']; 
+            $_SESSION['user_name'] = $userInfo['first_name'];
+            $_SESSION['user_avatar'] = $userInfo['photo_big'];    
         }
 
-        header('Location: http://'.$_SERVER['HTTP_HOST'].'/');
+        header('Location: '.$_SESSION['from_uri']);
         exit();
     } else {
+        $_SESSION['from_uri'] = urldecode($_GET['from_uri']);
         header("Location: ".$url.'?'.urldecode(http_build_query($params)));
         exit();
     }

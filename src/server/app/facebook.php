@@ -1,8 +1,8 @@
 <?php
 
-    $client_id = '1688370178097956'; // Client ID
-    $client_secret = 'f69e29f8eff6d0d2924f2a7dd734d082'; // Client secret
-    $redirect_uri = 'http://www.luckfind.me/app/facebook.php'; // Redirect URIs
+    $client_id = '1688370178097956';
+    $client_secret = 'f69e29f8eff6d0d2924f2a7dd734d082';
+    $redirect_uri = 'http://www.luckfind.me/app/facebook.php';
 
     $url = 'https://www.facebook.com/dialog/oauth';
 
@@ -58,15 +58,17 @@
                 }
                 
                 $_SESSION['user_id'] = $userInfo['id'];            
-                $_SESSION['user_name'] = $userInfo['name'];            
+                $_SESSION['user_name'] = $userInfo['name'];
+                $_SESSION['user_avatar'] = "https://graph.facebook.com/".$_SESSION['user_id']."/picture";       
             }
-            header('Location: http://'.$_SERVER['HTTP_HOST'].'/');
+            header('Location: '.$_SESSION['from_uri']);
             exit();
         } else {
             die('fatal error!');
         }
     } else {
-      header("Location: ".$url.'?'.urldecode(http_build_query($params)));
-      exit();
+        $_SESSION['from_uri'] = urldecode($_GET['from_uri']);
+        header("Location: ".$url.'?'.urldecode(http_build_query($params)));
+        exit();
     }
 ?>

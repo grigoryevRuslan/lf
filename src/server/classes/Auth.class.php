@@ -99,6 +99,7 @@ class User
     {
         $_SESSION["user_id"] = $this->user_id;
         $_SESSION["user_name"] = $username;
+        $_SESSION['user_avatar'] = "http://".$GLOBALS['domain']."/img/default-avatar.png"; 
     }
 
     public function create($username, $password) {

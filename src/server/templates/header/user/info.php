@@ -1,6 +1,6 @@
 <div class="col-md-12 user__info">
 
-	<img src="https://graph.facebook.com/<?php echo $_SESSION['user_id']; ?>/picture" />
+	<img src="<?php echo $_SESSION['user_avatar']; ?>" />
 	
 	<div class="user__creds">
 
