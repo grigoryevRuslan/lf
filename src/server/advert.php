@@ -87,8 +87,13 @@
 								<span class="advert__reward">Информации о деньгах - нет.</span>
 							<?php }?>
 						</p>
-						<p>
-							<span id="views" class="advert__views" title="Просмотры"></span>
+						<p ng-controller="statsController">
+							<span 
+								id="views" 
+								class="advert__views" 
+								title="Просмотры"
+								ng-show="!!advertViewsAmount">{{advertViewsAmount}}</span>
+								
 							<span class="advert__time" title="Время <?php if ($result[0]['type'] == 'found') {echo 'находки';} else {echo 'пропажи';} ?>"><?php echo $result[0]['item_date'] ?></span>
 						</p>
 
@@ -210,7 +215,6 @@
 	<script src="https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&amp;render=explicit" async defer
 	></script>
 	<script type="text/javascript" src="js/modules/ajax-auth.js"></script>
-	<script type="text/javascript" src="js/modules/ajax-counter.js"></script>
 	<script type="text/javascript" src="js/modules/advert-map.js"></script>
 </body>
 </html>

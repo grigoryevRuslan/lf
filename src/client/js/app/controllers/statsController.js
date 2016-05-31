@@ -1,4 +1,5 @@
-$(function() {
+app.controller('statsController', ['$scope', 'getItemViewFactory', function($scope, getItemViewFactory) {
+
 	function getURLParam(name, url) {
 		url = url || window.location.href;
 		name = name.replace(/[\[]/, '\\\[').replace(/[\]]/, '\\\]');
@@ -13,20 +14,12 @@ $(function() {
 		}
 	}
 
-	var id = parseInt(getURLParam('id'));
-
-	$.ajax({
-		type: 'POST',
-		url: '/ajax/page-counter.php',
-		data: {
-			id: id
-		},
-		success: function(data) {
-			if (data) {
-				if ($('#views').length) {
-					$('#views').text(parseInt(data));
-				}
-			}
+	function success(data) {
+		if (data) {
+			$scope.advertViewsAmount = parseInt(data);
 		}
-	});
-});
+	}
+
+	getItemViewFactory.getItemViews(parseInt(getURLParam('id'))).success(success);
+
+}]);
