@@ -6,7 +6,8 @@
 
  <?php if ( $GLOBALS['isAuthorised'] ) { ?>
  
-	<p class="share">
+	<p class="share"
+		ng-controller="shareController">
 
 		<b>Рассказать об этом в ленте:</b>
 		
@@ -15,15 +16,15 @@
 		   data-layout="icon"
 		   data-mobile-iframe="true"></i>
 
-		<i onclick="Share.vkontakte('<?php echo $page_uri ?>',
+		<i ng-click="shareVk('<?php echo $page_uri ?>',
 									'Всеукраинское бюро находок',
 									'<?php echo $image_uri; ?>',
 									'<?php echo $result[0]['item']; ?>')" class="share__btn share__btn_vk"></i>
 
-		<i onclick="Share.twitter('<?php echo $page_uri ?>',
+		<i ng-click="shareTwitter('<?php echo $page_uri ?>',
 									'<?php echo $result[0]['item']; ?>')" class="share__btn share__btn_tw"></i>
 
-		<i onclick="Share.gplus('<?php echo $page_uri ?>')" class="share__btn share__btn_gplus"></i>
+		<i ng-click="shareGplus('<?php echo $page_uri ?>')" class="share__btn share__btn_gplus"></i>
 
 	</p>
 
