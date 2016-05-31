@@ -74,7 +74,7 @@
 
 								<div class="form-group">
 
-									<div class="col-sm-7">
+									<div class="col-md-7">
 									
 										<select class="form-control"
 												name="item"
@@ -87,15 +87,15 @@
 										
 									</div>
 
-									<label class="col-sm-5 control-label" for="item">
-										На первом шаге неоходимо указать найденный Вами предмет.
+									<label class="col-md-5 control-label" for="item">
+										На первом шаге неоходимо указать <br />найденный Вами предмет.
 									</label>
 								</div>
 
 								<div class="form-group"
 									 ng-show="sSubject != '' && sSubject != null && sSubject.id != 1000">
 									
-									<div class="col-sm-7">
+									<div class="col-md-7">
 									
 										<input type="text" 
 											   class="form-control"
@@ -107,7 +107,7 @@
 
 									</div>	
 
-									<label for="secret" class="col-sm-5 control-label">
+									<label for="secret" class="col-md-5 control-label">
 										Секретный код
 										<div class="g-info">
 											<div class="g-info__tooltip">{{sSubject.description}}</div>
@@ -117,7 +117,7 @@
 								</div>
 
 								<div class="form-group" ng-show="sSubject.id == 1000">
-									<div class="col-sm-7">
+									<div class="col-md-7">
 										<input 
 											type="text" 
 											name="user_item" 
@@ -128,11 +128,11 @@
 											ng-required="sSubject.id == 1000" />
 									</div>
 
-									<label class="col-sm-5 control-label" for="user_item">Или введите своё</label>
+									<label class="col-md-5 control-label" for="user_item">Или введите своё</label>
 								</div>
 
 								<div class="form-group">
-									<div class="col-sm-7 datepicker-wrapper">
+									<div class="col-md-7 datepicker-wrapper">
 										<input 
 											type="text" 
 											id="datepicker" 
@@ -141,11 +141,11 @@
 											data-default="12-05-2016" />
 									</div>
 
-									<label class="col-sm-5 control-label">Дата <?php if ($_GET['type'] == 'found') { ?> находки <?php } else { ?> пропажи <?php } ?></label>
+									<label class="col-md-5 control-label">Дата <?php if ($_GET['type'] == 'found') { ?> находки <?php } else { ?> пропажи <?php } ?></label>
 								</div>
 
 								<div class="form-group">
-									<div class="col-sm-7">
+									<div class="col-md-7">
 										<textarea 
 											ng-model="description"
 											ng-init="description = ''"
@@ -157,7 +157,7 @@
 											required ></textarea>
 									</div>
 
-									<label class="col-sm-5 control-label" for="description">Дополнительная информация:</label>
+									<label class="col-md-5 control-label" for="description">Дополнительная информация:</label>
 								</div>
 								
 							</div>
@@ -177,14 +177,14 @@
 							<div class="form-step__wrapper" ng-show="fStep.toggle2">
 
 								<div class="form-group reward">
-									<div class="col-sm-5" ng-init="reward = 0">
+									<div class="col-md-5" ng-init="reward = 0">
 										<div range-slider min="0" max="10000" model-max="reward" pin-handle="min"></div>
 									</div>
-									<div class="col-sm-2 text-center" style="margin: 9px 0 0 0;">
+									<div class="col-md-2 text-center" style="margin: 9px 0 0 0;">
 										{{reward == 0 ? '+ в карму' : reward + ' грн'}}.
 									</div>
 
-									<label class="col-sm-5 control-label" for="reward">
+									<label class="col-md-5 control-label" for="reward">
 										<?php if ($_GET['type'] == 'found') { ?>
 											<span>
 													Вознаграждение
@@ -198,7 +198,7 @@
 								</div>
 
 								<div class="form-group">
-									<div class="col-sm-7">
+									<div class="col-md-7">
 										<input 
 											type="text" 
 											name="phone" 
@@ -212,11 +212,11 @@
 											ui-mask-placeholder-char="_" />
 									</div>
 
-									<label class="col-sm-5 control-label" for="phone">Телефон:</label>
+									<label class="col-md-5 control-label" for="phone">Телефон:</label>
 								</div>
 
 								<div class="form-group">
-									<div class="col-sm-7">
+									<div class="col-md-7">
 										<input 
 											type="email" 
 											name="mail" 
@@ -228,7 +228,7 @@
 											required />
 									</div>
 
-									<label class="col-sm-5 control-label" for="mail">E-mail:</label>
+									<label class="col-md-5 control-label" for="mail">E-mail:</label>
 								</div>
 
 							</div>
@@ -282,12 +282,19 @@
 									<div class="col-md-7">
 										<label class="btn btn-default btn-upload">
 											<span>Загрузить фото</span>
-											<input type='file' id="addUploadFile" name="fileToUpload" />
+											<input type="file" 
+												id="addUploadFile" 
+												name="fileToUpload"
+												onchange="angular.element(this).scope().setFile(this)" 
+												accept="image/*">
 										</label>
 										
 										<div class="row">
 											<div class="col-md-12">
-												<img id="addUploadFilePreview" src="." alt="advert image" />
+												<img id="addUploadFilePreview" 
+													ng-show="imageSource" 
+													ng-src="{{imageSource}}" 
+													alt="advert image" />
 											</div>
 										</div>
 									</div>
@@ -348,7 +355,6 @@
 	<script src="https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&amp;render=explicit" async defer
 	></script>
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
-	<script type="text/javascript" src="js/modules/upload.js"></script>
 	<script type="text/javascript" src="js/modules/getcoordinates.js"></script>
 </body>
 </html>

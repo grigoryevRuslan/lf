@@ -19,6 +19,18 @@ app.controller('addAdvertController', ['$scope', 'vcRecaptchaService', 'secretCo
 		$scope.submitted = false;
 	};
 
+	$scope.setFile = function(element) {
+		var reader = new FileReader();
+		$scope.currentFile = element.files[0];
+
+		reader.onload = function(event) {
+			$scope.imageSource = event.target.result;
+			$scope.$apply();
+		};
+
+		reader.readAsDataURL(element.files[0]);
+	};
+
 	$scope.$watch('tags', function(newValue, oldValue) {
 		$scope.meta = arr2str(newValue);
 	}, true);
