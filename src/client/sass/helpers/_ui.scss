@@ -22,10 +22,11 @@
 		bottom: 9px;
 		right: 8px;
 		background: #fff;
-		border: 1px solid $gray;
+		border: 1px solid $gray-light;
 		border-radius: 4px;
 		min-width: 230px;
 		height: auto;
+		color: $gray;
 		padding: 3px 9px;
 		font-size: 12px;
 	}
@@ -62,6 +63,7 @@
 	display: inline-block;
 	vertical-align: middle;
 	min-width: 130px;
+	font-size: 16px;
 
 	&_green {
 		color: $green;
@@ -75,4 +77,14 @@
 			top: 1px;
 		}
 	}
+}
+
+.btn-upload {
+	background: $green-light;
+	box-shadow: none;
+	border: none;
+	text-transform: uppercase;
+	color: $green;
+	padding: 6px 16px;
+	margin: 10px 0;
 }

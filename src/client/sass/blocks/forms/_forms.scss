@@ -79,23 +79,24 @@
 
 		LABEL.control-label {
 			text-align: left;
+			font-weight: 300;
+			font-style: italic;
+			color: $gray-light;
+			padding: 0;
+			line-height: 18px;
 		}
 
 		textarea {
 			height: 200px;
 		}
-
-		.g-recaptcha {
-			margin: 20px 0 30px 0;
-
-			DIV DIV {
-				margin: 0 auto;
-			}
-		}
 	}
 
 	&_lost {
-		border-color: $red;
+		border-color: $orange;
+
+		.form-step__badge {
+			background: $orange;
+		}
 	}
 
 	&_found {
@@ -137,7 +138,7 @@
     }
 
     #clearAddress {
-    	color: #000;
+    	color: $red;
     	display: inline-block;
     	cursor: pointer;
     	font-size: 18px;

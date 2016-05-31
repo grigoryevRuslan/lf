@@ -43,3 +43,58 @@
 		vertical-align: top;
 	}
 }
+
+.form-step {
+	border: 1px solid $gray-light;
+	padding: 15px 0px 15px 90px;
+	border-radius: 6px;
+	position: relative;
+	min-height: 66px;
+	margin-bottom: 30px;
+
+	&__badge {
+		color: #fff;
+		font-weight: 500;
+		font-size: 16px;
+		padding: 9px 20px;
+		background: $green;
+		position: absolute;
+		z-index: 20;
+		top: 12px;
+		left: -10px;
+		border-radius: 6px;
+	}
+
+
+	.toggle {
+	    color: $green;
+	    text-transform: uppercase;
+	    font-size: 16px;
+	    font-weight: 300;
+	    position: absolute;
+	    z-index: 21;
+	    bottom: 10px;
+	    right: 10px;
+	    padding: 10px 30px;
+	    cursor: pointer;
+
+	    &_up,
+	    &_down {
+	    	&:after {
+	    		content: '';
+	    		position: absolute;
+	    		z-index: 22;
+	    		right: 0px;
+	    		top: 9px;
+	    	}
+	    }
+
+	    &_up:after {
+	    	@include sprite($form-step-toggle);
+	    }
+
+	    &_down:after {
+	    	@include sprite($form-step-toggle-down);
+	    }
+	}
+}
