@@ -32,7 +32,7 @@
 						<span class="icon switch-markers__show-lost" data-show="lost" title="Показать пропажи"></span>
 					</div>
 
-					<div class="col-md-12" id="clusterMap"></div>
+					<div id="clusterMap"></div>
 			
 				</div>
 			</div>
