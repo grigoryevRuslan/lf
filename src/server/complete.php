@@ -86,7 +86,7 @@
 				die('Error record. ' . $connection->connect_errno . ': ' . $connection->connect_error);
 			} else {
 				if ($_POST['action'] != 'edit') {
-					sendMail($GLOBALS['mail']);
+					sendMail($GLOBALS['mail'], "У нас новое объявление", "Зайти в админку сайта");
 				}
 			}
 	}

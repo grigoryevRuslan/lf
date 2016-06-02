@@ -49,13 +49,7 @@
 		';
 	}
 
-	function sendMail($mailTo) {
-		/* тема/subject */
-		$subject = "Вы опубликовали объявление на www.luckfind.me";
-
-		/* сообщение */
-		$message = 'Спасибо. Ваше обьявление будет рассмотрено и опубликовано модераторами сайта.';
-
+	function sendMail($mailTo, $subject, $message) {
 		mail(
 		$mailTo,
 		$subject, 

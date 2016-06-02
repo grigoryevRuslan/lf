@@ -19,11 +19,7 @@
 			die('Error record. ' . $connection->connect_errno . ': ' . $connection->connect_error);
 		}
 
-		mail(
-			"rus.grigoryev@gmail.com",
-		 	$name, 
-		 	$text,
-		 	"From: no-reply@luckfind.me");
+		sendMail($GLOBALS['mail'], "У нас новое обращение", $text);
 
 		echo json_encode('Спасибо, '.$name.'!Ваше обращение будет рассмотрено в ближайшее время.', JSON_UNESCAPED_UNICODE);
 	
