@@ -11,7 +11,7 @@ module.exports = function(grunt) {
 			dist: {
 				files: [{
 					src: ['src/client/sass/style.scss'],
-					dest: 'public/css/style.css'
+					dest: 'assets/css/style.css'
 				}]
 			}
 		},
@@ -38,9 +38,14 @@ module.exports = function(grunt) {
 			options: {
 				separator: '\n\n'
 			},
-			dist: {
-				src: [
+
+			//jscs:disable requireCamelCaseOrUpperCaseIdentifiers
+			basic_and_extras: {
+				//jscs:enable requireCamelCaseOrUpperCaseIdentifiers
+				files: {
+					'assets/js/app.js': [
 					'bower_components/jquery/dist/jquery.min.js',
+					'bower_components/jquery-ui/jquery-ui.min.js',
 					'bower_components/angular/angular.min.js',
 					'bower_components/angular-recaptcha/release/angular-recaptcha.min.js',
 					'bower_components/ng-tags-input/ng-tags-input.min.js',
@@ -48,14 +53,18 @@ module.exports = function(grunt) {
 					'bower_components/angular-rangeslider/angular.rangeSlider.js',
 					'src/client/js/app/**/*.js',
 					'src/client/js/global/**/*.js'
-				],
-				dest: 'assets/js/app.js'
+					],
+					'assets/css/main.css': [
+					'assets/css/style.css',
+					'bower_components/jquery-ui/themes/south-street/jquery-ui.css'
+					]
+				}
 			}
 		},
 		uglify: {
 			//jscs:disable requireCamelCaseOrUpperCaseIdentifiers
 			my_target: {
-			//jscs:enable requireCamelCaseOrUpperCaseIdentifiers
+				//jscs:enable requireCamelCaseOrUpperCaseIdentifiers
 				files: {
 					'public/js/global/app.min.js': ['assets/js/app.js']
 				}
@@ -92,6 +101,11 @@ module.exports = function(grunt) {
 					cwd: 'src/client/js/libs',
 					src: ['**'],
 					dest: 'public/js/libs'
+				}, {
+					expand: true,
+					cwd: 'assets/css/',
+					src: ['**'],
+					dest: 'public/css'
 				}]
 			}
 		},
@@ -127,7 +141,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-spritesmith');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 
-	grunt.registerTask('default', ['jshint', 'jscs', 'clean', 'concat', 'uglify', 'sprite', 'sass', 'copy']);
+	grunt.registerTask('default', ['jshint', 'jscs', 'clean', 'sprite', 'sass', 'concat', 'uglify', 'copy']);
 	grunt.registerTask('deploy', ['default', 'sftp-deploy']);
 
 };

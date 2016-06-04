@@ -12,7 +12,7 @@
 				
 				'<link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA////AN0A/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAERERERAAAAAREREREAAAABEREREQAAAAEAAAABAAAAAQEQEQEAAAABESIhEQAAAAEREhERAAAAARAREBEAAAAREBEQERAAAREREREREQARABERERABEBEREREREREQAREQAAAREQAAAAAAAAAAD//wAA//8AAPAHAADwBwAA8AcAAPAHAADwBwAA8AcAAPAHAADwBwAA4AMAAMABAACAAAAAgAAAAMPhAAD//wAA" rel="icon" type="image/x-icon" />
 				<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,500,700&subset=latin,cyrillic" rel="stylesheet" type="text/css">
-				<link rel="stylesheet" type="text/css" href="http://'.$GLOBALS['domain'].'/css/style.css">
+				<link rel="stylesheet" type="text/css" href="http://'.$GLOBALS['domain'].'/css/main.css">
 			</head>
 			<body class='.$GLOBALS['useragent_type'].'>';
 	}
