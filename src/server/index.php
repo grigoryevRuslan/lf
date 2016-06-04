@@ -67,7 +67,6 @@
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
 	<script type="text/javascript" src="js/libs/markerclusterer.js"></script>
 	<script type="text/javascript" src="js/modules/g_map_cluster.js"></script>
-	<script type="text/javascript" src="js/modules/ajax-auth.js"></script>
 
 </body>
 </html>
