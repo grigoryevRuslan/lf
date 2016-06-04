@@ -19,3 +19,6 @@ body {
 .secrets .secret {
 	margin: 20px 0;
 }
+.controls {
+	padding-bottom: 10px;
+}

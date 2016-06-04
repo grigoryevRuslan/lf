@@ -45,19 +45,7 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-default navbar-fixed-top">
-	  <div class="container">
-	    <div class="row">
-	    	<ul class="nav navbar-nav">
-	    		<li><a href="http://www.luckfind.me">Домой</a></li>
-	    		<li><a href="index.php">Админка</a></li>
-	    		<li><a href="feedback.php">Вопросы </a></li>
-	    		<li><a href="secret.php">Секреты</a></li>
-				<li class="active"><a href="apps.php">Отклики</a></li>
-	    	</ul>
-	    </div>
-	  </div>
-	</nav>
+	<?php include_once $_SERVER['DOCUMENT_ROOT'].'/admin/templates/menu.php'; ?>
 
 	<div class="container">
 		<div class="row">
