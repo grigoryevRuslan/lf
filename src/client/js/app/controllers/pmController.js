@@ -1,4 +1,4 @@
-app.controller('pmController', ['$scope', 'pmFactory', function($scope, pmFactory) {
+app.controller('pmController', ['$scope', 'advertDataFactory', function($scope, advertDataFactory) {
 
 	var success = function(data, status) {
 		$scope.pm = parseInt(data[0]) !== 0 ? data[0] : false;
@@ -8,6 +8,6 @@ app.controller('pmController', ['$scope', 'pmFactory', function($scope, pmFactor
 		console.log(status + 'from pmController');
 	};
 
-	pmFactory.getAll().success(success);
+	advertDataFactory.getAppsAmount().success(success);
 
 }]);

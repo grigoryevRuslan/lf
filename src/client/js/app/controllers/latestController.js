@@ -1,4 +1,4 @@
-app.controller('latestController', ['$scope', 'latestFactory', function($scope, latestFactory) {
+app.controller('latestController', ['$scope', 'advertDataFactory', function($scope, advertDataFactory) {
 	$scope.latest = {};
 
 	var success = function(data, status) {
@@ -9,6 +9,6 @@ app.controller('latestController', ['$scope', 'latestFactory', function($scope, 
 		console.log(status + 'from latestController');
 	};
 
-	latestFactory.getAll().success(success);
+	advertDataFactory.getAdvertLatest().success(success);
 
 }]);

@@ -1,4 +1,4 @@
-app.controller('counterController', ['$scope', 'counterFactory', function($scope, counterFactory) {
+app.controller('counterController', ['$scope', 'advertDataFactory', function($scope, advertDataFactory) {
 	$scope.amount = {};
 
 	var success = function(data, status) {
@@ -9,6 +9,6 @@ app.controller('counterController', ['$scope', 'counterFactory', function($scope
 		console.log(status + 'from counterController');
 	};
 
-	counterFactory.getAll().success(success);
+	advertDataFactory.getAdvertAmount().success(success);
 
 }]);

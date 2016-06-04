@@ -1,8 +1,8 @@
-app.controller('addAdvertController', ['$scope', 'vcRecaptchaService', 'secretCodesFactory', function($scope, recaptcha, secretCodesFactory) {
+app.controller('addAdvertController', ['$scope', 'vcRecaptchaService', 'advertDataFactory', function($scope, recaptcha, advertDataFactory) {
 	$scope.submitted = false;
 	$scope.meta = str2arr('');
 
-	secretCodesFactory.getSecretCodes().success(function(data, status) {
+	advertDataFactory.getAdvertSecretCodes().success(function(data, status) {
 		$scope.codes = data;
 		$scope.codes.push(
 			{id: 1000, name: 'Другое', example: '', description: ''}

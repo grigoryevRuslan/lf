@@ -1,4 +1,4 @@
-app.controller('statsController', ['$scope', 'getItemViewFactory', function($scope, getItemViewFactory) {
+app.controller('statsController', ['$scope', 'advertDataFactory', function($scope, advertDataFactory) {
 
 	function getURLParam(name, url) {
 		url = url || window.location.href;
@@ -20,6 +20,6 @@ app.controller('statsController', ['$scope', 'getItemViewFactory', function($sco
 		}
 	}
 
-	getItemViewFactory.getItemViews(parseInt(getURLParam('id'))).success(success);
+	advertDataFactory.getAdvertViews(parseInt(getURLParam('id'))).success(success);
 
 }]);
