@@ -56,7 +56,16 @@
 				$fileUrl = $newfilename;
 			} else {
 				if ($_POST['action'] != 'edit') {
-					$fileUrl = 'no-image-available.png';
+					switch ($item) {
+					    case 'Паспорт':
+							$fileUrl = 'no-image-pasport.png';
+					        break;
+					    case 'Галантерея':
+							$fileUrl = 'no-image-bag.png';
+					        break;
+						default:
+							$fileUrl = 'no-image-available.png';
+					}
 				}
 			}
 
