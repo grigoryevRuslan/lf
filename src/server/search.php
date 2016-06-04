@@ -190,6 +190,5 @@
     <script type="text/javascript" src="js/global/app.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script type="text/javascript" src="js/modules/ajax-auth.js"></script>
-    <script type="text/javascript" src="js/modules/search_autocomplete.js"></script>
 </body>
 </html>

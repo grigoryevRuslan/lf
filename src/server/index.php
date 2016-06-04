@@ -68,7 +68,6 @@
 	<script type="text/javascript" src="js/libs/markerclusterer.js"></script>
 	<script type="text/javascript" src="js/modules/g_map_cluster.js"></script>
 	<script type="text/javascript" src="js/modules/ajax-auth.js"></script>
-	<script type="text/javascript" src="js/modules/search_autocomplete.js"></script>
 
 </body>
 </html>
