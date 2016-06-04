@@ -5,11 +5,10 @@
 			<html lang="en" ng-app="luckfind">
 			<head>
 				<meta charset="UTF-8">
-				<title>' . $title . '</title>
+				<title>' . $title . ' | Бюро находок Luckfind | Украина</title>
 				<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />'.
-
+				renderMetaTags().
 				renderMetaFacebook($title, $image, $url, $description).
-				
 				'<link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA////AN0A/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAERERERAAAAAREREREAAAABEREREQAAAAEAAAABAAAAAQEQEQEAAAABESIhEQAAAAEREhERAAAAARAREBEAAAAREBEQERAAAREREREREQARABERERABEBEREREREREQAREQAAAREQAAAAAAAAAAD//wAA//8AAPAHAADwBwAA8AcAAPAHAADwBwAA8AcAAPAHAADwBwAA4AMAAMABAACAAAAAgAAAAMPhAAD//wAA" rel="icon" type="image/x-icon" />
 				<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,500,700&subset=latin,cyrillic" rel="stylesheet" type="text/css">
 				<link rel="stylesheet" type="text/css" href="http://'.$GLOBALS['domain'].'/css/main.css">
@@ -55,6 +54,13 @@
 		$subject, 
 		$message,
 		"From: no-reply@luckfind.me");
+	}
+
+	function renderMetaTags () {
+		echo '
+			<meta name="description" content="Бюро бесплатных объявлений о потерях и находках документов, личных вещей, животных и автомобилей. Всеукраинское Онлайн-бюро находок." />
+			<meta name="keywords" content="Найти паспорт, бюро находок Киев, бюро находок Львов, найти документы" />
+		';
 	}
 
 ?>

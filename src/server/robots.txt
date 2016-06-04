@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /templates/
+Host: www.luckfind.me
+Sitemap: httр://www.luckfind.me/sitemap.xml
