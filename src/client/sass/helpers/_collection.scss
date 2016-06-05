@@ -104,3 +104,19 @@
 	    }
 	}
 }
+
+.faq {
+
+	LI {
+		margin-bottom: 20px;
+	}
+
+	&__content {
+		text-indent: 20px;
+	}
+
+	&__header {
+		font-size: 15px;
+		line-height: 20px;
+	}
+}

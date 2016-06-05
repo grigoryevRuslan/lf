@@ -3,10 +3,15 @@
 	session_start();
 
 	include_once $_SERVER['DOCUMENT_ROOT'].'/globals/common.php';
-	
+	include_once $_SERVER['DOCUMENT_ROOT'].'/globals/db/db.php';
 	include_once $_SERVER['DOCUMENT_ROOT'].'/functions/functions.php';
 
-	renderHead('Ответы на часто задаваемые вопросы.', ''.$_SERVER['HTTP_HOST'].'/img/svg/logo.svg', 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], 'Ответы на часто задаваемые вопросы.');
+	$faqs = "SELECT * FROM faq";
+	$q = $pdoConnection->prepare($faqs);
+	$q->execute();
+	$result = $q->fetchAll(PDO::FETCH_ASSOC);
+
+	renderHead('Ответы на часто задаваемые вопросы', ''.$_SERVER['HTTP_HOST'].'/img/svg/logo.svg', 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], 'Ответы на часто задаваемые вопросы.');
 ?>
 
 	<main>
@@ -18,14 +23,16 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-					</p>
+					<ul class="faq">
+						<?php if ($result) { ?>
+							<?php foreach ($result as $r) { ?>
+							<li>
+								<p class="faq__header"><strong><?php echo $r['question']; ?></strong></p>
+								<p class="faq__content"><?php echo $r['answer']; ?></p>
+							</li>
+							<?php } ?>
+						<?php } ?>
+					</ul>
 				</div>
 			</div>
 		</div>
