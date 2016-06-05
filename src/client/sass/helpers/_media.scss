@@ -62,18 +62,6 @@
 		}
 	}
 
-	.form {
-
-		.phone_prefix {
-			left: 15px;
-		}
-		
-		#phone {
-			margin-left: 30px;
-			width: 89%;
-		}
-	}
-
 	.counter,
 	.latest {
 		margin-top: 10px;
@@ -117,5 +105,29 @@
 
 	.steps_main .item:last-child .visual:before {
 		display: none;
+	}
+
+	.form-step {
+		padding: 15px 0px;
+		overflow: hidden;
+
+		&__badge {
+			display: none;
+		}
+
+		.form-group {
+			margin-left: 0;
+			margin-right: 0;
+		}
+
+		LABEL.control-label {
+			padding-left: 15px;
+			padding-right: 15px;
+		}
+
+		.toggle {
+			bottom: 0px;
+		}
+
 	}
 }

@@ -52,6 +52,8 @@ $ngrs-prefix: 'ngrs-';
 		position: relative;
 		margin: 0 $ngrs-handleWidth / 2;
 		height: $ngrs-handleHeight;
+		background: rgba(0, 146, 63, .5);
+		border-radius: 4px;
 	}
 
   /*------------------------------------*\
