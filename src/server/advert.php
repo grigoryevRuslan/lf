@@ -48,7 +48,9 @@
 								if (isset($result[0]['image_uri'])) {
 						?>
 								<div class="advert__image">
-									<img src="upload/<?php echo $result[0]['image_uri']; ?>" alt="advert" />
+									<a href="upload/<?php echo $result[0]['image_uri']; ?>">
+										<img src="upload/<?php echo $result[0]['image_uri']; ?>" alt="Объявление #<b><?php echo $id ?></b>"/>
+									</a>
 								</div>
 						<?php }
 						?>
@@ -209,12 +211,23 @@
 	    }
 
 	?>
-		
+
 	<script type="text/javascript" src="js/global/app.min.js"></script>
-	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js"></script>
+	<?php if (isset($result[0]['image_uri'])) { ?>
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css">	
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+	<?php } ?>
+	<?php if($result[0]['coordinates'] != '') { ?>
+		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js"></script>
+	<?php } ?>
 	<script src="https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&amp;render=explicit" async defer
 	></script>
 	<script type="text/javascript" src="js/modules/advert-map.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$(".advert__image A").fancybox();
+		});
+	</script>
 </body>
 </html>
 	
