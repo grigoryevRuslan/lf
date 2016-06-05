@@ -1,6 +1,12 @@
 body {
 	padding-top: 70px;
 }
+.navbar .sitemap {
+	position: absolute;
+	z-index: 100;
+	top: 10px;
+	right: 10px;
+}
 .feedbacks .row {
     margin-bottom: 30px;
     border-bottom: 1px solid #ccc;
@@ -24,4 +30,36 @@ body {
 }
 .controls {
 	padding-bottom: 10px;
+}
+.faqs TEXTAREA {
+	width: 100%;
+}
+.faqs H4 {
+	margin-bottom: 20px;
+}
+.faqs .headers STRONG {
+	text-decoration: underline;
+}
+.faqs .faq__response {
+	color: #fff;
+	width: 100%;
+	display: block;
+	position: absolute;
+	z-index: 99;
+	left: 0px;
+	top: 0px;
+	padding: 10px;
+	text-align: center;
+	background: green;
+	padding: 5px;
+	border-radius: 5px;
+	font-size: 17px;
+	text-transform: uppercase;
+}
+.faqs .results LI {
+	border-left: 2px solid #ccc;
+	margin-bottom: 10px;
+}
+.faqs .results P {
+	word-break: break-all;
 }
