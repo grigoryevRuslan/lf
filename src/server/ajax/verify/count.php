@@ -26,7 +26,7 @@
 			AND 
 				b.user_id != '$user_id'
 			AND 
-				b.status = 0
+				b.status = 1
 			AND
 				b.is_published = 1
 		";

@@ -4,15 +4,17 @@
 	include_once $_SERVER['DOCUMENT_ROOT'].'/globals/db/db.php';
 
 
-	if (isset($_POST['req_id']) && isset($_POST['publish'])) {
+	if (isset($_POST['req_id']) && isset($_POST['publish']) && isset($_POST['status'])) {
 		$id = $_POST['req_id'];
 		$publish = $_POST['publish'];
+		$status = $_POST['status'];
 
 		$queryInsert = $pdoConnection->prepare("
 			UPDATE 
 				request
 			SET
-				is_published = '$publish'
+				is_published = '$publish',
+				status = '$status'
 			WHERE 
 				id = '$id'
 		");
@@ -21,7 +23,7 @@
 	}
 
 	$query = $pdoConnection->prepare("
-		SELECT r.id as req_id, i.id as advert_id, i.item_secret, r.request, i.item, i.user_item
+		SELECT r.id as req_id, i.id as advert_id, i.item_secret, r.request, i.item, i.user_item, r.is_published, r.status
 		FROM request r
 		INNER JOIN items i
 		WHERE r.advert_id = i.id
@@ -65,7 +67,7 @@
 									<th>Объявление</th>
 									<th>Секретный код</th>
 									<th>Запрос на объявление</th>
-									<th colspan="2">Действия</th>
+									<th colspan="3" class="text-center">Действия</th>
 								</thead>
 								<tbody>
 									<?php foreach ($result as $r) { ?>
@@ -93,29 +95,54 @@
 													}
 												?>
 											</td>
-											<td>
-												<form method="POST" action="apps.php">
+											<?php if ($r['status'] != 3 && $r['status'] != 4) { ?>
+												<td>
+													<form method="POST" action="apps.php">
 
-													<input type="hidden" name="req_id" value="<?php echo $r['req_id'];?>" />
+														<input type="hidden" name="req_id" value="<?php echo $r['req_id'];?>" />
+														<input type="hidden" name="publish" value="1" />
+														<input type="hidden" name="status" value="1" />
 
-													<input type="hidden" name="publish" value="1" />
+														<button type="submit" class="btn btn-xs btn-success">Разрешить</button>
+														
+													</form>
+												</td>
+												<td>
+													<form method="POST" action="apps.php">
 
-													<button type="submit" class="btn btn-xs btn-success">Разрешить</button>
-													
-												</form>
+														<input type="hidden" name="req_id" value="<?php echo $r['req_id'];?>" />
+														<input type="hidden" name="publish" value="1" />
+														<input type="hidden" name="status" value="2" />
+
+														<button type="submit" class="btn btn-xs btn-danger">Отклонить</button>
+														
+													</form>
+												</td>
+											<?php } ?>
+											<td class="text-center">
+												<strong class="<?php echo $r['status']; ?>">
+													<?php  
+														if ($r['is_published'] == 1) {
+															switch ( $r['status']) {
+																case 1: 
+																	echo "<span style='color:green;'>Опубликован</span>";
+																	break;
+																case 2:
+																	echo "<span style='color:red;'>Отказано админом</span>";
+																	break;
+																case 3:
+																	echo "<span style='color:green;'>Одобрено пользователем</span>";
+																	break;
+																case 4:
+																	echo "<span style='color:red;'>Отказано пользователем</span>";
+																	break;
+															}
+														} else {
+															echo "Не опубликован.";
+														} 
+													?>
+												</strong>
 											</td>
-											<td>
-												<form method="POST" action="apps.php">
-
-													<input type="hidden" name="req_id" value="<?php echo $r['req_id'];?>" />
-
-													<input type="hidden" name="publish" value="0" />
-
-													<button type="submit" class="btn btn-xs btn-danger">Отклонить</button>
-													
-												</form>
-											</td>
-
 										</tr>
 									<?php } ?>
 								</tbody>

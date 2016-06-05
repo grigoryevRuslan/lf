@@ -1,13 +1,13 @@
 app.controller('requestController', ['$scope', '$http', function($scope, $http) {
 
-	$scope.actionRequest = function(id, action) {
+	$scope.actionRequest = function(id, status) {
 		$scope.reqs[id].isAction = true;
 
 		$http.post(
 			'../ajax/verify/action.php',
 			{
 				requestId: id,
-				action: action
+				status: status
 			}, {
 				headers: {
 					'Content-Type': 'application/json'

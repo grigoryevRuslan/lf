@@ -20,7 +20,8 @@
 		INNER JOIN users u  ON u.Fuid = r.user_id
 		WHERE i.user_id = '$user_id'
 		AND i.is_published = 1
-		AND r.is_published = 1
+		AND r.is_published != 0
+		AND r.status != 2
 	";
 
 	$requestToMe = $pdoConnection->prepare($requestToMeQuery);
@@ -41,7 +42,7 @@
 		AND 
 			r.user_id = '$user_id'
 		AND
-			r.is_published = 1
+			r.is_published != 0
 	";
 
 	$myRequests = $pdoConnection->prepare($myRequestQuery);
@@ -113,11 +114,7 @@
 												<?php 
 													switch ( $r['status'])
 													{
-														case 0:
-															echo "Ожидает вашего ответа";
-															break;
-
-														case 1: {
+														case 3: {
 																echo "<span>Вы одобрили запрос. <br />Ваши контактные данные отправлены автору объявления.</span>
 																	<p>Контакты автора: </p>";
 
@@ -131,38 +128,29 @@
 																break;
 															}
 
-														case 2:
+														case 4:
 															echo "Вы отклонили запрос, но будут и ещё заявки.";
 															break;
-
-														default:
-															assert ( 0 && "internal error" );
 													}
 												?>
 											</p>
 										</td>	
 										
-										<?php if ($r['status'] == 0) { ?>
+										<?php if ($r['status'] == 1) { ?>
 											
 											<td>
 												<button 
 													class="btn btn-sm btn-success"
-													ng-click="actionRequest(<?php echo $r['req_id']; ?>, true)"
+													ng-click="actionRequest(<?php echo $r['req_id']; ?>, 3)"
 													ng-disabled="reqs[<?php echo $r['req_id']; ?>].isAction">Открыть контакты</button>
 											</td>
 
 											<td>
 												<button 
 													class="btn btn-sm btn-danger"
-													ng-click="actionRequest(<?php echo $r['req_id']; ?>, false)"
+													ng-click="actionRequest(<?php echo $r['req_id']; ?>, 4)"
 													ng-disabled="reqs[<?php echo $r['req_id']; ?>].isAction">Отклонить запрос</button>
 											</td>	
-
-										<?php } else { ?>
-											
-											<td colspan="2" class="cell-s">
-												<p>Вы уже ответили</p>
-											</td>
 
 										<?php } ?>
 
@@ -237,11 +225,14 @@
 												<?php 
 													switch ( $r['status'])
 													{
-														case 0:
-															echo "Ожидает ответа от автора объявления";
+														case 1:
+															echo "<span>Одобрено модератором. Ожидайте ответа от автора объявления.</p>";
+															break;
+														case 2:
+															echo "Отказано модератором";
 															break;
 
-														case 1: {
+														case 3: {
 																echo "<span>Автор одобрил запрос. <br />Ваши контактные данные отправлены автору объявления.</span>
 																<p>Контакты автора: </p>";
 																
@@ -261,12 +252,9 @@
 																break;
 															}
 
-														case 2:
-															echo "Ваш запрос отклонен";
+														case 4:
+															echo "Ваш запрос отклонен автором объявления.";
 															break;
-
-														default:
-															assert ( 0 && "internal error" );
 													}
 												?>
 											</p>

@@ -1,0 +1,6 @@
+request
+	status
+		1 - published ( approved by admin )
+		2 - rejected by admin
+		3 - approved by user
+		4 - rejected by user

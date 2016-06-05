@@ -8,6 +8,9 @@ body {
 .feedbacks .row P {
 	word-break: break-all;
 }
+.feedbacks TH {
+	font-weight: bold;
+}
 .form_secret {
 	margin-top: 50px;
 	border-top: 1px solid #bbb;

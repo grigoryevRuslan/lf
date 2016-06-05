@@ -12,7 +12,7 @@
 
 		if (isset($_SESSION['user_id'])) { $user_id = $_SESSION['user_id'];}
 		if (isset($data['requestId'])) { $req_id = $data['requestId'];}
-		if (isset($data['action'])) { $status = ($data['action'] == true) ? 1 : 2;}
+		if (isset($data['status'])) { $status = $data['status'];}
 
 		$query = "
 			UPDATE
