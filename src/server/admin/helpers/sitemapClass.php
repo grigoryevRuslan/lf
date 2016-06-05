@@ -1,4 +1,4 @@
-<?
+<?php
 
     class sitemap {
         private $sitemap_urls = array();
